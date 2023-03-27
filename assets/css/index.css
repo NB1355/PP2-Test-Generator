@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Oswald&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  text-decoration: none;
+
+}
+
+body {
+  font-family: sans-serif;
+  color: #0c162c;
+}
+
+h1 {
+  font-family: Oswald, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #0c162c;
+}
+
+h2,
+h3 {
+  font-family: Oswald, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #d6d8db;
+
+}
+
+hr {
+  border-top: 1px solid #fff;
+  margin-top: 2px;
+  width: 90%;
+}
+
+/*---------------------------Grid Structure----------------------------*/
+.grid-wrap {
+  margin: 10px;
+  border: black 2px solid;
+
+  display: grid;
+  gap: 10px;
+
+
+  grid-template-areas:
+    "header"
+    "social"
+    "timer"
+    "record"
+    "quiz"
+    "score"
+    "setup"
+    "footer";
+}
+
+.header {
+  margin: 10px;
+  border: darkmagenta 2px solid;
+
+  
+  grid-area: header;
+
+}
+
+.social {
+  margin: 10px;
+  border: darkmagenta 2px solid;
+
+  grid-area: social;
+}
+
+/*---------------------------Content-----------------------------------*/
+
+.quiz {
+  margin: 10px;
+  border: darkmagenta 2px solid;
+  height: auto;
+ 
+  grid-area: quiz;
+        
+  /* background: url("../images/background.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed; */
+}
+
+.setup {
+  margin: 10px;
+  border: darkmagenta 2px solid;
+  height: auto;
+
+  grid-area: setup;
+}
+
+.timer {
+  margin: 10px;
+  border: darkmagenta 2px solid;
+  height: auto;
+
+  grid-area: timer;
+}
+
+.record {
+  margin: 10px;
+  border: darkmagenta 2px solid;
+  height: auto;
+
+  grid-area: record;
+}
+
+.score {
+  margin: 10px;
+  border: darkmagenta 2px solid;
+  height: auto;
+
+  grid-area: score;
+}
+
+/*---------------------------Footer------------==================-----*/
+
+footer {
+  margin: 10px;
+  border: darkmagenta 2px solid;
+  height: auto;
+
+  text-align: center;
+  font-size: small;
+
+}
+
+/*--------------------------GRid Responsivity--------------------------*/
+
+@media (min-width: 500px) {
+
+  .grid-wrap {
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+      "header social"
+      "quiz setup"
+      "quiz record"
+      "quiz timer"
+      "quiz score"
+      "footer footer";
+  }
+}
+
