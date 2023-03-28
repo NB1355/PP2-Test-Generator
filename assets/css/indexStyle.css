@@ -39,7 +39,7 @@ hr {
 /*---------------------------Grid Structure----------------------------*/
 .grid-wrap {
   margin: 10px;
-  border: black 2px solid;
+  border: gray 1px solid;
 
   display: grid;
   gap: 10px;
@@ -58,7 +58,7 @@ hr {
 
 .header {
   margin: 10px;
-  border: darkmagenta 2px solid;
+  border: darkmagenta 1px solid;
 
   
   grid-area: header;
@@ -67,7 +67,7 @@ hr {
 
 .social {
   margin: 10px;
-  border: darkmagenta 2px solid;
+  border: darkmagenta 1px solid;
 
   grid-area: social;
 }
@@ -76,7 +76,7 @@ hr {
 
 .quiz {
   margin: 10px;
-  border: darkmagenta 2px solid;
+  border: darkmagenta 1px solid;
   height: auto;
  
   grid-area: quiz;
@@ -88,7 +88,7 @@ hr {
 
 .setup {
   margin: 10px;
-  border: darkmagenta 2px solid;
+  border: darkmagenta 1px solid;
   height: auto;
 
   grid-area: setup;
@@ -96,7 +96,7 @@ hr {
 
 .timer {
   margin: 10px;
-  border: darkmagenta 2px solid;
+  border: darkmagenta 1px solid;
   height: auto;
 
   grid-area: timer;
@@ -104,7 +104,7 @@ hr {
 
 .record {
   margin: 10px;
-  border: darkmagenta 2px solid;
+  border: darkmagenta 1px solid;
   height: auto;
 
   grid-area: record;
@@ -112,7 +112,7 @@ hr {
 
 .score {
   margin: 10px;
-  border: darkmagenta 2px solid;
+  border: darkmagenta 1px solid;
   height: auto;
 
   grid-area: score;
@@ -122,7 +122,7 @@ hr {
 
 footer {
   margin: 10px;
-  border: darkmagenta 2px solid;
+  border: darkmagenta 1px solid;
   height: auto;
 
   text-align: center;
