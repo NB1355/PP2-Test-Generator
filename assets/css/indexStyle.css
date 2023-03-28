@@ -90,6 +90,7 @@ hr {
 
 .quiz {
   margin: 10px;
+  padding: 30px;
   border: darkmagenta 1px solid;
   height: auto;
  
@@ -100,7 +101,24 @@ hr {
   background-attachment: fixed; */
 }
 
-.functions input {
+.data {
+  accent-color: #98c004;
+  background-color: rgb(207, 205, 205);
+  padding: 10px;
+  /* display: none; */
+}
+
+/* .data input {
+  margin-right: 10px;
+} */
+
+.answers {
+  backdrop-filter: sepia(90%);
+  /* opacity: 0.6; */
+}
+
+
+.process input {
   margin-top: 20px;
   border-radius: 2px;
   padding: 5px 10px 5px 10px;
