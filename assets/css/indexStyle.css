@@ -100,6 +100,22 @@ hr {
   background-attachment: fixed; */
 }
 
+.functions input {
+  margin-top: 20px;
+  border-radius: 2px;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+  height: 30px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: #98c004;
+  color: #fafafa;
+  width: 20em;
+  font-size: 75%;
+
+}
+
 .setup {
   margin: 10px;
   border: darkmagenta 1px solid;
