@@ -2,8 +2,8 @@
 ## Test Generator
 ![Alt text](assets/images/idea.jpg)
 ## Requirements
-* Upload Test Questions
-* Generate 10 Random Question
+* Load Test Questions
+* Generate Random Selection
 * Option to set the timer
 * Option to quit/reset
 * Process and score the questioner 
@@ -12,12 +12,12 @@
 
 ## JavaScript / Interactive web page
 ## Commit rules
-* Add = Create a capability 
-* Cut = Remove a capability 
-* Fix = Fix 
+* ADD = Create a capability 
+* CUT = Remove a capability 
+* FIX = Fix 
 * TST= Test 
-* Opt = Refactor of performance
-* Doc = Refactor of documentation
+* OPT = Refactor of performance
+* DOC = Refactor of documentation
 
 ### Notes for documentation
 * using GRID Layout to maintain responsivity
