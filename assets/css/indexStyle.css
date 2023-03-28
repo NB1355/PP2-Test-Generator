@@ -66,12 +66,24 @@ hr {
 }
 
 .social {
+  grid-area: social;
+  
   margin: 10px;
   border: darkmagenta 1px solid;
-
-  grid-area: social;
+  align-items: center;
+  background-color: darkgray;
+  
 }
 
+.s_icons li {
+  display: inline-block;
+  padding: 10px;
+}
+
+.s_icons i {
+  color: #0c162c;
+  font-size: 120%;
+}
 /*---------------------------Content-----------------------------------*/
 
 .quiz {
