@@ -2,11 +2,16 @@
 
 document.getElementById("btn-start").addEventListener("click", setUp);
 
+
 function setUp() {
     getMode();
     getTimer();
     getLimit();
 }
+
+
+
+// ---------------------------------------------------------------
 
 function getMode() {
 
@@ -16,7 +21,7 @@ function getMode() {
 
             // for functional test
             console.log(radio.value);
-            document.getElementById("getMode-T").innerHTML = "=> We are in " + theMode + " mode.";
+            document.getElementById("getMode-T").innerHTML = `=> Mode: ${theMode}`;
 
         }
     })
@@ -29,7 +34,7 @@ function getTimer() {
         let theTimer = "on"
 
         // for functional test
-        document.getElementById("getTimer-T").innerHTML = `=> Timer is ${theTimer}`;
+        document.getElementById("getTimer-T").innerHTML = `=> Timer: ${theTimer}`;
         console.log(theTimer);
     }
     else {
@@ -37,7 +42,7 @@ function getTimer() {
         let theTimer = "off"
 
         // for functional test
-        document.getElementById("getTimer-T").innerHTML = `=> Timer is ${theTimer}`;
+        document.getElementById("getTimer-T").innerHTML = `=> Timer: ${theTimer}`;
         console.log(theTimer);
     }
 }
@@ -47,7 +52,7 @@ function getLimit() {
     let theLimit = document.getElementById('set-limit').value;
 
     // for functional test
-    document.getElementById("getLimit-T").innerHTML = `=> Time limit is ${theLimit}`;
+    document.getElementById("getLimit-T").innerHTML = `=> Limit ${theLimit}`;
     console.log(theLimit);
 
 }
