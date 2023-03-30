@@ -156,6 +156,20 @@ hr {
   height: auto;
 
   grid-area: setup;
+  display: inline-block;
+  padding: 5px;
+  font-size: medium;
+
+}
+
+.num-input {
+  border:black solid 1px;
+  width: 40px;
+  margin: 2px;
+  padding: 2px;
+  font-size: medium;
+
+
 }
 
 .timer {
@@ -188,7 +202,7 @@ footer {
   margin: 10px;
   border: gray 1px solid;
   height: auto;
-  background-color: gray;
+  background-color: beige;
   /* font-size: small; */
 
 }
