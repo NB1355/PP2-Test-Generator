@@ -59,17 +59,20 @@
 
             <p>SETUP AREA</p>
 
-            <input type="radio" name="mode" id="exam" checked>
-            <label for="test">Exam</label>
+            <input type="radio" id="mode-exam" name="set_mode"  value="exam" checked>
+            <label for="mode-exam">Exam</label>
+
+            <input type="radio" id="mode-learn" name="set_mode" value="learn">
+            <label for="mode-learn">Learn Mode</label>
             <br>
-            <label for="time"> Time in minutes: </label>
-            <input type="number" name="time" id="time" value="2" size="02">
-            <br><br>
-            <input type="radio" name="mode" id="learn">
-            <label for="learn">Learn Mode</label>
             <br>
-            <label for="timer">Show Time</label>
-            <input type="checkbox" name="" id="timer" checked>
+            <input type="checkbox" id="set-timer" name="set_timer" checked>
+            <label for="set-timer">Show Timer </label>
+            <br>
+           
+            <input type="number" id="set-limit" name="set_limit"value="30" >
+            <label for="set-limit"> Minutes Time Limit </label>
+            
 
 
         </div>
@@ -123,14 +126,14 @@
 
             <div class="process">
 
-                <input type="button" id="start" Value="Load The Test">
+                <input type="button" id="btn-start" Value="start">
                 <input type="button" id="submit" value="Submit My Answer" disabled>
                 <input type="button" id="show" value="Show Answers" disabled>
                 <input type="button" id="result" value="See the Results" disabled>
 
             </div>
 
-            <!-- << TEST RUN-------------------------------------------------------------->
+
 
         </div>
 
@@ -139,12 +142,34 @@
     <footer>
         <div>
             <p>@2023</p>
+            <br>
+        </div>
+        <div>
+            <h4>...................Temp: for testing functioalities ................... </h4>
+            <!-- <a href="timer.html">Timer</a> -->
+            <br>
+
+
+            <!-- +++++++++++++ DEV TESTS , TEMP  +++++++++++++++++++++ -->
+
+            <br>
+            <p id="getMode-T">Mode = ?!</p>
+            <br>
+            <p id="getTimer-T">Timer ?!</p>
+            <br>
+            <p id="getLimit-T">Time Limit ?!</p>
+
+
+
         </div>
     </footer>
     </div>
 
     <!--Script of FONTAESOME for the used icons-->
     <script src="https://kit.fontawesome.com/f24292f78f.js" crossorigin="anonymous"></script>
+
+    <script src="assets/js/timer.js"></script>
+    <script src="assets/js/quiz.js"></script>
 
 </body>
 
