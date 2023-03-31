@@ -59,7 +59,7 @@
 
             <p>SETUP AREA</p>
 
-            <input type="radio" id="mode-exam" name="set_mode"  value="exam" checked>
+            <input type="radio" id="mode-exam" name="set_mode" value="exam" checked>
             <label for="mode-exam">Exam</label>
 
             <input type="radio" id="mode-learn" name="set_mode" value="learn">
@@ -70,15 +70,15 @@
             <label for="set-timer">Show Timer </label>
             <br>
             <br>
-           
-            <input type="number" id="set-limit" name="set_limit"value="30" class="num-input">
+
+            <input type="number" id="set-limit" name="set_limit" value="30" class="num-input">
             <label for="set-limit"> Minutes Time Limit </label>
             <br>
 
             <input type="number" id="set-random" name="set_random" value="5" class="num-input">
             <label for="set-limit"> Nmber of Questions </label>
 
-            
+
 
 
         </div>
@@ -90,12 +90,24 @@
 
         <!-- >> RECORD------------------------------------------------------------->
         <div class="record">
+            
             <p>RECORD AREA</p>
+        
+           
         </div>
 
         <!-- >> SCORE-------------------------------------------------------------->
         <div class="score">
+            
             <p>SCORE AREA</p>
+
+            <div class="score">
+                <br>
+                <p class="scores">Correct Answers <span id="scorePlus">0</span></p>
+                <br>
+                <p class="scores">Incorrect Answers <span id="scoreMinus">0</span></p>
+                <br>
+            </div>
         </div>
 
         <!-- >> QUIZ-------------------------------------------------------------->
@@ -135,7 +147,7 @@
                 <input type="button" id="btn-start" Value="start">
                 <input type="button" id="btn-load" Value="load">
                 <input type="button" id="submit" value="Submit My Answer" disabled>
-                <input type="button" id="btn-show" value="Show Answers" >
+                <input type="button" id="btn-show" value="Show Answers">
                 <input type="button" id="result" value="See the Results" disabled>
 
             </div>
@@ -159,6 +171,9 @@
 
             <!-- +++++++++++++ DEV TESTS , TEMP  +++++++++++++++++++++ -->
 
+            <input type="button" id="btn-test" Value="test" style="background-color: blueviolet; font-size: xx-large;">
+            <br>
+
             <br>
             <p id="getMode-T">Mode = ?!</p>
             <br>
@@ -168,8 +183,11 @@
             <br>
             <p id="getData-T">Time Limit ?!</p>
 
-            <input type="button" id="btn-test" Value="test" style="background-color: blueviolet; font-size: xx-large;">
-
+            
+           
+            <ul id="answersRecord-T">
+                
+              </ul>
 
 
 
@@ -183,6 +201,7 @@
     <script src="assets/js/timer.js"></script>
     <script src="assets/js/quiz.js"></script>
     <script src="assets/js/load.js"></script>
+    <script src="assets/js/process.js"></script>
 
 </body>
 

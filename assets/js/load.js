@@ -2,11 +2,7 @@ let queryCount = 7; // number of the selected questions
 
 var select = [];
 let s = 0;
-
-document.getElementById("btn-load").addEventListener("click", questionsLoad);
-document.getElementById("btn-show").addEventListener("click", answersShow);
-
-
+var record = "Score Record: "
 
 
 function questionsLoad() {
@@ -19,12 +15,10 @@ function questionsLoad() {
 
             randomSelect(data);
             list = data; //Creates Global Variable OPT: use local possible?
-
             questionShow();
 
             // for functional test
             console.log(data);
-
         });
 
 }
@@ -40,9 +34,11 @@ function randomSelect(data) {
             select.push(num);
         }
     }
+    
     info1.innerHTML = queryCount + "/" + maxNum + " random selection: " + select;
-
 }
+
+
 
 function questionShow() {
 
@@ -61,14 +57,11 @@ function questionShow() {
         optionesTrue(q);
 
     }
-
     else {
         document.getElementById("btn-load").value = "end";
         document.getElementById("btn-load").disabled = true;
 
     }
-
-
 }
 
 
@@ -138,4 +131,53 @@ function answersShow() {
         theAnswers[i].style.opacity = opacity;
     }
 
+}
+
+
+
+
+
+// Check and record answers==============================
+
+document.getElementById("btn-test").addEventListener("click", answersRecord);
+
+
+function answersRecord() {
+
+    answersCheck();
+
+    let record = document.getElementById("qID").innerHTML + " Pass: " + pass;
+    const recordNode = document.createElement("li");
+    const recordText = document.createTextNode(record);
+
+    recordNode.appendChild(recordText);
+    document.getElementById("answersRecord-T").appendChild(recordNode);
+}
+
+function scorePlus() {
+
+    let oldScore = parseInt(document.getElementById("scorePlus").innerText);
+    document.getElementById("scorePlus").innerText = ++oldScore;
+}
+
+function scoreMinus() {
+
+    let oldScore = parseInt(document.getElementById("scoreMinus").innerText);
+    document.getElementById("scoreMinus").innerText = ++oldScore;
+}
+
+function answersCheck() {
+
+    if (option1.checked == checkbox1.checked &&
+        option2.checked == checkbox2.checked &&
+        option3.checked == checkbox3.checked &&
+        option4.checked == checkbox4.checked
+    ) {
+        scorePlus();
+        pass = "Y";
+
+    } else {
+        scoreMinus();
+        pass = "N";
+    }
 }
