@@ -129,9 +129,7 @@ hr {
 }
 
 .answers {
-  /* backdrop-filter: sepia(90%); */
-  /* opacity: 0.6; */
- 
+  opacity: 0.01;
   accent-color: red;
 }
 

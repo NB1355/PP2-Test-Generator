@@ -76,8 +76,6 @@ function questionShow() {
 
 function optionesTrue(q) {
 
-    optionsClear();
-
     let xCorrects = list.questions[q].corrects
 
     console.log(xCorrects);
@@ -104,27 +102,40 @@ function optionesTrue(q) {
 
 
 function optionsClear() {
-    // TBD comennted out => why not working ? =================================================#Check
-    // document.querySelectorAll("#my-test input").checked = false;
-    // document.getElementsByName("pro-event").checked = false;
+
+    // .........................................................................................................includes setup !!!!
 
     let checkboxes = document.getElementsByTagName("input");
     for (var checkbox of checkboxes) {
         checkbox.checked = false;
     }
+
+
+    // .........................................................................................................not working why?!
+    // var inputs = document.querySelectorAll (".data");
+    // for ( var i=0; i<inputs.length; i++){
+    //     inputs[i].checked = false;
+    // }
+
+
 }
 
 function answersShow() {
 
-    console.log("answersShow!!!!!!!!!!!");
-
     let xShow = document.getElementById("btn-show").value;
 
     if (xShow == "Show Answers") {
-        opacity = 0.5;
+        opacity = 0.7;
         document.getElementById("btn-show").value = "Hide Answers";
     } else {
-        opacity = 0.01;
+        opacity = 0.1;
         document.getElementById("btn-show").value = "Show Answers";
     }
+
+
+    var theAnswers = document.querySelectorAll(".answers");
+    for (var i = 0; i < theAnswers.length; i++) {
+        theAnswers[i].style.opacity = opacity;
+    }
+
 }
