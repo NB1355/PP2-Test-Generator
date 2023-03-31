@@ -124,14 +124,17 @@ hr {
   /* display: none; */
 }
 
-/* .data input {
+.data input {
   margin-right: 10px;
-} */
+}
 
 .answers {
-  backdrop-filter: sepia(90%);
+  /* backdrop-filter: sepia(90%); */
   /* opacity: 0.6; */
+ 
+  accent-color: red;
 }
+
 
 
 .process input {
