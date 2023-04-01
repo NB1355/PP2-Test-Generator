@@ -5,6 +5,7 @@ function setUp() {
     getTimer();
     getLimit();
     clock();
+    setTimer();
 }
 
 
@@ -45,7 +46,7 @@ function getTimer() {
 
 function getLimit() {
 
-    let theLimit = document.getElementById('set-limit').value;
+    var theLimit = document.getElementById('set-limit').value;
 
     // for functional test
     document.getElementById("getLimit-T").innerHTML = `Limit: ${theLimit}`;

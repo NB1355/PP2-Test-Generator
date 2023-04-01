@@ -164,7 +164,7 @@ hr {
 }
 
 .num-input {
-  border:black solid 1px;
+  border: black solid 1px;
   width: 40px;
   margin: 2px;
   padding: 2px;
@@ -177,8 +177,50 @@ hr {
   margin: 10px;
   border: darkmagenta 1px solid;
   height: auto;
-
+  font-size: small;
   grid-area: timer;
+  text-align: center;
+}
+
+.timer button {
+  margin-top: 20px;
+  border-radius: 2px;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+  height: 30px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: #0c162c;
+  color: #fafafa;
+  width: 10em;
+  font-size: 75%;
+}
+
+.timer span {
+background-color: #98c004;
+  font-weight: bold;
+  font-size: xx-large;
+  display: inline-block;
+  padding: 2px;
+}
+
+#clock {
+  background-color: #0c162c;
+  color:#fafafa;
+  text-align: center;
+  font-size: small;
+}
+
+#button-stop {
+  display: none;
+  color: yellow;
+
+}
+
+#button-reset {
+  display: none;
+  color: orangered;
 }
 
 .record {
@@ -205,7 +247,7 @@ footer {
   height: auto;
   background-color: beige;
   font-size: small;
- 
+
 
 }
 

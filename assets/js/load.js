@@ -19,7 +19,6 @@ function questionsLoad(theStatus,theTime) {
             // for functional test
             // console.log(data);
         });
-
 }
 
 
