@@ -129,10 +129,10 @@ hr {
 }
 
 .answers {
-  opacity: 0.01;
+  /* adjust in final version xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+  opacity: 0.5;
   accent-color: red;
 }
-
 
 
 .process input {
@@ -148,8 +148,8 @@ hr {
   color: #fafafa;
   width: 20em;
   font-size: 75%;
-
 }
+
 
 .setup {
   margin: 10px;
@@ -204,7 +204,7 @@ footer {
   border: gray 1px solid;
   height: auto;
   background-color: beige;
-  /* font-size: small; */
+  font-size: small;
  
 
 }

@@ -2,10 +2,9 @@ let queryCount = 7; // number of the selected questions
 
 var select = [];
 let s = 0;
-var record = "Score Record: "
 
 
-function questionsLoad() {
+function questionsLoad(theStatus,theTime) {
 
     fetch("assets/data/default.json") // link later to select and upload process -----------#check
         .then(response => {
@@ -18,7 +17,7 @@ function questionsLoad() {
             questionShow();
 
             // for functional test
-            console.log(data);
+            // console.log(data);
         });
 
 }
@@ -34,7 +33,7 @@ function randomSelect(data) {
             select.push(num);
         }
     }
-    
+
     info1.innerHTML = queryCount + "/" + maxNum + " random selection: " + select;
 }
 
@@ -42,6 +41,7 @@ function randomSelect(data) {
 
 function questionShow() {
 
+    answersRecord();
     optionsClear();
 
     if (s < select.length) {
@@ -54,13 +54,13 @@ function questionShow() {
         C.innerHTML = list.questions[q].checkbox3;
         D.innerHTML = list.questions[q].checkbox4;
         s++
+
         optionesTrue(q);
 
     }
     else {
         document.getElementById("btn-load").value = "end";
         document.getElementById("btn-load").disabled = true;
-
     }
 }
 
@@ -70,8 +70,6 @@ function questionShow() {
 function optionesTrue(q) {
 
     let xCorrects = list.questions[q].corrects
-
-    console.log(xCorrects);
 
     for (i = 0; i < xCorrects.length; i++) {
         let correct = xCorrects.charAt(i);
@@ -90,6 +88,9 @@ function optionesTrue(q) {
                 break;
         }
     }
+
+    // for functional test
+    // console.log(xCorrects);
 }
 
 
@@ -103,15 +104,13 @@ function optionsClear() {
         checkbox.checked = false;
     }
 
-
     // .........................................................................................................not working why?!
     // var inputs = document.querySelectorAll (".data");
     // for ( var i=0; i<inputs.length; i++){
     //     inputs[i].checked = false;
     // }
-
-
 }
+
 
 function answersShow() {
 
@@ -135,11 +134,7 @@ function answersShow() {
 
 
 
-
-
-// Check and record answers==============================
-
-document.getElementById("btn-test").addEventListener("click", answersRecord);
+// Check and Record the Answers 
 
 
 function answersRecord() {

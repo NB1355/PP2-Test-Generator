@@ -86,19 +86,25 @@
         <!-- >> TIMER-------------------------------------------------------------->
         <div class="timer">
             <p>TIMER AREA</p>
+
+            <div>
+                <p>Clock?</p>
+                <h2 id="clock"></h2>
+            </div>
+
         </div>
 
         <!-- >> RECORD------------------------------------------------------------->
         <div class="record">
-            
+
             <p>RECORD AREA</p>
-        
-           
+
+
         </div>
 
         <!-- >> SCORE-------------------------------------------------------------->
         <div class="score">
-            
+
             <p>SCORE AREA</p>
 
             <div class="score">
@@ -144,8 +150,8 @@
 
             <div class="process">
 
-                <input type="button" id="btn-start" Value="start">
-                <input type="button" id="btn-load" Value="load">
+                <!-- <input type="button" id="btn-start" Value="start"> -->
+                <input type="button" id="btn-load" Value="start">
                 <input type="button" id="submit" value="Submit My Answer" disabled>
                 <input type="button" id="btn-show" value="Show Answers">
                 <input type="button" id="result" value="See the Results" disabled>
@@ -171,23 +177,26 @@
 
             <!-- +++++++++++++ DEV TESTS , TEMP  +++++++++++++++++++++ -->
 
+            <h3>Controls:</h3>
+            <p id="getMode-T">Mode = ?!</p>
+            <p id="getTimer-T">Timer ?!</p>
+            <p id="getLimit-T">Time Limit ?!</p>
+
+            <br>
+            <br>
+
+            <h3>Run Time:</h3>
+
+            <p id="getTime-T">Start Time ?!</p>
+
+            <br>
+            <br>
+
+            <ul id="answersRecord-T">
+            </ul>
+            <br>
             <input type="button" id="btn-test" Value="test" style="background-color: blueviolet; font-size: xx-large;">
             <br>
-
-            <br>
-            <p id="getMode-T">Mode = ?!</p>
-            <br>
-            <p id="getTimer-T">Timer ?!</p>
-            <br>
-            <p id="getLimit-T">Time Limit ?!</p>
-            <br>
-            <p id="getData-T">Time Limit ?!</p>
-
-            
-           
-            <ul id="answersRecord-T">
-                
-              </ul>
 
 
 
@@ -198,8 +207,9 @@
     <!--Script of FONTAESOME for the used icons-->
     <script src="https://kit.fontawesome.com/f24292f78f.js" crossorigin="anonymous"></script>
 
+
+    <script src="assets/js/controls.js"></script>
     <script src="assets/js/timer.js"></script>
-    <script src="assets/js/quiz.js"></script>
     <script src="assets/js/load.js"></script>
     <script src="assets/js/process.js"></script>
 
