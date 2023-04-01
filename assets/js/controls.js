@@ -2,8 +2,7 @@
 
 function setUp() {
     getMode();
-    getTimer();
-    getLimit();
+    showTimer();
     clock();
     setTimer();
 }
@@ -23,7 +22,7 @@ function getMode() {
 }
 
 
-function getTimer() {
+function showTimer() {
 
     if (document.getElementById('set-timer').checked) {
 
@@ -44,14 +43,7 @@ function getTimer() {
 }
 
 
-function getLimit() {
 
-    var theLimit = document.getElementById('set-limit').value;
-
-    // for functional test
-    document.getElementById("getLimit-T").innerHTML = `Limit: ${theLimit}`;
-    // console.log(theLimit);
-}
 
 
 // ========================================================================================================
@@ -59,6 +51,7 @@ function getLimit() {
 function getStatus (){
 
     var theStatus = document.getElementById("btn-load").value;
+    return theStatus;
     
      // for functional test
     //  console.log("test!!!!!!!!!!");
