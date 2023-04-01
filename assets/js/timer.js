@@ -20,20 +20,6 @@ function checkTime(i) {
 }
 
 
-function getTheTime() {
-
-  // var today = new Date();
-  // var theTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-
-  const d = new Date();
-  var theTime = d.getTime();
-
-
-
-
-}
-
-
 // =========================================
 
 function setTimer() {
@@ -65,58 +51,55 @@ function setTimer() {
     appendSeconds.innerHTML = seconds;
   }
 
-
-
   function startTimer() {
 
     buttonStop.style.display = "inline-block";
     buttonReset.style.display = "inline-block";
 
-    var timeLimit = document.getElementById('set-limit').value * 60 * 1000;
-    // var timeNow _= new Date().getTime();
-    var timePassed = seconds * 1000;
-
+    var timeLimit = document.getElementById('set-limit').value * 60;
+    var timePassed = seconds;
     var timeLeft = timeLimit - timePassed;
-
-
+    var timePassed2 = toHhMmSs(timePassed);
+    
     seconds++;
 
-    if (seconds <= 9) {
-      appendSeconds.innerHTML = "0" + seconds;
-    }
+    appendMinutes.innerHTML = timePassed2.minutes2;
+    appendSeconds.innerHTML = timePassed2.seconds2;
 
-    if (seconds > 9) {
-      appendSeconds.innerHTML = seconds;
-    }
-
-    if (seconds > 59) {
-      console.log("minutes");
-      minutes++;
-      appendMinutes.innerHTML = "0" + minutes;
-      seconds = 0;
-      appendSeconds.innerHTML = "0" + 0;
-    }
-    if (minutes > 9) {
-      appendMinutes.innerHTML = minutes;
-    }
     // for functional test
-   
-   
-    console.log("ss limit " + timeLimit);
-    console.log("ss passed " + timePassed);
-    console.log("ss Left " + timeLeft);
-    
-    
-    // console.log(" now " + timeNow);
-
-    
-
-
+    console.log(timePassed2);
+    document.getElementById("timer-T").innerHTML = "TIMER: " + timePassed2.minutes2 + ":" + timePassed2.seconds2;
+    document.getElementById("countdown-T").innerHTML = "COUNTDOWNss: " + timeLeft;
+    document.getElementById("time-T").innerHTML = `Limit ${timeLimit} Passed ${timePassed} Left ${timeLeft}`;
   }
-
-
-
 
 }
 
+function toHhMmSs(totalSeconds) {
+  // https://codingbeautydev.com/
+
+  // const seconds = totalSeconds % 60;
+  const seconds2 = showTwoDigit(totalSeconds % 60);
+
+  const totalMinutes = Math.floor(totalSeconds / 60);
+
+  // const minutes = totalMinutes % 60;
+  const minutes2 = showTwoDigit((totalMinutes) % 60);
+
+  // const hours = Math.floor(totalMinutes / 60);
+  const hours2 = showTwoDigit(Math.floor(totalMinutes / 60));
+
+  return { hours2, minutes2, seconds2 };
+}
+
+
+function showTwoDigit(number) {
+  if (number <= 9) {
+    numberShow = "0" + number;
+  }
+  else {
+    numberShow = number;
+  }
+  return numberShow;
+}
 

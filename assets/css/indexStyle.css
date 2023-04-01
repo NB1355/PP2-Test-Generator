@@ -247,8 +247,10 @@ footer {
   height: auto;
   background-color: beige;
   font-size: small;
+}
 
-
+footer span {
+  display:flexbox;
 }
 
 /*--------------------------GRid Responsivity--------------------------*/
