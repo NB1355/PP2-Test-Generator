@@ -32,10 +32,8 @@ function randomSelect(data) {
             select.push(num);
         }
     }
-
     info1.innerHTML = queryCount + "/" + maxNum + " random selection: " + select;
 }
-
 
 
 function questionShow() {

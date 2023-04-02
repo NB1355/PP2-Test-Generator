@@ -58,20 +58,31 @@ function setTimer() {
 
     var timeLimit = document.getElementById('set-limit').value * 60;
     var timePassed = seconds;
-    var timeLeft = timeLimit - timePassed;
     var timePassed2 = toHhMmSs(timePassed);
+    var timeLeft = timeLimit - timePassed;
+
+    var timeLeftPercent = (timeLeft / timeLimit * 100).toFixed(2);
     
+    document.getElementById("bar").style.width = timeLeftPercent + "%";
+    document.getElementById("bar").innerHTML = timeLeftPercent + "%";
+
+
     seconds++;
 
     appendMinutes.innerHTML = timePassed2.minutes2;
     appendSeconds.innerHTML = timePassed2.seconds2;
+
+    
 
     // for functional test
     console.log(timePassed2);
     document.getElementById("timer-T").innerHTML = "TIMER: " + timePassed2.minutes2 + ":" + timePassed2.seconds2;
     document.getElementById("countdown-T").innerHTML = "COUNTDOWNss: " + timeLeft;
     document.getElementById("time-T").innerHTML = `Limit ${timeLimit} Passed ${timePassed} Left ${timeLeft}`;
+    
   }
+
+
 
 }
 
@@ -103,3 +114,7 @@ function showTwoDigit(number) {
   return numberShow;
 }
 
+
+function test(timeLeftPercent) {
+  console.log(timeLeftPercent);
+}

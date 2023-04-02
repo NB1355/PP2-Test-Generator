@@ -18,4 +18,4 @@ document.getElementById("btn-show").addEventListener("click", answersShow);
 
 // document.getElementById("btn-test").addEventListener("click", getTheTime);
 
-// document.getElementById("btn-test").addEventListener("click", keepTime);
+document.getElementById("btn-test").addEventListener("click", test);

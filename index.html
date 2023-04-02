@@ -111,7 +111,6 @@
 
             <p>RECORD AREA</p>
 
-
         </div>
 
         <!-- >> SCORE-------------------------------------------------------------->
@@ -136,8 +135,9 @@
             <h2>title of the test <i class="fa-brands fa-think-peaks"></i></h2>
             <h4 id="info1">Info about the test process</h4>
             <br>
-            <div>
-                
+
+            <div id="progress-bar">
+                <div id="bar"></div>
             </div>
 
             <div class="data">
@@ -164,19 +164,16 @@
             </div>
 
             <div class="process">
-
                 <!-- <input type="button" id="btn-start" Value="start"> -->
                 <input type="button" id="btn-load" Value="start">
                 <input type="button" id="submit" value="Submit My Answer" disabled>
-                <input type="button" id="btn-show" value="Show Answers">
-                <input type="button" id="result" value="See the Results" disabled>
-
+              
             </div>
-
-
-
+            <div class="options" >
+                <input type="button" id="btn-show" value="Show Answers">
+                <input type="button" id="result" value="Post Results" disabled>
+            </div>
         </div>
-
     </div>
 
     <footer>
@@ -204,6 +201,7 @@
                     <p id="time-T">Calc</p>
                     <p id="timer-T">Timer</p>
                     <p id="countdown-T">Countdown</p>
+                    <p id="bar-T"></p>
                     <br>
                     <br>
                 </span>
