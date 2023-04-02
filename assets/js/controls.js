@@ -15,7 +15,7 @@ function getMode() {
             let theMode = radio.value;
 
             // for functional test
-            document.getElementById("getMode-T").innerHTML = `Mode: ${theMode}`;
+            document.getElementById("mode-check").innerHTML = `${theMode} Mode`;
             // console.log(radio.value);
         }
     })
@@ -26,18 +26,18 @@ function showTimer() {
 
     if (document.getElementById('set-timer').checked) {
 
-        let theTimer = "on"
+        let theTimer = "ON"
 
         // for functional test
-        document.getElementById("getTimer-T").innerHTML = `Timer: ${theTimer}`;
+        document.getElementById("timer-check").innerHTML = `Timer ${theTimer}`;
         // console.log(theTimer);
     }
     else {
 
-        let theTimer = "off"
+        let theTimer = "OFF"
 
         // for functional test
-        document.getElementById("getTimer-T").innerHTML = `Timer: ${theTimer}`;
+        document.getElementById("timer-check").innerHTML = `Timer ${theTimer}`;
         // console.log(theTimer);
     }
 }

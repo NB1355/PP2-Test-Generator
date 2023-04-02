@@ -245,6 +245,8 @@ background-color: #98c004;
   height: auto;
 
   grid-area: record;
+  font-size: 60%;
+  text-transform: uppercase ;
 }
 
 .score {
@@ -265,9 +267,6 @@ footer {
   font-size: small;
 }
 
-footer span {
-  display:flexbox;
-}
 
 /*--------------------------GRid Responsivity--------------------------*/
 

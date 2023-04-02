@@ -1,22 +1,18 @@
 
 
 function clock() {
+
   const today = new Date();
   let h = today.getHours();
   let m = today.getMinutes();
   let s = today.getSeconds();
 
-  m = checkTime(m);
-  s = checkTime(s);
+  hh = showTwoDigit(h);
+  mm = showTwoDigit(m);
+  ss = showTwoDigit(s);
 
-  document.getElementById("clock").innerHTML = h + ":" + m + ":" + s;
+  document.getElementById("clock").innerHTML = h + ":" + mm + ":" + ss;
   setTimeout(clock, 1000);
-}
-
-
-function checkTime(i) {
-  if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
-  return i;
 }
 
 
@@ -62,7 +58,7 @@ function setTimer() {
     var timeLeft = timeLimit - timePassed;
 
     var timeLeftPercent = (timeLeft / timeLimit * 100).toFixed(2);
-    
+
     document.getElementById("bar").style.width = timeLeftPercent + "%";
     document.getElementById("bar").innerHTML = timeLeftPercent + "%";
 
@@ -72,32 +68,19 @@ function setTimer() {
     appendMinutes.innerHTML = timePassed2.minutes2;
     appendSeconds.innerHTML = timePassed2.seconds2;
 
-    
+    document.getElementById("times-check").innerHTML = ` Limit:${timeLimit}  Passed:${timePassed} Left:${timeLeft}`;
 
     // for functional test
     console.log(timePassed2);
-    document.getElementById("timer-T").innerHTML = "TIMER: " + timePassed2.minutes2 + ":" + timePassed2.seconds2;
-    document.getElementById("countdown-T").innerHTML = "COUNTDOWNss: " + timeLeft;
-    document.getElementById("time-T").innerHTML = `Limit ${timeLimit} Passed ${timePassed} Left ${timeLeft}`;
-    
   }
-
-
-
 }
 
 function toHhMmSs(totalSeconds) {
-  // https://codingbeautydev.com/
+  //adjuster External code,refrence https://codingbeautydev.com/
 
-  // const seconds = totalSeconds % 60;
   const seconds2 = showTwoDigit(totalSeconds % 60);
-
   const totalMinutes = Math.floor(totalSeconds / 60);
-
-  // const minutes = totalMinutes % 60;
   const minutes2 = showTwoDigit((totalMinutes) % 60);
-
-  // const hours = Math.floor(totalMinutes / 60);
   const hours2 = showTwoDigit(Math.floor(totalMinutes / 60));
 
   return { hours2, minutes2, seconds2 };
@@ -112,9 +95,4 @@ function showTwoDigit(number) {
     numberShow = number;
   }
   return numberShow;
-}
-
-
-function test(timeLeftPercent) {
-  console.log(timeLeftPercent);
 }
