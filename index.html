@@ -11,7 +11,7 @@
 
 </head>
 
-<body>
+<body onload="setUp()">
 
     <div class="grid-wrap">
 
@@ -71,11 +71,11 @@
             <br>
             <br>
 
-            <input type="number" id="set-limit" name="set_limit" value="2" class="num-input">
+            <input type="number" id="set-limit" name="set_limit" value="5" class="num-input">
             <label for="set-limit"> Minutes Time Limit </label>
             <br>
 
-            <input type="number" id="set-random" name="set_random" value="5" class="num-input">
+            <input type="number" id="set-random" name="set_random" value="10" class="num-input">
             <label for="set-random"> Nmber of Questions </label>
 
         </div>
@@ -109,9 +109,7 @@
             <p>RECORD AREA</p>
 
             <div>
-                <h3 id="mode-check"></h3>
-                <h3 id="timer-check"></h3>
-                <h3 id="times-check"></h3>
+
 
             </div>
 
@@ -137,17 +135,28 @@
             <p>QUIZ AREA</p>
 
             <h2>title of the test <i class="fa-brands fa-think-peaks"></i></h2>
-            <h4 id="info1">Info about the test process</h4>
+
             <br>
 
             <div id="progress-bar">
                 <div id="bar"></div>
             </div>
 
+            <div class="infoBox">
+                <ul>
+                    <li id="timer-set"></li>
+                    <li id="limit-set"></li>
+                    <li id="mode-set"></li>
+                    <li id="count-set"></li>
+                    <li id="selection"></li>
+                    <br>
+                </ul>
+            </div>
+
             <div class="data">
 
                 <label id="qID">question ID</label><br>
-                <label id="qText">question TEXT</label><br><br>
+                <label id="qText">question TEXT</label><br>
 
                 <input type="checkbox" id="checkbox1" value="checkbox1" class="answers">
                 <label for="checkbox1">A</label><br>
@@ -194,7 +203,7 @@
             <br>
         </div>
         <div>
-            <h3>No Change, DEV TST 01</h3>
+            <!-- <h3>No Change, DEV TST 01</h3>
             <p>
                 TST Lighthouse Pass: Perf.99 Accs.95 BestP.100 SEO.89 <br>
                 TST WC3 Pass: Warnings mostly on --- in comments <br>
@@ -202,15 +211,41 @@
                 TST Jigsaw timer.js has 16 Warning 7 Variable Issues <br>
                 TST Jigsaw load.js has 18 Warning 19 Variable Issues <br>
             </p>
-            <!-- <h4>...................Temp: for testing functioalities ................... </h4>
+             -->
+            <p>
+                // PASSED=================<br>
+                // testFunc = setTimer; <br>
+                // testFunc = setMode; <br>
+                // testFunc= setCount;<br>
+                // testFunc= setLimit;<br>
+                // testFunc = setUp;<br>
+                <br>
+                // testFunc = questionLoad;<br>
+                // testFunc=randomSelect;<br>
+                // testFunc=questionShow;<br>
+                // testFunc=answersShow;<br>
+                // testFunc=optionsClear;<br>
+                // testFunc=questionShow;<br>
+            </p>
 
+            <h4>...................Temp: for testing functioalities ................... </h4>
+
+            <h2 id="test"></h2>
+
+            <!-- <input type="button" id="reload" Value="refrech page" style="background-color: blue; font-size: xx-large;"
+                onclick="location.reload()"> -->
+            <br>
+            <br>
+            <input type="button" id="btn-test" Value="test" style="background-color: blueviolet; font-size: xx-large;">
+            <br><br>
             <div>
                 <h3>Answer Record:</h3>
                 <ul id="answersRecord-T">
                 </ul>
                 <br>
-                <input type="button" id="btn-test" Value="test" style="background-color: blueviolet; font-size: xx-large;">
-            </div> -->
+
+
+            </div>
 
         </div>
     </footer>
@@ -219,10 +254,11 @@
     <script src="https://kit.fontawesome.com/f24292f78f.js" crossorigin="anonymous"></script>
 
 
-    <script src="assets/js/controls.js"></script>
+    <!-- <script src="assets/js/controls.js"></script>
     <script src="assets/js/timer.js"></script>
-    <script src="assets/js/load.js"></script>
+    <script src="assets/js/load.js"></script> -->
     <script src="assets/js/process.js"></script>
+    <script src="assets/js/functions.js"></script>
 
 </body>
 

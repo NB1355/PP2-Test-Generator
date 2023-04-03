@@ -1,59 +1,63 @@
 
+let theMode;
+let theTimer;
+let theCount;
+let theLimit;
 
+let theData = [];
+let select = [];
+let isSelect = 0;
+
+
+// Gets defaul setup parameters onload
 
 function setUp() {
-    getMode();
-    showTimer();
-    clock();
+    setMode();
+    document.getElementById("mode-set").innerHTML = `Mode ${theMode}`;
+
     setTimer();
+    document.getElementById("timer-set").innerHTML = `Timer ${theTimer}`;
+
+    setCount();
+    document.getElementById("count-set").innerHTML = `${theCount} questions`;
+
+    setLimit();
+    document.getElementById("limit-set").innerHTML = `${theLimit} seconds limit`;
+}
+
+function setTimer() {
+    if (document.getElementById('set-timer').checked) {
+        theTimer = "ON"
+    }
+    else {
+        theTimer = "OFF"
+    }
 }
 
 
-function getMode() {
-
+function setMode() {
     document.getElementsByName("set_mode").forEach(radio => {
         if (radio.checked) {
-            let theMode = radio.value;
-
-            // for functional test
-            document.getElementById("mode-check").innerHTML = `${theMode} Mode`;
-            console.log(radio.value);
+            theMode = radio.value;
         }
     })
 }
 
 
-function showTimer() {
+function setCount() {
+    theCount = document.getElementById("set-random").value;
+}
 
-    if (document.getElementById('set-timer').checked) {
 
-        let theTimer = "ON"
-
-        // for functional test
-        document.getElementById("timer-check").innerHTML = `Timer ${theTimer}`;
-        // console.log(theTimer);
-    }
-    else {
-
-        let theTimer = "OFF"
-
-        // for functional test
-        document.getElementById("timer-check").innerHTML = `Timer ${theTimer}`;
-        // console.log(theTimer);
-    }
+function setLimit() {
+    theLimit = document.getElementById("set-limit").value * theCount;
 }
 
 
 // LOAD ...............................................................................
 
 
-let queryCount = 7; // number of the selected questions
-
-var select = [];
-let s = 0;
-
-
-function questionsLoad(theStatus,theTime) {
+function questionLoad() {
 
     fetch("assets/data/default.json") // link later to select and upload process -----------#check
         .then(response => {
@@ -61,48 +65,45 @@ function questionsLoad(theStatus,theTime) {
         })
         .then(data => {
 
-            randomSelect(data);
-            list = data; //Creates Global Variable OPT: use local possible?
+            theData = data;
+            randomSelect(theData);
             questionShow();
-
-            // for functional test
-            // console.log(data);
         });
 }
 
 
-function randomSelect(data) {
+function randomSelect(theData) {
 
-    const maxNum = data.questions.length;
-    while (select.length < queryCount) {
+    const maxNum = theData.questions.length;
+    while (select.length < theCount) {
 
         var num = Math.floor(Math.random() * maxNum) + 1;
         if (num <= maxNum && select.includes(num) == false) {
             select.push(num);
         }
     }
-    info1.innerHTML = queryCount + "/" + maxNum + " random selection: " + select;
+    selection.innerHTML = `[${select}]`;
 }
 
 
 function questionShow() {
 
-    answersRecord();
-    optionsClear();
+    if (isSelect < select.length) {
 
-    if (s < select.length) {
+        answersRecord();
+        optionsClear();
 
-        let q = select[s] - 1;
-        qID.innerHTML = list.questions[q].qRefID;
-        qText.innerHTML = list.questions[q].qRefText;
-        A.innerHTML = list.questions[q].checkbox1;
-        B.innerHTML = list.questions[q].checkbox2;
-        C.innerHTML = list.questions[q].checkbox3;
-        D.innerHTML = list.questions[q].checkbox4;
-        s++
+        let q = select[isSelect] - 1;
+        qID.innerHTML = theData.questions[q].qRefID;
+        qText.innerHTML = theData.questions[q].qRefText;
+        A.innerHTML = theData.questions[q].checkbox1;
+        B.innerHTML = theData.questions[q].checkbox2;
+        C.innerHTML = theData.questions[q].checkbox3;
+        D.innerHTML = theData.questions[q].checkbox4;
+
+        isSelect++
 
         optionesTrue(q);
-
     }
     else {
         document.getElementById("btn-load").value = "end";
@@ -110,15 +111,14 @@ function questionShow() {
     }
 }
 
-
 // setup correct options
 
 function optionesTrue(q) {
 
-    let xCorrects = list.questions[q].corrects
+    let isCorrect = theData.questions[q].corrects;
 
-    for (i = 0; i < xCorrects.length; i++) {
-        let correct = xCorrects.charAt(i);
+    for (i = 0; i < isCorrect.length; i++) {
+        let correct = isCorrect.charAt(i);
         switch (correct) {
             case "1":
                 document.getElementById("checkbox1").checked = true;
@@ -134,17 +134,11 @@ function optionesTrue(q) {
                 break;
         }
     }
-
-    // for functional test
-    // console.log(xCorrects);
 }
-
-
 
 function optionsClear() {
 
     // .........................................................................................................includes setup !!!!
-
     let checkboxes = document.getElementsByTagName("input");
     for (var checkbox of checkboxes) {
         checkbox.checked = false;
@@ -153,24 +147,24 @@ function optionsClear() {
 }
 
 
+// Show and hide correct answers
+
+
 function answersShow() {
 
     let xShow = document.getElementById("btn-show").value;
 
     if (xShow == "Show Answers") {
-        opacity = 0.7;
+        opacity = 0.8;
         document.getElementById("btn-show").value = "Hide Answers";
     } else {
-        opacity = 0.1;
+        opacity = 0;
         document.getElementById("btn-show").value = "Show Answers";
     }
-
-
     var theAnswers = document.querySelectorAll(".answers");
     for (var i = 0; i < theAnswers.length; i++) {
         theAnswers[i].style.opacity = opacity;
     }
-
 }
 
 
@@ -228,20 +222,20 @@ function clock() {
     let h = today.getHours();
     let m = today.getMinutes();
     let s = today.getSeconds();
-  
+
     hh = showTwoDigit(h);
     mm = showTwoDigit(m);
     ss = showTwoDigit(s);
-  
+
     document.getElementById("clock").innerHTML = h + ":" + mm + ":" + ss;
     setTimeout(clock, 1000);
-  }
-  
-  
-  // =========================================
-  
-  function setTimer() {
-  
+}
+
+
+// =========================================
+
+function setxxxxTimer() {
+
     var seconds = 00;
     var appendMinutes = document.getElementById("minutes")
     var appendSeconds = document.getElementById("seconds")
@@ -249,77 +243,76 @@ function clock() {
     var buttonStop = document.getElementById('button-stop');
     var buttonReset = document.getElementById('button-reset');
     var Interval;
-  
+
     buttonStart.onclick = function () {
-      clearInterval(Interval);
-      Interval = setInterval(startTimer, 1000);
+        clearInterval(Interval);
+        Interval = setInterval(startTimer, 1000);
     };
-  
+
     buttonStop.onclick = function () {
-      clearInterval(Interval);
+        clearInterval(Interval);
     };
-  
+
     buttonReset.onclick = function () {
-      clearInterval(Interval);
-  
-      minutes = "00";
-      seconds = "00";
-  
-      appendMinutes.innerHTML = minutes;
-      appendSeconds.innerHTML = seconds;
+        clearInterval(Interval);
+
+        minutes = "00";
+        seconds = "00";
+
+        appendMinutes.innerHTML = minutes;
+        appendSeconds.innerHTML = seconds;
     }
-  
+
     function startTimer() {
-  
-      buttonStop.style.display = "inline-block";
-      buttonReset.style.display = "inline-block";
-  
-      var timeLimit = document.getElementById('set-limit').value * 60;
-      var timePassed = seconds;
-      var timePassed2 = toHhMmSs(timePassed);
-      var timeLeft = timeLimit - timePassed;
-  
-      var timeLeftPercent = (timeLeft / timeLimit * 100).toFixed(2);
-  
-      document.getElementById("bar").style.width = timeLeftPercent + "%";
-      document.getElementById("bar").innerHTML = timeLeftPercent + "%";
-  
-  
-      seconds++;
-  
-      appendMinutes.innerHTML = timePassed2.minutes2;
-      appendSeconds.innerHTML = timePassed2.seconds2;
-  
-      document.getElementById("times-check").innerHTML = ` Limit:${timeLimit}  Passed:${timePassed} Left:${timeLeft}`;
-  
-      // for functional test
-      console.log(timePassed2);
+
+        buttonStop.style.display = "inline-block";
+        buttonReset.style.display = "inline-block";
+
+        var timeLimit = document.getElementById('set-limit').value * 60;
+        var timePassed = seconds;
+        var timePassed2 = toHhMmSs(timePassed);
+        var timeLeft = timeLimit - timePassed;
+
+        var timeLeftPercent = (timeLeft / timeLimit * 100).toFixed(2);
+
+        document.getElementById("bar").style.width = timeLeftPercent + "%";
+        document.getElementById("bar").innerHTML = timeLeftPercent + "%";
+
+
+        seconds++;
+
+        appendMinutes.innerHTML = timePassed2.minutes2;
+        appendSeconds.innerHTML = timePassed2.seconds2;
+
+        document.getElementById("times-check").innerHTML = ` Limit:${timeLimit}  Passed:${timePassed} Left:${timeLeft}`;
+
+        // for functional test
+        console.log(timePassed2);
     }
-  }
-  
-  function toHhMmSs(totalSeconds) {
+}
+
+function toHhMmSs(totalSeconds) {
     //adjuster External code,refrence https://codingbeautydev.com/
-  
+
     const seconds2 = showTwoDigit(totalSeconds % 60);
     const totalMinutes = Math.floor(totalSeconds / 60);
     const minutes2 = showTwoDigit((totalMinutes) % 60);
     const hours2 = showTwoDigit(Math.floor(totalMinutes / 60));
-  
+
     return { hours2, minutes2, seconds2 };
-  }
-  
-  
-  function showTwoDigit(number) {
+}
+
+
+function showTwoDigit(number) {
     if (number <= 9) {
-      numberShow = "0" + number;
+        numberShow = "0" + number;
     }
     else {
-      numberShow = number;
+        numberShow = number;
     }
     return numberShow;
-  }
-  
-  
-  
-  
-  
+}
+
+
+
+

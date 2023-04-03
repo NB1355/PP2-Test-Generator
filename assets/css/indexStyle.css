@@ -111,18 +111,27 @@ hr {
   height: auto;
 
   grid-area: quiz;
+  background-color: rgb(207, 205, 205);
 
   /* background: url("../images/background.jpg") no-repeat center center;
   background-size: cover;
   background-attachment: fixed; */
 }
 
+
+.infoBox li {
+  margin-top: 20px;
+font-size: small;
+  padding: 10px;
+  display: inline;
+
+}
+
 .data {
-  accent-color:#0c162c;
-  background-color: rgb(207, 205, 205);
+  accent-color: #0c162c;
   padding: 30px;
-  display: block-inline; 
-  
+  display: block-inline;
+
 }
 
 .data input {
@@ -135,10 +144,6 @@ hr {
   opacity: 0.5;
   accent-color: #98c004;
   margin-top: 20px;
- font-weight: BO;
-  
- 
-  
 }
 
 
@@ -166,7 +171,7 @@ hr {
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
-  background-color:#0c162c;
+  background-color: #0c162c;
   color: #fafafa;
   width: 20em;
   font-size: 75%;
@@ -221,7 +226,7 @@ hr {
 }
 
 .timer span {
-background-color: #98c004;
+  background-color: #98c004;
   font-weight: bold;
   font-size: xx-large;
   display: inline-block;
@@ -230,7 +235,7 @@ background-color: #98c004;
 
 #clock {
   background-color: #0c162c;
-  color:#fafafa;
+  color: #fafafa;
   text-align: center;
   font-size: small;
 }
@@ -253,7 +258,7 @@ background-color: #98c004;
 
   grid-area: record;
   font-size: 60%;
-  text-transform: uppercase ;
+  text-transform: uppercase;
 }
 
 .score {
@@ -300,9 +305,9 @@ footer {
   width: 100%;
   margin: 10px auto;
   height: 22px;
-  background-color:rgb(207, 205, 205);
+  background-color: rgb(207, 205, 205);
   border-bottom: #0c162c solid 2px;
-  
+
 }
 
 #progress-bar div {
@@ -310,7 +315,7 @@ footer {
   text-align: right;
   padding: 0 1px;
   line-height: 22px;
-  background-color:#98c004;
+  background-color: #98c004;
   box-sizing: border-box;
 
 }
