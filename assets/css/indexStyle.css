@@ -118,20 +118,27 @@ hr {
 }
 
 .data {
-  accent-color: #98c004;
+  accent-color:#0c162c;
   background-color: rgb(207, 205, 205);
-  padding: 10px;
-  /* display: none; */
+  padding: 30px;
+  display: block-inline; 
+  
 }
 
 .data input {
   margin-right: 10px;
+
 }
 
 .answers {
   /* adjust in final version xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
   opacity: 0.5;
-  accent-color: red;
+  accent-color: #98c004;
+  margin-top: 20px;
+ font-weight: BO;
+  
+ 
+  
 }
 
 
