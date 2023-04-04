@@ -1,21 +1,35 @@
 
-window.onload = setUp;
+function testFunction() {
+
+    // PASSED=========================
+    //
+    //    testFunc = setTimer;
+    //    testFunc = setMode;
+    //    testFunc= setCount;
+    //    testFunc= setLimit;
+    // testFunc = setUp;
+
+    testFunc = questionLoad;
+    //      testFunc=randomSelect;
+    //      testFunc=questionShow;
+    // testFunc=answersShow;
+    // testFunc=optionsClear;
+    // testFunc=questionShow;
+
+    // ===============================
+
+    console.log("Test", testFunc.name);
+    testFunc();
+}
+
+document.getElementById("btn-test").addEventListener("click", testFunction);
 
 
-document.getElementById("btn-load").addEventListener("click", questionsLoad);
-document.getElementById("btn-show").addEventListener("click", answersShow);
 
+// function setUptupRun(){
+//     setUp();
+// }
+// document.getElementById("btn-load").addEventListener("click", setUptupRun);
 
-
-// ==============TESTS [to be deleted] ======================================== 
-
-// document.getElementById("btn-test").addEventListener("click", clock);
-
-
-// document.getElementById("btn-test").addEventListener("click", answersRecord);
-
-// document.getElementById("btn-test").addEventListener("click", setUp);
-
-// document.getElementById("btn-test").addEventListener("click", getTheTime);
-
-// document.getElementById("btn-test").addEventListener("click", test);
+// document.getElementById("btn-load").addEventListener("click", questionLoad);
+// document.getElementById("btn-show").addEventListener("click", answersShow);

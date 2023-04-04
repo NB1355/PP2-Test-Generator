@@ -137,13 +137,16 @@ function optionesTrue(q) {
 }
 
 function optionsClear() {
-
     // .........................................................................................................includes setup !!!!
-    let checkboxes = document.getElementsByTagName("input");
-    for (var checkbox of checkboxes) {
+    // let checkboxes = document.getElementsByTagName("input");
+    let checkboxeAs = document.getElementsByClassName("answers");
+    for (var checkbox of checkboxeAs) {
         checkbox.checked = false;
     }
-
+    let checkboxeOs = document.getElementsByClassName("options");
+    for (var checkbox of checkboxeOs) {
+        checkbox.checked = false;
+    }
 }
 
 
