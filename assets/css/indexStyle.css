@@ -117,7 +117,15 @@ hr {
   background-attachment: fixed; */
 }
 
-.data {
+#infoBox {
+  color: #0c162c;
+  border-bottom: #0c162c solid 2px;
+  padding: 5px;
+}
+
+
+
+.data, .info {
   accent-color: #98c004;
   background-color: rgb(207, 205, 205);
   padding: 10px;
@@ -159,10 +167,17 @@ hr {
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
-  background-color:#0c162c;
+  background-color: #0c162c;
   color: #fafafa;
   width: 20em;
   font-size: 75%;
+}
+
+.process input:disabled,
+.options input:disabled {
+  backdrop-filter: sepia(90%);
+  opacity: 0.33;
+  color: gray;
 }
 
 
@@ -198,7 +213,8 @@ hr {
   text-align: center;
 }
 
-.timer button {
+.timer button,
+#btn-get {
   margin-top: 20px;
   border-radius: 2px;
   padding: 5px 10px 5px 10px;
@@ -213,8 +229,10 @@ hr {
   font-size: 75%;
 }
 
+
+
 .timer span {
-background-color: #98c004;
+  background-color: #98c004;
   font-weight: bold;
   font-size: xx-large;
   display: inline-block;
@@ -223,7 +241,7 @@ background-color: #98c004;
 
 #clock {
   background-color: #0c162c;
-  color:#fafafa;
+  color: #fafafa;
   text-align: center;
   font-size: small;
 }
@@ -266,7 +284,7 @@ footer {
 }
 
 footer span {
-  display:flexbox;
+  display: flexbox;
 }
 
 /*--------------------------GRid Responsivity--------------------------*/
@@ -278,9 +296,9 @@ footer span {
     grid-template-areas:
       "header social"
       "quiz setup"
-      "quiz record"
       "quiz timer"
       "quiz score"
+      "quiz record"
       "footer footer";
   }
 }
@@ -290,21 +308,3 @@ footer span {
 
 /* ///////////////////////////////////////////////////////////////////////*/
 
-#progress-bar {
-  width: 100%;
-  margin: 10px auto;
-  height: 22px;
-  background-color:rgb(207, 205, 205);
-  border-bottom: #0c162c solid 2px;
-  
-}
-
-#progress-bar div {
-  height: 90%;
-  text-align: right;
-  padding: 0 1px;
-  line-height: 22px;
-  background-color:#98c004;
-  box-sizing: border-box;
-
-}

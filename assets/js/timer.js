@@ -56,7 +56,7 @@ function setTimer() {
     buttonStop.style.display = "inline-block";
     buttonReset.style.display = "inline-block";
 
-    var timeLimit = document.getElementById('set-limit').value * 60;
+    var timeLimit = document.getElementById('set-limit').value;
     var timePassed = seconds;
     var timePassed2 = toHhMmSs(timePassed);
     var timeLeft = timeLimit - timePassed;
@@ -114,7 +114,3 @@ function showTwoDigit(number) {
   return numberShow;
 }
 
-
-function test(timeLeftPercent) {
-  console.log(timeLeftPercent);
-}

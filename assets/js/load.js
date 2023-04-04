@@ -4,7 +4,24 @@ var select = [];
 let s = 0;
 
 
-function questionsLoad(theStatus,theTime) {
+function getData() {
+
+    infoHead.innerHTML = "for users only!"
+    infoText.innerHTML = "You can test the feature with the default dataset."
+   
+    document.getElementById("btn-get").disabled = true;
+    document.getElementById("btn-load").disabled = false;
+    document.getElementById("btn-reset").disabled = false;
+}
+
+function resetQuestions() {
+    location.reload();
+                console.log(data);
+
+}
+
+
+function questionsLoad(theStatus, theTime) {
 
     fetch("assets/data/default.json") // link later to select and upload process -----------#check
         .then(response => {
@@ -14,6 +31,7 @@ function questionsLoad(theStatus,theTime) {
 
             randomSelect(data);
             list = data; //Creates Global Variable OPT: use local possible?
+            
             questionShow();
 
             // for functional test
@@ -32,12 +50,14 @@ function randomSelect(data) {
             select.push(num);
         }
     }
-    info1.innerHTML = queryCount + "/" + maxNum + " random selection: " + select;
+    infoHead.innerHTML = "Test set up !";
+    infoText.innerHTML = queryCount + "/" + maxNum + " random selection: " + select;
 }
 
 
 function questionShow() {
 
+    
     answersRecord();
     optionsClear();
 
@@ -125,6 +145,14 @@ function answersShow() {
     var theAnswers = document.querySelectorAll(".answers");
     for (var i = 0; i < theAnswers.length; i++) {
         theAnswers[i].style.opacity = opacity;
+    }
+
+}
+
+function dataShow (){
+    var dataElements = document.querySelectorAll(".data");
+    for (var i = 0; i < dataElements.length; i++) {
+        dataElements[i].style.display = display;
     }
 
 }

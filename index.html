@@ -60,24 +60,25 @@
             <p>SETUP AREA</p>
 
             <input type="radio" id="mode-exam" name="set_mode" value="exam" checked>
-            <label for="mode-exam">Exam</label>
+            <label for="mode-exam">Exam Mode</label>
 
             <input type="radio" id="mode-learn" name="set_mode" value="learn">
             <label for="mode-learn">Learn Mode</label>
             <br>
             <br>
-            <input type="checkbox" id="set-timer" name="set_timer" checked>
-            <label for="set-timer">Show Timer </label>
+            <input type="checkbox" id="timer-on" name="set_timer" value="on" checked>
+            <label for="set-timer">Timer ON </label>
+
+            <input type="checkbox" id="timer-off" name="set_timer" value="off">
+            <label for="set-timer">Timer OFF</label>
             <br>
+            <br>
+            <input type="number" id="set-limit" name="set_limit" value="5" class="num-input">
+            <label for="set-limit"> Answer Time in seconds</label>
             <br>
 
-            <input type="number" id="set-limit" name="set_limit" value="2" class="num-input">
-            <label for="set-limit"> Minutes Time Limit </label>
-            <br>
-
-            <input type="number" id="set-random" name="set_random" value="5" class="num-input">
+            <input type="number" id="set-random" name="set_random" value="7" class="num-input">
             <label for="set-limit"> Nmber of Questions </label>
-
 
 
 
@@ -101,6 +102,12 @@
                 <button id="button-stop">Pause</button>
                 <button id="button-reset">Reset</button>
             </div>
+
+            <br>
+            <div id="progress-bar">
+                <div id="bar"></div>
+            </div>
+
 
 
 
@@ -131,47 +138,69 @@
         <div class="quiz">
 
             <p>QUIZ AREA</p>
+            <div>
+                <h2>title of the test <i class="fa-brands fa-think-peaks"></i></h2>
+                <button id="btn-get">Load</button>
+                <label for="btn-get"> Your Question Sheet</label>
+            </div>
 
-            <h2>title of the test <i class="fa-brands fa-think-peaks"></i></h2>
-            <h4 id="info1">Info about the test process</h4>
-            <br>
 
-            <div id="progress-bar">
-                <div id="bar"></div>
+
+
+
+
+            <div class="info">
+                <h3 id="infoHead"></h3>
+                <p id="infoText"></p>
+                <h5 id="mode"></h5>
+                <h5 id="the-timer"></h5>
+
             </div>
 
             <div class="data">
 
-                <label id="qID">QUESTION ID</label><br>
-                <label id="qText">QUESTION TEXT</label><br><br>
 
-                <input type="checkbox" id="checkbox1" value="checkbox1" class="answers">
-                <input type="checkbox" id="option1" value="option1">
-                <label id="A" for="option1"> OPTION.1</label><br>
+                <br>
+                <div>
+                    <label id="qID">question id</label><br>
+                    <label id="qText">qiestion text</label><br><br>
 
-                <input type="checkbox" id="checkbox2" value="checkbox2" class="answers">
-                <input type="checkbox" id="option2" value="option2">
-                <label id="B" for="option2">OPTION.2</label><br>
+                    <input type="checkbox" id="checkbox1" value="checkbox1" class="answers">
+                    <label for="checkbox1">a</label><br>
+                    <input type="checkbox" id="option1" value="option1">
+                    <label id="A" for="option1">option A</label><br>
 
-                <input type="checkbox" id="checkbox3" value="checkbox3" class="answers">
-                <input type="checkbox" id="option3" value="option3">
-                <label id="C" for="option3">OPTION.3</label><br>
+                    <input type="checkbox" id="checkbox2" value="checkbox2" class="answers">
+                    <label for="checkbox1">b</label><br>
+                    <input type="checkbox" id="option2" value="option2">
+                    <label id="B" for="option2"></label>option B<br>
 
-                <input type="checkbox" id="checkbox4" value="checkbox4" class="answers">
-                <input type="checkbox" id="option4" value="option4">
-                <label id="D" for="option4">OPTION.4</label>
+                    <input type="checkbox" id="checkbox3" value="checkbox3" class="answers">
+                    <label for="checkbox1">c</label><br>
+                    <input type="checkbox" id="option3" value="option3">
+                    <label id="C" for="option3">option C</label><br>
+
+                    <input type="checkbox" id="checkbox4" value="checkbox4" class="answers">
+                    <label for="checkbox1">d</label><br>
+                    <input type="checkbox" id="option4" value="option4">
+                    <label id="D" for="option4">option B</label>
+                </div>
+
+
 
             </div>
 
             <div class="process">
                 <!-- <input type="button" id="btn-start" Value="start"> -->
-                <input type="button" id="btn-load" Value="start">
+                <input type="button" id="btn-load" Value="start" disabled>
+
                 <input type="button" id="submit" value="Submit My Answer" disabled>
-              
+
             </div>
-            <div class="options" >
-                <input type="button" id="btn-show" value="Show Answers">
+            <div class="options">
+                <input type="button" id="btn-show" value="Show Answers" disabled>
                 <input type="button" id="result" value="Post Results" disabled>
+                <input type="button" id="btn-reset" Value="reset" disabled>
             </div>
         </div>
     </div>
@@ -204,6 +233,7 @@
                     <p id="bar-T"></p>
                     <br>
                     <br>
+                    <p id="welcome"></p>
                 </span>
             </div>
             <div>
@@ -225,6 +255,8 @@
     <script src="assets/js/timer.js"></script>
     <script src="assets/js/load.js"></script>
     <script src="assets/js/process.js"></script>
+
+
 
 </body>
 
