@@ -130,8 +130,7 @@ font-size: small;
 .data {
   accent-color: #0c162c;
   padding: 30px;
-  display: block-inline;
-
+  display: none;
 }
 
 .data input {

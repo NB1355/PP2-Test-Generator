@@ -32,4 +32,4 @@ document.getElementById("btn-test").addEventListener("click", testFunction);
 // document.getElementById("btn-load").addEventListener("click", setUptupRun);
 
 // document.getElementById("btn-load").addEventListener("click", questionLoad);
-// document.getElementById("btn-show").addEventListener("click", answersShow);
+

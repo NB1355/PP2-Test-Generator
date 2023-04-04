@@ -3,6 +3,7 @@ let theMode;
 let theTimer;
 let theCount;
 let theLimit;
+let theStatus;
 
 let theData = [];
 let select = [];
@@ -54,10 +55,25 @@ function setLimit() {
 }
 
 
+function getStatus(isSelect, q, selection) {
+    // let status = "ready";
+    // switch (status) {
+    //     case "1":
+    //         document.getElementById("checkbox1").checked = true;
+    //         break;
+    //     case "2":
+
+    // }
+    console.log("isSelect:", isSelect, " q: ", q, " selection: ", selection);
+
+}
+
 // LOAD ...............................................................................
 
+document.getElementById("btn-load").addEventListener("click", questionLoad);
 
 function questionLoad() {
+    displayClass(".data", "block");
 
     fetch("assets/data/default.json") // link later to select and upload process -----------#check
         .then(response => {
@@ -67,6 +83,7 @@ function questionLoad() {
 
             theData = data;
             randomSelect(theData);
+            
             questionShow();
         });
 }
@@ -90,6 +107,7 @@ function questionShow() {
 
     if (isSelect < select.length) {
 
+
         answersRecord();
         optionsClear();
 
@@ -101,14 +119,18 @@ function questionShow() {
         C.innerHTML = theData.questions[q].checkbox3;
         D.innerHTML = theData.questions[q].checkbox4;
 
+        getStatus(isSelect, q);
         isSelect++
 
         optionesTrue(q);
+        document.getElementById("btn-load").value = "Next";
     }
     else {
-        document.getElementById("btn-load").value = "end";
-        document.getElementById("btn-load").disabled = true;
+        document.getElementById("btn-load").value = "Submit";
+        // document.getElementById("btn-load").addEventListener("click", showResult)
+        // document.getElementById("btn-load").value = "Email the Resul";
     }
+
 }
 
 // setup correct options
@@ -137,8 +159,7 @@ function optionesTrue(q) {
 }
 
 function optionsClear() {
-    // .........................................................................................................includes setup !!!!
-    // let checkboxes = document.getElementsByTagName("input");
+
     let checkboxeAs = document.getElementsByClassName("answers");
     for (var checkbox of checkboxeAs) {
         checkbox.checked = false;
@@ -152,21 +173,25 @@ function optionsClear() {
 
 // Show and hide correct answers
 
+document.getElementById("btn-show").addEventListener("click", answersShow);
 
 function answersShow() {
+    if (theMode == "learn") {
+        let xShow = document.getElementById("btn-show").value;
 
-    let xShow = document.getElementById("btn-show").value;
-
-    if (xShow == "Show Answers") {
-        opacity = 0.8;
-        document.getElementById("btn-show").value = "Hide Answers";
+        if (xShow == "Show Answers") {
+            opacity = 0.8;
+            document.getElementById("btn-show").value = "Hide Answers";
+        } else {
+            opacity = 0;
+            document.getElementById("btn-show").value = "Show Answers";
+        }
+        var theAnswers = document.querySelectorAll(".answers");
+        for (var i = 0; i < theAnswers.length; i++) {
+            theAnswers[i].style.opacity = opacity;
+        }
     } else {
-        opacity = 0;
-        document.getElementById("btn-show").value = "Show Answers";
-    }
-    var theAnswers = document.querySelectorAll(".answers");
-    for (var i = 0; i < theAnswers.length; i++) {
-        theAnswers[i].style.opacity = opacity;
+        document.getElementById("tempInfo").innerHTML = "Not available in EXAM Mode";
     }
 }
 
@@ -211,6 +236,20 @@ function answersCheck() {
     } else {
         scoreMinus();
         pass = "N";
+    }
+}
+
+function showResult() {
+    console.log("show result!!!!!!!")
+    document.querySelectorAll(".data").display = "none";
+
+    displayClass(".data", "none");
+}
+
+function displayClass(name, value) {
+    var theElements = document.querySelectorAll(name);
+    for (var i = 0; i < theElements.length; i++) {
+        theElements[i].style.display = value;
     }
 }
 
