@@ -11,7 +11,7 @@
 
 </head>
 
-<body onload="setUp()">
+<body onload="setUp()"> 
 
     <div class="grid-wrap">
 
@@ -59,14 +59,14 @@
 
             <p>SETUP AREA</p>
 
-            <input type="radio" id="mode-exam" name="set_mode" value="exam" checked>
+            <input type="radio" id="mode-exam" name="set_mode" value="exam">
             <label for="mode-exam">Exam</label>
 
-            <input type="radio" id="mode-learn" name="set_mode" value="learn">
+            <input type="radio" id="mode-learn" name="set_mode" value="learn" checked >
             <label for="mode-learn">Learn Mode</label>
             <br>
             <br>
-            <input type="checkbox" id="set-timer" name="set_timer" checked>
+            <input type="checkbox" id="set-timer" name="set_timer" checked disabled>
             <label for="set-timer">Show Timer </label>
             <br>
             <br>
@@ -159,40 +159,40 @@
                 <label id="qID">question ID</label><br>
                 <label id="qText">question TEXT</label><br>
 
-                <input type="checkbox" id="checkbox1" value="checkbox1" class="answers">
-                <label for="checkbox1">A</label><br>
+                <input type="checkbox" id="checkbox1" value="checkbox1" class="answers hide" disabled>
+                <label for="checkbox1" class="hide">A</label><br>
 
                 <input type="checkbox" id="option1" value="option1" class="options">
                 <label id="A" for="option1"> option A</label><br>
 
-                <input type="checkbox" id="checkbox2" value="checkbox2" class="answers">
-                <label for="checkbox2">B</label><br>
+                <input type="checkbox" id="checkbox2" value="checkbox2" class="answers hide" disabled>
+                <label for="checkbox2" class="hide">B</label><br>
 
                 <input type="checkbox" id="option2" value="option2" class="options">
                 <label id="B" for="option2">option B</label><br>
 
-                <input type="checkbox" id="checkbox3" value="checkbox3" class="answers">
-                <label for="checkbox3">C</label><br>
+                <input type="checkbox" id="checkbox3" value="checkbox3" class="answers hide" disabled>
+                <label for="checkbox3" class="hide">C</label><br>
 
                 <input type="checkbox" id="option3" value="option3" class="options">
                 <label id="C" for="option3">option C</label><br>
 
-                <input type="checkbox" id="checkbox4" value="checkbox4" class="answers">
-                <label for="checkbox4">D</label><br>
+                <input type="checkbox" id="checkbox4" value="checkbox4" class="answers hide" disabled>
+                <label for="checkbox4" class="hide">D</label><br>
 
                 <input type="checkbox" id="option4" value="option4" class="options">
                 <label id="D" for="option4">option D</label>
 
             </div>
 
-            <div class="process">
+            <div class="process a">
                 <!-- <input type="button" id="btn-start" Value="start"> -->
                 <input type="button" id="btn-load" Value="start">
-                <input type="button" id="submit" value="Submit My Answer" disabled>
+                <input type="button" id="submit" value="xxxxx" disabled>
 
             </div>
-            <div class="options">
-                <input type="button" id="btn-show" value="Show Answers">
+            <div class="process b">
+                <input type="button" class="blue" id="btn-show" value="Show Answers">
                 <input type="button" id="result" value="Post Results" disabled>
             </div>
         </div>
@@ -204,12 +204,12 @@
             <br>
         </div>
         <div>
-            <!-- <h3>No Change, DEV TST 01</h3>
+            <!-- <h3>No Change, DEV TST 01</h3>-->
     
 
-            <h4>...................Temp: for testing functioalities ................... </h4>
+        <h4>...................Temp: for testing functioalities ``................... </h4> 
 
-            <h2 id="test"></h2>
+                  <!-- <h2 id="test"></h2>
 
             <input type="button" id="reload" Value="refrech page" style="background-color: blue; font-size: xx-large;"
                 onclick="location.reload()"> -->
@@ -223,7 +223,7 @@
                 </ul>
                 <br>
 
-
+<div></div>
             </div>
 
         </div>

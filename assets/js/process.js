@@ -9,12 +9,14 @@ function testFunction() {
     //    testFunc= setLimit;
     // testFunc = setUp;
 
-    testFunc = questionLoad;
+    // testFunc = questionLoad;
     //      testFunc=randomSelect;
     //      testFunc=questionShow;
     // testFunc=answersShow;
     // testFunc=optionsClear;
     // testFunc=questionShow;
+
+    testFunc = answersCheck2;
 
     // ===============================
 

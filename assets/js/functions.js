@@ -10,7 +10,7 @@ let select = [];
 let isSelect = 0;
 
 
-// Gets defaul setup parameters onload
+// Gets default setup parameters onload
 
 function setUp() {
     setMode();
@@ -35,7 +35,6 @@ function setTimer() {
     }
 }
 
-
 function setMode() {
     document.getElementsByName("set_mode").forEach(radio => {
         if (radio.checked) {
@@ -44,16 +43,13 @@ function setMode() {
     })
 }
 
-
 function setCount() {
     theCount = document.getElementById("set-random").value;
 }
 
-
 function setLimit() {
     theLimit = document.getElementById("set-limit").value * theCount;
 }
-
 
 function getStatus(isSelect, q, selection) {
     // let status = "ready";
@@ -64,7 +60,7 @@ function getStatus(isSelect, q, selection) {
     //     case "2":
 
     // }
-    console.log("isSelect:", isSelect, " q: ", q, " selection: ", selection);
+    // console.log("isSelect:", isSelect, " q: ", q, " selection: ", selection);
 
 }
 
@@ -73,7 +69,10 @@ function getStatus(isSelect, q, selection) {
 document.getElementById("btn-load").addEventListener("click", questionLoad);
 
 function questionLoad() {
+
     displayClass(".data", "block");
+
+
 
     fetch("assets/data/default.json") // link later to select and upload process -----------#check
         .then(response => {
@@ -83,11 +82,10 @@ function questionLoad() {
 
             theData = data;
             randomSelect(theData);
-            
+
             questionShow();
         });
 }
-
 
 function randomSelect(theData) {
 
@@ -102,13 +100,13 @@ function randomSelect(theData) {
     selection.innerHTML = `[${select}]`;
 }
 
-
 function questionShow() {
 
     if (isSelect < select.length) {
 
 
         answersRecord();
+
         optionsClear();
 
         let q = select[isSelect] - 1;
@@ -144,15 +142,20 @@ function optionesTrue(q) {
         switch (correct) {
             case "1":
                 document.getElementById("checkbox1").checked = true;
+                console.log("chekbox1");
+                document.getElementById("checkbox1").classList.add = "mark";
                 break;
             case "2":
                 document.getElementById("checkbox2").checked = true;
+                console.log("chekbox2");
                 break;
             case "3":
                 document.getElementById("checkbox3").checked = true;
+                console.log("chekbox3");
                 break;
             case "4":
                 document.getElementById("checkbox4").checked = true;
+                console.log("chekbox4");
                 break;
         }
     }
@@ -163,6 +166,7 @@ function optionsClear() {
     let checkboxeAs = document.getElementsByClassName("answers");
     for (var checkbox of checkboxeAs) {
         checkbox.checked = false;
+
     }
     let checkboxeOs = document.getElementsByClassName("options");
     for (var checkbox of checkboxeOs) {
@@ -170,24 +174,31 @@ function optionsClear() {
     }
 }
 
-
-// Show and hide correct answers
+// Show and hide correct answers by changing opacity.
 
 document.getElementById("btn-show").addEventListener("click", answersShow);
 
 function answersShow() {
+
     if (theMode == "learn") {
+
         let xShow = document.getElementById("btn-show").value;
 
         if (xShow == "Show Answers") {
-            opacity = 0.8;
+
+            opacity = .8;
             document.getElementById("btn-show").value = "Hide Answers";
+
         } else {
+
             opacity = 0;
             document.getElementById("btn-show").value = "Show Answers";
         }
+
         var theAnswers = document.querySelectorAll(".answers");
+
         for (var i = 0; i < theAnswers.length; i++) {
+
             theAnswers[i].style.opacity = opacity;
         }
     } else {
@@ -195,13 +206,25 @@ function answersShow() {
     }
 }
 
-
 // Check and Record the Answers 
-
 
 function answersRecord() {
 
     answersCheck();
+    answersHeid();
+
+    function answersHeid() {
+
+        document.getElementById("btn-show").value = "Show Answers";
+
+        var theAnswers = document.querySelectorAll(".answers");
+
+        for (var i = 0; i < theAnswers.length; i++) {
+
+            theAnswers[i].style.opacity = 0;
+        }
+    }
+
 
     let record = document.getElementById("qID").innerHTML + " Pass: " + pass;
     const recordNode = document.createElement("li");
@@ -233,15 +256,18 @@ function answersCheck() {
         scorePlus();
         pass = "Y";
 
+
     } else {
         scoreMinus();
         pass = "N";
     }
+
 }
+
+
 
 function showResult() {
     console.log("show result!!!!!!!")
-    document.querySelectorAll(".data").display = "none";
 
     displayClass(".data", "none");
 }
@@ -252,6 +278,7 @@ function displayClass(name, value) {
         theElements[i].style.display = value;
     }
 }
+
 
 
 // TIMER................................................................................
@@ -305,6 +332,7 @@ function setxxxxTimer() {
         appendSeconds.innerHTML = seconds;
     }
 
+
     function startTimer() {
 
         buttonStop.style.display = "inline-block";
@@ -334,7 +362,6 @@ function setxxxxTimer() {
 }
 
 function toHhMmSs(totalSeconds) {
-    //adjuster External code,refrence https://codingbeautydev.com/
 
     const seconds2 = showTwoDigit(totalSeconds % 60);
     const totalMinutes = Math.floor(totalSeconds / 60);
@@ -342,8 +369,10 @@ function toHhMmSs(totalSeconds) {
     const hours2 = showTwoDigit(Math.floor(totalMinutes / 60));
 
     return { hours2, minutes2, seconds2 };
-}
 
+    //EXTERNAL, adjusted
+    //Refrence https://codingbeautydev.com/
+}
 
 function showTwoDigit(number) {
     if (number <= 9) {
@@ -354,7 +383,3 @@ function showTwoDigit(number) {
     }
     return numberShow;
 }
-
-
-
-
