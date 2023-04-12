@@ -10,11 +10,22 @@ let select = [];
 let isSelect = 0;
 
 
-// Gets default setup parameters onload
+// Gets default setup parameters 
+
+const inputs = document.querySelectorAll(".setup");
+
+inputs.forEach(setup => {
+    setup.addEventListener("change", function handleClick(event) {
+        console.log('box clicked', event);
+        setUp();
+        setup.setAttribute('style', 'background-color: yellow;');
+    });
+});
+
 
 function setUp() {
     setMode();
-    document.getElementById("mode-set").innerHTML = `Mode ${theMode}`;
+    document.getElementById("mode-set").innerHTML = `${theMode} Mode`;
 
     setTimer();
     document.getElementById("timer-set").innerHTML = `Timer ${theTimer}`;
@@ -25,6 +36,7 @@ function setUp() {
     setLimit();
     document.getElementById("limit-set").innerHTML = `${theLimit} seconds limit`;
 }
+
 
 function setTimer() {
     if (document.getElementById('set-timer').checked) {
@@ -66,7 +78,7 @@ function getStatus(isSelect, q, selection) {
 
 // LOAD ...............................................................................
 
-document.getElementById("btn-load").addEventListener("click", questionLoad);
+document.getElementById("btn-run").addEventListener("click", questionLoad);
 
 function questionLoad() {
 
@@ -121,10 +133,10 @@ function questionShow() {
         isSelect++
 
         optionesTrue(q);
-        document.getElementById("btn-load").value = "Next";
+        document.getElementById("btn-run").value = "Next";
     }
     else {
-        document.getElementById("btn-load").value = "Submit";
+        document.getElementById("btn-run").value = "Submit";
         // document.getElementById("btn-load").addEventListener("click", showResult)
         // document.getElementById("btn-load").value = "Email the Resul";
     }
@@ -143,7 +155,11 @@ function optionesTrue(q) {
             case "1":
                 document.getElementById("checkbox1").checked = true;
                 console.log("chekbox1");
-                document.getElementById("checkbox1").classList.add = "mark";
+
+
+
+
+                document.getElementById("checkbox1").classList.add = "mark"; ///?????????????????????????????????????????????????????
                 break;
             case "2":
                 document.getElementById("checkbox2").checked = true;
@@ -286,28 +302,34 @@ function displayClass(name, value) {
 
 
 function clock() {
-
     const today = new Date();
     let h = today.getHours();
     let m = today.getMinutes();
     let s = today.getSeconds();
 
-    hh = showTwoDigit(h);
-    mm = showTwoDigit(m);
-    ss = showTwoDigit(s);
+    m = checkTime(m);
+    s = checkTime(s);
 
-    document.getElementById("clock").innerHTML = h + ":" + mm + ":" + ss;
+    document.getElementById("clock").innerHTML = h + ":" + m + ":" + s;
     setTimeout(clock, 1000);
 }
 
 
+function checkTime(i) {
+    if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+    return i;
+}
+
+
+
+let appendMinutes = document.getElementById("minutes")
+let appendSeconds = document.getElementById("seconds")
 // =========================================
 
-function setxxxxTimer() {
+function setTimer() {
 
     var seconds = 00;
-    var appendMinutes = document.getElementById("minutes")
-    var appendSeconds = document.getElementById("seconds")
+
     var buttonStart = document.getElementById('button-start');
     var buttonStop = document.getElementById('button-stop');
     var buttonReset = document.getElementById('button-reset');
@@ -332,36 +354,34 @@ function setxxxxTimer() {
         appendSeconds.innerHTML = seconds;
     }
 
-
     function startTimer() {
 
         buttonStop.style.display = "inline-block";
         buttonReset.style.display = "inline-block";
 
-        var timeLimit = document.getElementById('set-limit').value * 60;
+
         var timePassed = seconds;
+        var timeLeft = theLimit - timePassed;
         var timePassed2 = toHhMmSs(timePassed);
-        var timeLeft = timeLimit - timePassed;
-
-        var timeLeftPercent = (timeLeft / timeLimit * 100).toFixed(2);
-
-        document.getElementById("bar").style.width = timeLeftPercent + "%";
-        document.getElementById("bar").innerHTML = timeLeftPercent + "%";
-
 
         seconds++;
 
         appendMinutes.innerHTML = timePassed2.minutes2;
         appendSeconds.innerHTML = timePassed2.seconds2;
 
-        document.getElementById("times-check").innerHTML = ` Limit:${timeLimit}  Passed:${timePassed} Left:${timeLeft}`;
-
         // for functional test
         console.log(timePassed2);
+        document.getElementById("time-check").innerHTML = `Limit ${theLimit} Passed ${timePassed} Left ${timeLeft}`;
+
+
+
     }
+
 }
 
 function toHhMmSs(totalSeconds) {
+    // https://codingbeautydev.com/
+
 
     const seconds2 = showTwoDigit(totalSeconds % 60);
     const totalMinutes = Math.floor(totalSeconds / 60);
@@ -369,10 +389,8 @@ function toHhMmSs(totalSeconds) {
     const hours2 = showTwoDigit(Math.floor(totalMinutes / 60));
 
     return { hours2, minutes2, seconds2 };
-
-    //EXTERNAL, adjusted
-    //Refrence https://codingbeautydev.com/
 }
+
 
 function showTwoDigit(number) {
     if (number <= 9) {
@@ -383,3 +401,20 @@ function showTwoDigit(number) {
     }
     return numberShow;
 }
+
+
+
+// TEEEEEEEEEEEEEEEEEEEEEEEEEEEMP TEST
+
+function test() {
+
+    let timeLeft2 = (toHhMmSs(theLimit));
+
+    appendMinutes.innerHTML = timeLeft2.minutes2;
+    appendSeconds.innerHTML = timeLeft2.seconds2;
+
+
+
+}
+
+document.getElementById("btn-test").addEventListener("click", test);
