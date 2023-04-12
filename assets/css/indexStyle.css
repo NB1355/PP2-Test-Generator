@@ -113,6 +113,8 @@ hr {
   grid-area: quiz;
   background-color: rgb(207, 205, 205);
 
+  display: block;
+
   /* background: url("../images/background.jpg") no-repeat center center;
   background-size: cover;
   background-attachment: fixed; */
@@ -121,9 +123,9 @@ hr {
 
 .infoBox li {
   margin-top: 20px;
-
-  padding: 10px;
+    padding: 10px;
   display: inline;
+  font-weight: bold;
 
 }
 
@@ -144,16 +146,24 @@ hr {
 input[type="checkbox"]:disabled:checked.answers {
   /* pointer-events: none; */
   outline:#98c004 solid 2px;
+
   width: 20px;
   height: 20px;
-  
 }
+
+input[type="checkbox"]:disabled.answers {
+  /* pointer-events: none; */
+  /* outline:#98c004 solid 2px; */
+  outline: red solid 2px;
+  width: 20px;
+  height: 20px;
+}
+
 
 input[type="checkbox"].options {
   /* pointer-events: none; */
-  width: 20px;
-  height: 20px;
-  
+  width: 22px;
+  height: 22px;
 }
 
 
@@ -169,20 +179,18 @@ input[type="checkbox"].options {
   width: 20em;
   font-size: 75%;
   margin: 5px;
-}
-
-
-.b input {
-  background-color: #0c162c;
-  color: #fafafa;
-}
-
-.a input {
-
   background-color: #98c004;
   color: #fafafa;
 
 }
+
+.process{
+  border: #0c162c solid 1px;
+  margin-top: 20px;
+}
+
+
+
 
 .setup {
   margin: 10px;
@@ -208,14 +216,15 @@ input[type="checkbox"].options {
 
 .timer {
   margin: 10px;
-  border: darkmagenta 1px solid;
+  border: rgb(14, 11, 14) 1px solid;
   height: auto;
   font-size: small;
   grid-area: timer;
   text-align: center;
+  
 }
 
-/* .timer button {
+.timer button {
   margin-top: 20px;
   border-radius: 2px;
   padding: 5px 10px 5px 10px;
@@ -228,7 +237,7 @@ input[type="checkbox"].options {
   color: #fafafa;
   width: 10em;
   font-size: 75%;
-} */
+}
 
 .timer span {
   background-color: #98c004;
