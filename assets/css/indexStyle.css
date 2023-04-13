@@ -254,13 +254,13 @@ input[type="checkbox"].options {
   font-size: small;
 }
 
-#button-stop {
+#timer-stop {
   display: none;
   color: yellow;
 
 }
 
-#button-reset {
+#timer-reset {
   display: none;
   color: orangered;
 }

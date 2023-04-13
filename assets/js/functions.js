@@ -38,14 +38,14 @@ function setUp() {
 }
 
 
-function setTimer() {
-    if (document.getElementById('set-timer').checked) {
-        theTimer = "ON"
-    }
-    else {
-        theTimer = "OFF"
-    }
-}
+// function setTimer() {
+//     if (document.getElementById('set-timer').checked) {
+//         theTimer = "ON"
+//     }
+//     else {
+//         theTimer = "OFF"
+//     }
+// }
 
 function setMode() {
     document.getElementsByName("set_mode").forEach(radio => {
@@ -299,62 +299,49 @@ function displayClass(name, value) {
 
 // TIMER................................................................................
 
-
-
-function clock() {
-    const today = new Date();
-    let h = today.getHours();
-    let m = today.getMinutes();
-    let s = today.getSeconds();
-
-    m = checkTime(m);
-    s = checkTime(s);
-
-    document.getElementById("clock").innerHTML = h + ":" + m + ":" + s;
-    setTimeout(clock, 1000);
-}
-
-
-function checkTime(i) {
-    if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
-    return i;
-}
-
-
-
-let appendMinutes = document.getElementById("minutes")
-let appendSeconds = document.getElementById("seconds")
-// =========================================
-
 function setTimer() {
 
     var seconds = 00;
+    var minutes = 00;
 
-    var buttonStart = document.getElementById('button-start');
-    var buttonStop = document.getElementById('button-stop');
-    var buttonReset = document.getElementById('button-reset');
+
+    var appendMinutes = document.getElementById("minutes")
+    var appendSeconds = document.getElementById("seconds")
+    var buttonStart = document.getElementById('timer-start');
+    var buttonStop = document.getElementById('timer-stop');
+    var buttonReset = document.getElementById('timer-reset');
     var Interval;
 
-    buttonStart.onclick = function () {
-        clearInterval(Interval);
-        Interval = setInterval(startTimer, 1000);
-    };
-
-    buttonStop.onclick = function () {
-        clearInterval(Interval);
-    };
-
-    buttonReset.onclick = function () {
-        clearInterval(Interval);
-
-        minutes = "00";
-        seconds = "00";
-
-        appendMinutes.innerHTML = minutes;
-        appendSeconds.innerHTML = seconds;
+    if (document.getElementById('set-timer').checked) {
+        theTimer = "ON"
+    }
+    else {
+        theTimer = "OFF"
     }
 
-    function startTimer() {
+    runTimer();
+
+    function runTimer() {
+        buttonStart.onclick = function () {
+            clearInterval(Interval);
+            Interval = setInterval(stopWatch, 1000);
+        };
+
+        buttonStop.onclick = function () {
+            clearInterval(Interval);
+        };
+
+        buttonReset.onclick = function () {
+            clearInterval(Interval);
+            minutes = "00";
+            seconds = "00";
+            appendMinutes.innerHTML = minutes;
+            appendSeconds.innerHTML = seconds;
+        };
+    }
+
+
+    function stopWatch() {
 
         buttonStop.style.display = "inline-block";
         buttonReset.style.display = "inline-block";
@@ -376,45 +363,46 @@ function setTimer() {
 
 
     }
-
 }
 
-function toHhMmSs(totalSeconds) {
-    // https://codingbeautydev.com/
+    function toHhMmSs(totalSeconds) {
+        // https://codingbeautydev.com/
 
 
-    const seconds2 = showTwoDigit(totalSeconds % 60);
-    const totalMinutes = Math.floor(totalSeconds / 60);
-    const minutes2 = showTwoDigit((totalMinutes) % 60);
-    const hours2 = showTwoDigit(Math.floor(totalMinutes / 60));
+        const seconds2 = showTwoDigit(totalSeconds % 60);
+        const totalMinutes = Math.floor(totalSeconds / 60);
+        const minutes2 = showTwoDigit((totalMinutes) % 60);
+        const hours2 = showTwoDigit(Math.floor(totalMinutes / 60));
 
-    return { hours2, minutes2, seconds2 };
-}
-
-
-function showTwoDigit(number) {
-    if (number <= 9) {
-        numberShow = "0" + number;
+        return { hours2, minutes2, seconds2 };
     }
-    else {
-        numberShow = number;
+
+
+    function showTwoDigit(number) {
+        if (number <= 9) {
+            numberShow = "0" + number;
+        }
+        else {
+            numberShow = number;
+        }
+        return numberShow;
     }
-    return numberShow;
-}
 
 
 
-// TEEEEEEEEEEEEEEEEEEEEEEEEEEEMP TEST
 
-function test() {
+// function test() {
 
-    let timeLeft2 = (toHhMmSs(theLimit));
+//     let timeLeft2 = (toHhMmSs(theLimit));
 
-    appendMinutes.innerHTML = timeLeft2.minutes2;
-    appendSeconds.innerHTML = timeLeft2.seconds2;
+//     var appendMinutes = document.getElementById("minutes")
+//     var appendSeconds = document.getElementById("seconds")
 
+//     appendMinutes.innerHTML = "22";//timeLeft2.minutes2;
+//     appendSeconds.innerHTML = "11";//timeLeft2.seconds2;
 
+//     console.log(timeLeft2);
 
-}
+// }
 
-document.getElementById("btn-test").addEventListener("click", test);
+// document.getElementById("btn-test").addEventListener("click", test);
