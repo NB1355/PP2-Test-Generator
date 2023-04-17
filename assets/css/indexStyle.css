@@ -27,6 +27,8 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 4px;
   /* color: #d6d8db; */
+  margin-bottom: 5px;
+  margin-top: 5px;
 
 }
 
@@ -121,13 +123,7 @@ hr {
 }
 
 
-.infoBox li {
-  margin-top: 20px;
-    padding: 10px;
-  display: inline;
-  font-weight: bold;
 
-}
 
 .data {
   accent-color: #0c162c;
@@ -189,6 +185,21 @@ input[type="checkbox"].options {
   margin-top: 20px;
 }
 
+
+.infoBox span {
+  margin-top: 20px;
+  padding: 5px 0 0 50px;
+  display:inline-table;
+  /* display: none; */
+  text-align: top;
+  }
+
+
+li {
+  padding: 5px 0 0 5px;
+  list-style-type: none;
+
+}
 
 
 

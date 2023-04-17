@@ -1,238 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
-    <div class="grid-wrap">
+<div class="grid-wrap">
 
-        <!-- << Social ------------------------------------------------------------>
-        <div class="header">
-            <p> HEADER AREA</p>
+    <!-- << Social ------------------------------------------------------------>
+    <div class="header">
+        <p> HEADER AREA</p>
 
-            <h1 id="logo">Project Portfolio II: TEST GENERATOR</h1>
+        <h1 id="logo">Project Portfolio II: TEST GENERATOR</h1>
 
+    </div>
+
+    <!-- << SOCIAL ------------------------------------------------------------>
+    <div class="social">
+        <p>SOCIAL AREA</p>
+        <ul>
+            <li>
+                <a href="https://facebook.com" target="_blank" rel="noopenner"
+                    aria-label="Visit our Facebook page (opens in new tab)">
+                    <i class="fa-brands fa-square-facebook"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com" target="_blank" rel="noopenner"
+                    aria-label="Visit our twitter page (opens in new tab)">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://youtube.com" target="_blank" rel="noopenner"
+                    aria-label="Visit our youtube page (opens in new tab)">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://instagram.com" target="_blank" rel="noopenner"
+                    aria-label="Visit our instagram page (opens in new tab)">
+                    <i class="fa-brands fa-square-instagram"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- >> SETUPS------------------------------------------------------------->
+    <div class='setup'>
+
+        <p>SETUP AREA</p>
+
+        <input type="radio" id="mode-exam" name="set_mode" value="exam">
+        <label for="mode-exam">Exam</label>
+
+        <input type="radio" id="mode-learn" name="set_mode" value="learn" checked>
+        <label for="mode-learn">Learn Mode</label>
+        <br>
+        <br>
+        <input type="checkbox" id="set-timer" name="set_timer" checked>
+        <label for="set-timer">Show Timer </label>
+        <br>
+        <br>
+
+        <input type="number" id="set-limit" name="set_limit" value="5" class="num-input">
+        <label for="set-limit"> Seconds [avarage limit for one question] </label>
+        <br>
+
+        <input type="number" id="set-random" name="set_random" value="10" class="num-input">
+        <label for="set-random"> Questions [selected randomly] </label>
+
+    </div>
+
+    <!-- >> TIMER-------------------------------------------------------------->
+
+    <div class="timer">
+
+        <p>TIMER AREA</p>
+
+        <div>
+            <p>Clock?</p>
+            <h2 id="clock"></h2>
+            <br>
         </div>
 
-        <!-- << SOCIAL ------------------------------------------------------------>
-        <div class="social">
-            <p>SOCIAL AREA</p>
-            <ul>
-                <li>
-                    <a href="https://facebook.com" target="_blank" rel="noopenner"
-                        aria-label="Visit our Facebook page (opens in new tab)">
-                        <i class="fa-brands fa-square-facebook"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://twitter.com" target="_blank" rel="noopenner"
-                        aria-label="Visit our twitter page (opens in new tab)">
-                        <i class="fa-brands fa-twitter"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://youtube.com" target="_blank" rel="noopenner"
-                        aria-label="Visit our youtube page (opens in new tab)">
-                        <i class="fa-brands fa-youtube"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://instagram.com" target="_blank" rel="noopenner"
-                        aria-label="Visit our instagram page (opens in new tab)">
-                        <i class="fa-brands fa-square-instagram"></i>
-                    </a>
-                </li>
-            </ul>
+        <div>
+            <span id="minutes">00</span>:<span id="seconds">00</span>
+            <br>
+
+            <button id="timer-start">Start</button>
+            <button id="timer-stop">Stop</button>
+            <button id="timer-reset">Reset</button>
+            <br><br>
+            <p id="time-check">
+                </p2>
         </div>
 
-        <!-- >> SETUPS------------------------------------------------------------->
-        <div class='setup'>
 
-            <p>SETUP AREA</p>
 
-            <input type="radio" id="mode-exam" name="set_mode" value="exam">
-            <label for="mode-exam">Exam</label>
+    </div>
 
-            <input type="radio" id="mode-learn" name="set_mode" value="learn" checked>
-            <label for="mode-learn">Learn Mode</label>
-            <br>
-            <br>
-            <input type="checkbox" id="set-timer" name="set_timer" checked>
-            <label for="set-timer">Show Timer </label>
-            <br>
-            <br>
+    <!-- >> RECORD------------------------------------------------------------->
+    <div class="record">
 
-            <input type="number" id="set-limit" name="set_limit" value="5" class="num-input">
-            <label for="set-limit"> Seconds [avarage limit for one question] </label>
-            <br>
-
-            <input type="number" id="set-random" name="set_random" value="10" class="num-input">
-            <label for="set-random"> Questions [selected randomly] </label>
-
-        </div>
-
-        <!-- >> TIMER-------------------------------------------------------------->
-
-        <div class="timer">
-
-            <p>TIMER AREA</p>
-
-            <div>
-                <p>Clock?</p>
-                <h2 id="clock"></h2>
-                <br>
-            </div>
-
-            <div>
-                <span id="minutes">00</span>:<span id="seconds">00</span>
-                <br>
-
-                <button id="timer-start">Start</button>
-                <button id="timer-stop">Stop</button>
-                <button id="timer-reset">Reset</button>
-                <br><br>
-                <p id="time-check">
-                    </p2>
-            </div>
+        <p>RECORD AREA</p>
 
 
 
-        </div>
+    </div>
 
-        <!-- >> RECORD------------------------------------------------------------->
-        <div class="record">
+    <!-- >> SCORE-------------------------------------------------------------->
+    <div class="score">
 
-            <p>RECORD AREA</p>
+        <p>SCORE AREA</p>
 
-            <div>
-
-
-            </div>
-
-        </div>
-
-        <!-- >> SCORE-------------------------------------------------------------->
         <div class="score">
-
-            <p>SCORE AREA</p>
-
-            <div class="score">
-                <br>
-                <p class="scores">Correct Answers <span id="scorePlus">0</span></p>
-                <br>
-                <p class="scores">Incorrect Answers <span id="scoreMinus">0</span></p>
-                <br>
-            </div>
-        </div>
-
-        <!-- >> QUIZ-------------------------------------------------------------->
-        <div class="quiz">
-
-            <p>QUIZ AREA</p>
-
-            <h2>title of the test <i class="fa-brands fa-think-peaks"></i></h2>
-
             <br>
-
-            <div id="progress-bar">
-                <div id="bar"></div>
-            </div>
-
-            <div class="infoBox">
-                <ul id="setupInfo">
-                    <li id="timer-set"></li>
-                    <li id="limit-set"></li>
-                    <li id="mode-set"></li>
-                    <li id="count-set"></li>
-                    <li id="selection"></li>
-                    <br>
-                </ul>
-                <h3 id=tempInfo></h3>
-            </div>
-
-            <div class="data">
-
-                <label id="qID">question ID</label><br>
-                <label id="qText">question TEXT</label><br>
-
-                <input type="checkbox" id="checkbox1" value="checkbox1" class="answers hide" disabled>
-                <label for="checkbox1" class="hide">A</label><br>
-
-                <input type="checkbox" id="option1" value="option1" class="options">
-                <label id="A" for="option1"> option A</label><br>
-
-                <input type="checkbox" id="checkbox2" value="checkbox2" class="answers hide" disabled>
-                <label for="checkbox2" class="hide">B</label><br>
-
-                <input type="checkbox" id="option2" value="option2" class="options">
-                <label id="B" for="option2">option B</label><br>
-
-                <input type="checkbox" id="checkbox3" value="checkbox3" class="answers hide" disabled>
-                <label for="checkbox3" class="hide">C</label><br>
-
-                <input type="checkbox" id="option3" value="option3" class="options">
-                <label id="C" for="option3">option C</label><br>
-
-                <input type="checkbox" id="checkbox4" value="checkbox4" class="answers hide" disabled>
-                <label for="checkbox4" class="hide">D</label><br>
-
-                <input type="checkbox" id="option4" value="option4" class="options">
-                <label id="D" for="option4">option D</label>
-
-            </div>
-
-            <div class="process">
-                <!-- <input type="button" id="btn-start" Value="start"> -->
-                <input type="button" id="btn-run" Value="begin">
-                <input type="button" class="blue" id="btn-show" value="Show Answers" class="b">
-
-
-                <input type="button" id="submit" value="xxxxx" disabled>
-
-
-                <input type="button" id="result" value="Post Results" class="b" disabled>
-            </div>
+            <p class="scores">Correct Answers <span id="scorePlus">0</span></p>
+            <br>
+            <p class="scores">Incorrect Answers <span id="scoreMinus">0</span></p>
+            <br>
         </div>
     </div>
 
-    <footer>
-        <div>
-            <p>@2023</p>
-            <br>
+    <!-- >> QUIZ-------------------------------------------------------------->
+    <div class="quiz">
+
+        <p>QUIZ AREA</p>
+
+        <h2>title of the test <i class="fa-brands fa-think-peaks"></i></h2>
+
+        <br>
+
+        <div id="progress-bar">
+            <div id="bar"></div>
         </div>
-        <div>
-            <!-- <h3>No Change, DEV TST 01</h3>-->
 
 
-            <h4>...................Temp: for testing functioalities ``................... </h4>
 
-            <!-- <h2 id="test"></h2>
+        <div class="data">
+
+            <label id="qID">qID</label><br>
+            <label id="qText">question TEXT</label><br>
+
+            <input type="checkbox" id="checkbox1" value="checkbox1" class="answers hide" disabled>
+            <label for="checkbox1" class="hide">A</label><br>
+
+            <input type="checkbox" id="option1" value="option1" class="options">
+            <label id="A" for="option1"> option A</label><br>
+
+            <input type="checkbox" id="checkbox2" value="checkbox2" class="answers hide" disabled>
+            <label for="checkbox2" class="hide">B</label><br>
+
+            <input type="checkbox" id="option2" value="option2" class="options">
+            <label id="B" for="option2">option B</label><br>
+
+            <input type="checkbox" id="checkbox3" value="checkbox3" class="answers hide" disabled>
+            <label for="checkbox3" class="hide">C</label><br>
+
+            <input type="checkbox" id="option3" value="option3" class="options">
+            <label id="C" for="option3">option C</label><br>
+
+            <input type="checkbox" id="checkbox4" value="checkbox4" class="answers hide" disabled>
+            <label for="checkbox4" class="hide">D</label><br>
+
+            <input type="checkbox" id="option4" value="option4" class="options">
+            <label id="D" for="option4">option D</label>
+
+        </div>
+
+
+        <div class="process">
+            <!-- <input type="button" id="btn-start" Value="start"> -->
+            <input type="button" id="btn-run" Value="begin">
+            <input type="button" class="blue" id="btn-show" value="Show Answers" class="b">
+
+            <input type="button" id="submit" value="xxxxx" disabled>
+
+
+            <input type="button" value="Post Results" class="b" disabled>
+        </div>
+
+        <div class="infoBox">
+
+          
+
+            <span>
+                <h3>rwsult:</h3>
+                <ul id="result">
+                </ul>
+            </span>
+
+            <span>
+                <h3>Set up:</h3>
+                <ul id="setupInfo">
+                    <li id="mode-set"></li>
+                    <li id="timer-set"></li>
+                    <br>
+                    <li id="limit-set"></li>
+                    <li id="count-set"></li>
+                    <br>
+                    <li id="selection"></li>
+                </ul>
+            </span>
+
+            <span>
+                <h3 id=tempInfo></h3>
+            </span>
+
+
+        </div>
+
+        
+
+    </div>
+</div>
+
+<footer>
+    <div>
+        <p>@2023</p>
+        <br>
+    </div>
+    <div>
+        <!-- <h3>No Change, DEV TST 01</h3>-->
+
+
+        <h4>...................Temp: for testing functioalities ``................... </h4>
+
+        <!-- <h2 id="test"></h2>
 
             <input type="button" id="reload" Value="refrech page" style="background-color: blue; font-size: xx-large;"
                 onclick="location.reload()"> -->
-            <br>
-            <br>
-            <input type="button" id="btn-test" Value="test"
-                style="background-color: rgb(226, 141, 43); font-size: xx-large;">
-            <br><br>
-            <div>
-                <h3>Answer Record:</h3>
-                <ul id="answersRecord-T">
-                </ul>
-                <br>
+        <br>
+        <br>
+        <input type="button" id="btn-test" Value="test"
+            style="background-color: rgb(226, 141, 43); font-size: xx-large;">
+        <br><br>
+    
+    </div>
+</footer>
 
-                <div></div>
-            </div>
-
-        </div>
-    </footer>
-
-    <!--Script of FONTAESOME for the used icons-->
-    <script src="https://kit.fontawesome.com/f24292f78f.js" crossorigin="anonymous"></script>
+<!--Script of FONTAESOME for the used icons-->
+<script src="https://kit.fontawesome.com/f24292f78f.js" crossorigin="anonymous"></script>
 
 
-    <!-- <script src="assets/js/controls.js"></script>
+<!-- <script src="assets/js/controls.js"></script>
        <script src="assets/js/load.js"></script> -->
 
-    <!-- <script src="assets/js/timer.js"></script> -->
-    <!-- <script src="assets/js/process.js"></script> -->
-    <script src="assets/js/functions.js"></script>
+<!-- <script src="assets/js/timer.js"></script> -->
+<!-- <script src="assets/js/process.js"></script> -->
+<script src="assets/js/functions.js"></script>
 
 </body>
 

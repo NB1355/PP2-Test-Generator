@@ -17,7 +17,9 @@ const inputs = document.querySelectorAll(".setup");
 inputs.forEach(setup => {
     setup.addEventListener("change", function handleClick(event) {
         console.log('box clicked', event);
+        
         setUp();
+       
         setup.setAttribute('style', 'background-color: yellow;');
     });
 });
@@ -25,16 +27,16 @@ inputs.forEach(setup => {
 
 function setUp() {
     setMode();
-    document.getElementById("mode-set").innerHTML = `${theMode} Mode`;
+    document.getElementById("mode-set").innerHTML = `Mode: ${theMode}`;
 
     setTimer();
-    document.getElementById("timer-set").innerHTML = `Timer ${theTimer}`;
+    document.getElementById("timer-set").innerHTML = `Timer: ${theTimer}`;
 
     setCount();
-    document.getElementById("count-set").innerHTML = `${theCount} questions`;
+    document.getElementById("count-set").innerHTML = `Questions: ${theCount}`;
 
     setLimit();
-    document.getElementById("limit-set").innerHTML = `${theLimit} seconds limit`;
+    document.getElementById("limit-set").innerHTML = `Limit: ${theLimit} seconds`;
 }
 
 
@@ -84,7 +86,7 @@ function questionLoad() {
 
     displayClass(".data", "block");
 
-
+setUp();
 
     fetch("assets/data/default.json") // link later to select and upload process -----------#check
         .then(response => {
@@ -116,7 +118,7 @@ function questionShow() {
 
     if (isSelect < select.length) {
 
-
+    
         answersRecord();
 
         optionsClear();
@@ -134,6 +136,8 @@ function questionShow() {
 
         optionesTrue(q);
         document.getElementById("btn-run").value = "Next";
+
+        
     }
     else {
         document.getElementById("btn-run").value = "Submit";
@@ -142,6 +146,9 @@ function questionShow() {
     }
 
 }
+
+
+
 
 // setup correct options
 
@@ -241,13 +248,19 @@ function answersRecord() {
         }
     }
 
+        let record = document.getElementById("qID").innerHTML +" "+ pass;
+        const recordNode = document.createElement("li");
+        const recordText = document.createTextNode(record);
+       
+        if (isSelect > 0) {
+            recordNode.appendChild(recordText);
+            document.getElementById("result").appendChild(recordNode);
+            
+        }
+       
 
-    let record = document.getElementById("qID").innerHTML + " Pass: " + pass;
-    const recordNode = document.createElement("li");
-    const recordText = document.createTextNode(record);
 
-    recordNode.appendChild(recordText);
-    document.getElementById("answersRecord-T").appendChild(recordNode);
+   
 }
 
 function scorePlus() {
@@ -270,12 +283,12 @@ function answersCheck() {
         option4.checked == checkbox4.checked
     ) {
         scorePlus();
-        pass = "Y";
+        pass = "Pass";
 
 
     } else {
         scoreMinus();
-        pass = "N";
+        pass = "Fail";
     }
 
 }
