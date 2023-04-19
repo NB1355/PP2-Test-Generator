@@ -21,7 +21,6 @@ inputs.forEach(setting => {
 
 
 // document.getElementById("btn-run").addEventListener("click", runSet);
-
 // document.getElementById("btn-show").addEventListener("click", answersShow);
 
 
@@ -41,8 +40,11 @@ function runSet() {
 
         // document.getElementById("btn-show").value = "show answers";
         document.getElementById("btn-show").disabled = true;
-
         document.getElementById("btn-reset").disabled = false;
+       
+        displayClass(".infoBox", "inline-block");
+        displayClass(".data", "none");
+
     } else {
 
         questionLoad();
@@ -52,7 +54,6 @@ function runSet() {
 
 
         console.log("qload ran " + isSelect); ////
-
 
     }
 
@@ -66,12 +67,13 @@ function newSet() {
 
     location.reload();
 
-    // if (confirm("Abort and reload, data will be lost!!!")) {
+    if (confirm("Abort and reload, data will be lost!!!")) {
 
-    //     
-    //     console.log("new........................");
+        
+        console.log("new........................");
 
-    // } ;
+    } ;
+   
 
     document.getElementById("btn-reset").disabled = true;
     document.getElementById("btn-show").disabled = true;

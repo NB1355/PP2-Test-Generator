@@ -116,20 +116,14 @@ hr {
   background-color: rgb(207, 205, 205);
 
   display: block;
-
-  /* background: url("../images/background.jpg") no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed; */
 }
-
-
 
 
 .data {
-  accent-color: #0c162c;
-  padding: 30px;
-  display: none;
+   display: none;
+   padding: 30px;
 }
+
 
 
 .hide {
@@ -182,8 +176,8 @@ input[type="checkbox"].options {
 
 
   background-color: #98c004;
-  color: #fafafa;
-  width: 100%;
+  color:#0c162c;
+  width: 92.5%;
 
 
   border-radius: 2px;
@@ -192,9 +186,9 @@ input[type="checkbox"].options {
   text-align: center;
   height: 30px;
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  font-size: 75%;
+  font-size: 90%;
 
   border: none;
   outline: none;
@@ -207,7 +201,7 @@ input[type="checkbox"].options {
 
 
   color: #fafafa;
-  width: 20rem;
+  width: 25rem;
 
   border-radius: 2px;
   margin: 5px 10px 10px 0;
@@ -217,7 +211,7 @@ input[type="checkbox"].options {
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
-  font-size: 75%;
+  font-size: 90%;
 
   border: none;
   outline: none;
@@ -227,6 +221,7 @@ input[type="checkbox"].options {
 
 .functions {
   display: inline-block;
+  
 }
 
 .buttons :disabled {
@@ -235,13 +230,22 @@ input[type="checkbox"].options {
 }
 
 
+.infoBox {
+  display: none;
+  /* display: inline-block; */
+}
 
+.infoBox h3 {
+ 
+  border-bottom: #0c162c 2px solid;
+}
 
 
 .infoBox span {
   margin-top: 20px;
   padding: 5px 0 0 50px;
   display: inline-table;
+
   /* display: none; */
   /* text-align: top; */
 }
@@ -257,7 +261,7 @@ li {
 
 .setup {
   margin: 10px;
-  border: darkmagenta 1px solid;
+  border: darkmagenta 3px solid;
   height: auto;
 
   grid-area: setup;

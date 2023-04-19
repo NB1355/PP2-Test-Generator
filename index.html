@@ -25,7 +25,7 @@
         <div class="header">
             <p> HEADER AREA</p>
 
-            <h1 id="logo">Project Portfolio II: TEST GENERATOR</h1>
+            <h1 id="logo">TEST GENERATOR</h1>
 
         </div>
 
@@ -119,6 +119,10 @@
 
             <p>RECORD AREA</p>
 
+            <div id="progress-bar">
+                <div id="bar"></div>
+            </div>
+
 
 
         </div>
@@ -146,10 +150,38 @@
 
             <br>
 
-            <div id="progress-bar">
+            <!-- <div id="progress-bar">
                 <div id="bar"></div>
-            </div>
+            </div> -->
 
+
+            <div class="infoBox">
+
+
+                <span>
+                    <h3>Set up</h3>
+                    <ul id="setupInfo">
+                        <li id="mode-set"></li>
+                        <li id="timer-set"></li>
+                        <br>
+                        <li id="limit-set"></li>
+                        <li id="count-set"></li>
+                        <li id="selection"></li>
+                    </ul>
+                </span>
+
+                <span>
+                    <h3>result</h3>
+                    <ul id="result">
+                    </ul>
+                </span>
+
+                <!-- <span>
+                <h3 id=tempInfo></h3>
+            </span> -->
+
+
+            </div>
 
 
             <div class="data">
@@ -187,14 +219,10 @@
 
                 <span class="process">
 
-                    <!-- <input type="button" id="btn-run" Value="start" onclick="window.runSet()"> -->
-                    <input type="button" id="btn-run" Value="start" onclick="runSet()" > 
+                    <input type="button" id="btn-run" Value="confirm the setup and start" onclick="runSet()">
                 </span>
 
                 <span class="functions">
-
-                    <!-- <input type="button" id="btn-show" value="Show Answers" onclick="answersShow()"> -->
-                    <!-- <input type="button" id="btn-reset" value="reset" onclick="reSet()"> -->
 
                     <input type="button" id="btn-show" value="Show Answers" onclick="answersShow()" disabled>
                     <input type="button" id="btn-reset" value="reset" onclick="newSet()" disabled>
@@ -202,64 +230,11 @@
                 </span>
 
             </div>
-
-
-            <div class="infoBox">
-
-
-                <span>
-                    <h3>Set up:</h3>
-                    <ul id="setupInfo">
-                        <li id="mode-set"></li>
-                        <li id="timer-set"></li>
-                        <br>
-                        <li id="limit-set"></li>
-                        <li id="count-set"></li>
-                        <br>
-                        <li id="selection"></li>
-                    </ul>
-                </span>
-
-                <span>
-                    <h3>result:</h3>
-                    <ul id="result">
-                    </ul>
-                </span>
-
-                <!-- <span>
-                <h3 id=tempInfo></h3>
-            </span> -->
-
-
-            </div>
-
-
-
         </div>
     </div>
 
     <footer>
-        <div>
-            <p>@2023</p>
-            <br>
-        </div>
-        <div>
-            <!-- <h3>No Change, DEV TST 01</h3>-->
-
-
-            <h4>...................Temp: for testing functioalities ``................... </h4>
-
-            <!-- <h2 id="test"></h2>
-
-            <input type="button" id="reload" Value="refrech page" style="background-color: blue; font-size: xx-large;"
-                onclick="location.reload()"> -->
-            <br>
-            <br>
-            <input type="button" id="btn-test" Value="test"
-                style="background-color: rgb(226, 141, 43); font-size: xx-large;">
-            <br><br>
-
-        </div>
+        <p>Project Portfolio II @2023</p>
     </footer>
 
     <!--Script of FONTAESOME for the used icons-->
