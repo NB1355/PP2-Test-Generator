@@ -4,25 +4,84 @@ let theTimer;
 let theCount;
 let theLimit;
 let theStatus;
-
 let theData = [];
 let select = [];
 let isSelect = 0;
-
 
 // Gets default setup parameters 
 
 const inputs = document.querySelectorAll(".setup");
 
-inputs.forEach(setup => {
-    setup.addEventListener("change", function handleClick(event) {
-        console.log('box clicked', event);
-        
+inputs.forEach(setting => {
+    setting.addEventListener("change", function handleClick() {
         setUp();
-       
-        setup.setAttribute('style', 'background-color: yellow;');
     });
 });
+
+
+
+// document.getElementById("btn-run").addEventListener("click", runSet);
+
+// document.getElementById("btn-show").addEventListener("click", answersShow);
+
+
+function runSet() {
+
+    theStatus = document.getElementById("btn-run").value;
+
+
+    document.getElementById("btn-reset").disabled = false;
+    document.getElementById("btn-show").disabled = false;
+    // console.log(theStatus);
+
+    if (theStatus === "submit") {
+
+        // document.getElementById("btn-run").value = "Start";
+        document.getElementById("btn-run").disabled = true;
+
+        // document.getElementById("btn-show").value = "show answers";
+        document.getElementById("btn-show").disabled = true;
+
+        document.getElementById("btn-reset").disabled = false;
+    } else {
+
+        questionLoad();
+        answersCheck();
+        answersRecord();
+        optionsClear();
+
+
+        console.log("qload ran " + isSelect); ////
+
+
+    }
+
+    document.getElementById("btn-show").value = "show answers";
+
+}
+
+
+
+function newSet() {
+
+    location.reload();
+
+    // if (confirm("Abort and reload, data will be lost!!!")) {
+
+    //     
+    //     console.log("new........................");
+
+    // } ;
+
+    document.getElementById("btn-reset").disabled = true;
+    document.getElementById("btn-show").disabled = true;
+
+    // else{
+    //     console.log("nonothingn");
+    // }
+}
+
+
 
 
 function setUp() {
@@ -65,28 +124,16 @@ function setLimit() {
     theLimit = document.getElementById("set-limit").value * theCount;
 }
 
-function getStatus(isSelect, q, selection) {
-    // let status = "ready";
-    // switch (status) {
-    //     case "1":
-    //         document.getElementById("checkbox1").checked = true;
-    //         break;
-    //     case "2":
 
-    // }
-    // console.log("isSelect:", isSelect, " q: ", q, " selection: ", selection);
-
-}
 
 // LOAD ...............................................................................
 
-document.getElementById("btn-run").addEventListener("click", questionLoad);
+
 
 function questionLoad() {
 
     displayClass(".data", "block");
 
-setUp();
 
     fetch("assets/data/default.json") // link later to select and upload process -----------#check
         .then(response => {
@@ -98,6 +145,8 @@ setUp();
             randomSelect(theData);
 
             questionShow();
+            // 
+            // console.log(isSelect);
         });
 }
 
@@ -116,12 +165,11 @@ function randomSelect(theData) {
 
 function questionShow() {
 
+    // console.log("status check befor qShow  " + theStatus);
+
+
     if (isSelect < select.length) {
 
-    
-        answersRecord();
-
-        optionsClear();
 
         let q = select[isSelect] - 1;
         qID.innerHTML = theData.questions[q].qRefID;
@@ -130,20 +178,25 @@ function questionShow() {
         B.innerHTML = theData.questions[q].checkbox2;
         C.innerHTML = theData.questions[q].checkbox3;
         D.innerHTML = theData.questions[q].checkbox4;
+        optionesTrue(q);
 
-        getStatus(isSelect, q);
+        console.log("isSelect befor qShow ++  " + isSelect);
+        console.log("ID check " + theData.questions[q].qRefID);
+
+        document.getElementById("btn-run").value = "next";
         isSelect++
 
-        optionesTrue(q);
-        document.getElementById("btn-run").value = "Next";
-
-        
     }
     else {
-        document.getElementById("btn-run").value = "Submit";
+
+        document.getElementById("btn-run").value = "submit";
+
+
         // document.getElementById("btn-load").addEventListener("click", showResult)
         // document.getElementById("btn-load").value = "Email the Resul";
     }
+    // console.log("isSelect after qShow  " + isSelect);
+    // console.log("ID check after qShow  " + isSelect);
 
 }
 
@@ -161,24 +214,15 @@ function optionesTrue(q) {
         switch (correct) {
             case "1":
                 document.getElementById("checkbox1").checked = true;
-                console.log("chekbox1");
-
-
-
-
-                document.getElementById("checkbox1").classList.add = "mark"; ///?????????????????????????????????????????????????????
                 break;
             case "2":
                 document.getElementById("checkbox2").checked = true;
-                console.log("chekbox2");
                 break;
             case "3":
                 document.getElementById("checkbox3").checked = true;
-                console.log("chekbox3");
                 break;
             case "4":
                 document.getElementById("checkbox4").checked = true;
-                console.log("chekbox4");
                 break;
         }
     }
@@ -199,7 +243,8 @@ function optionsClear() {
 
 // Show and hide correct answers by changing opacity.
 
-document.getElementById("btn-show").addEventListener("click", answersShow);
+
+
 
 function answersShow() {
 
@@ -233,34 +278,21 @@ function answersShow() {
 
 function answersRecord() {
 
-    answersCheck();
-    answersHeid();
+    let theAnswers = document.querySelectorAll(".answers");
 
-    function answersHeid() {
+    for (var i = 0; i < theAnswers.length; i++) {
 
-        document.getElementById("btn-show").value = "Show Answers";
-
-        var theAnswers = document.querySelectorAll(".answers");
-
-        for (var i = 0; i < theAnswers.length; i++) {
-
-            theAnswers[i].style.opacity = 0;
-        }
+        theAnswers[i].style.opacity = 0;
     }
 
-        let record = document.getElementById("qID").innerHTML +" "+ pass;
-        const recordNode = document.createElement("li");
-        const recordText = document.createTextNode(record);
-       
-        if (isSelect > 0) {
-            recordNode.appendChild(recordText);
-            document.getElementById("result").appendChild(recordNode);
-            
-        }
-       
+    let record = document.getElementById("qID").innerHTML + " " + pass;
+    const recordNode = document.createElement("li");
+    const recordText = document.createTextNode(record);
 
-
-   
+    if (isSelect > 0) {
+        recordNode.appendChild(recordText);
+        document.getElementById("result").appendChild(recordNode);
+    }
 }
 
 function scorePlus() {
@@ -378,44 +410,30 @@ function setTimer() {
     }
 }
 
-    function toHhMmSs(totalSeconds) {
-        // https://codingbeautydev.com/
+function toHhMmSs(totalSeconds) {
+    // https://codingbeautydev.com/
 
 
-        const seconds2 = showTwoDigit(totalSeconds % 60);
-        const totalMinutes = Math.floor(totalSeconds / 60);
-        const minutes2 = showTwoDigit((totalMinutes) % 60);
-        const hours2 = showTwoDigit(Math.floor(totalMinutes / 60));
+    const seconds2 = showTwoDigit(totalSeconds % 60);
+    const totalMinutes = Math.floor(totalSeconds / 60);
+    const minutes2 = showTwoDigit((totalMinutes) % 60);
+    const hours2 = showTwoDigit(Math.floor(totalMinutes / 60));
 
-        return { hours2, minutes2, seconds2 };
+    return { hours2, minutes2, seconds2 };
+}
+
+
+function showTwoDigit(number) {
+    if (number <= 9) {
+        numberShow = "0" + number;
     }
-
-
-    function showTwoDigit(number) {
-        if (number <= 9) {
-            numberShow = "0" + number;
-        }
-        else {
-            numberShow = number;
-        }
-        return numberShow;
+    else {
+        numberShow = number;
     }
+    return numberShow;
+}
 
 
 
 
-// function test() {
 
-//     let timeLeft2 = (toHhMmSs(theLimit));
-
-//     var appendMinutes = document.getElementById("minutes")
-//     var appendSeconds = document.getElementById("seconds")
-
-//     appendMinutes.innerHTML = "22";//timeLeft2.minutes2;
-//     appendSeconds.innerHTML = "11";//timeLeft2.seconds2;
-
-//     console.log(timeLeft2);
-
-// }
-
-// document.getElementById("btn-test").addEventListener("click", test);

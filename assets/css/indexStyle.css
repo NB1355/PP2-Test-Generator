@@ -133,15 +133,15 @@ hr {
 
 
 .hide {
-   opacity: 0;
-   margin-top: 20px;
+  opacity: 0;
+  margin-top: 20px;
 
 }
 
 
 input[type="checkbox"]:disabled:checked.answers {
   /* pointer-events: none; */
-  outline:#98c004 solid 2px;
+  outline: #98c004 solid 2px;
 
   width: 20px;
   height: 20px;
@@ -163,36 +163,88 @@ input[type="checkbox"].options {
 }
 
 
-
-.process input {
+/* 
+.run input {
   border-radius: 2px;
-  padding: 5px 10px 5px 10px;
+  margin: 5px 10px 10px 0;;
   text-align: center;
   height: 30px;
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
-  width: 20em;
   font-size: 75%;
-  margin: 5px;
+  
+} */
+
+
+.process input {
+
+
+
   background-color: #98c004;
   color: #fafafa;
+  width: 100%;
+
+
+  border-radius: 2px;
+  margin: 5px 10px 10px 0;
+  
+  text-align: center;
+  height: 30px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 75%;
+
+  border: none;
+  outline: none;
+
 
 }
 
-.process{
-  border: #0c162c solid 1px;
-  margin-top: 20px;
+.functions input {
+  background-color:#0c162c;
+
+
+  color: #fafafa;
+  width: 20rem;
+
+  border-radius: 2px;
+  margin: 5px 10px 10px 0;
+  
+  text-align: center;
+  height: 30px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 75%;
+
+  border: none;
+  outline: none;
+  
 }
+
+
+.functions {
+  display: inline-block;
+}
+
+.buttons :disabled {
+  opacity: 50%;
+  
+}
+
+
+
 
 
 .infoBox span {
   margin-top: 20px;
   padding: 5px 0 0 50px;
-  display:inline-table;
+  display: inline-table;
   /* display: none; */
-  text-align: top;
-  }
+  /* text-align: top; */
+}
 
 
 li {
@@ -232,7 +284,7 @@ li {
   font-size: small;
   grid-area: timer;
   text-align: center;
-  
+
 }
 
 .timer button {
