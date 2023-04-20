@@ -41,21 +41,16 @@ hr {
 
 /* .....................................................TEMP:All P data should be removed at the end !!!*/
 .grid-wrap p {
-  color: darkmagenta;
-  font-style: italic;
+  /* color: red;
+  font-style: italic; */
   text-align: end;
   padding-inline-end: 10px;
 }
 
 
-
-
-
 /*---------------------------Grid Structure----------------------------*/
 .grid-wrap {
   margin: 10px;
-  border: gray 1px solid;
-
   display: grid;
   gap: 10px;
 
@@ -71,36 +66,32 @@ hr {
     "footer";
 }
 
+.grid-wrap>div {
 
+  background-color: rgb(207, 205, 205);
+  margin: 10px;
+  padding: 10px;
+
+}
 
 .header {
   grid-area: header;
-
-  margin: 10px;
-  border: darkmagenta 1px solid;
-  background-color: darkgray;
-  padding-left: 30px;
-
-
-
 }
 
 .social {
+
   grid-area: social;
-
-  margin: 10px;
-  border: darkmagenta 1px solid;
   align-items: center;
-  background-color: darkgray;
-
 }
 
 .social li {
+
   display: inline-block;
   padding: 10px;
 }
 
 .social i {
+
   color: #0c162c;
   font-size: 120%;
 }
@@ -108,134 +99,89 @@ hr {
 /*---------------------------Content-----------------------------------*/
 
 .quiz {
-  margin: 10px;
-  padding: 30px;
-  border: darkmagenta 1px solid;
-  height: auto;
 
   grid-area: quiz;
-  background-color: rgb(207, 205, 205);
-
   display: block;
 }
-
 
 .data {
   display: none;
   padding: 30px;
 }
 
-
-
 .hide {
+
   opacity: 0;
   margin-top: 20px;
-
 }
 
-
 input[type="checkbox"]:disabled:checked.answers {
-  /* pointer-events: none; */
-  outline: #98c004 solid 2px;
 
+  outline: #98c004 solid 2px;
   width: 20px;
   height: 20px;
 }
 
 input[type="checkbox"]:disabled.answers {
-  /* pointer-events: none; */
-  /* outline:#98c004 solid 2px; */
+
   outline: red solid 2px;
   width: 20px;
   height: 20px;
 }
 
-
 input[type="checkbox"].options {
-  /* pointer-events: none; */
+
   width: 22px;
   height: 22px;
+  accent-color: #0c162c;
 }
 
 
-/* 
-.run input {
-  border-radius: 2px;
-  margin: 5px 10px 10px 0;;
-  text-align: center;
-  height: 30px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 75%;
-  
-} */
+.buttons span {
 
+  display: block;
+}
 
-.process input {
-
-
-
-  background-color: #98c004;
-  color: #0c162c;
-  width: 25rem;
-
+.buttons span input {
 
   border-radius: 2px;
   margin: 5px 10px 10px 0;
-
   text-align: center;
   height: 30px;
   font-weight: bold;
   letter-spacing: 3px;
   text-transform: uppercase;
   font-size: 90%;
-
   border: none;
   outline: none;
+  
+  width: 25rem;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
+.process input {
 
+  background-color: #98c004;
+  color: #0c162c;
+  
 }
 
 .functions input {
+
   background-color: #0c162c;
-
-
   color: #fafafa;
-  width: 25rem;
-
-  border-radius: 2px;
-  margin: 5px 10px 10px 0;
-
-  text-align: center;
-  height: 30px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 90%;
-
-  border: none;
-  outline: none;
-
-}
-
-
-.functions {
-  display: inline-block;
+ 
 }
 
 .buttons :disabled {
-  opacity: 50%;
 
+  opacity: 50%;
 }
 
-
-
 .infoBox {
+
   display: none;
   margin-bottom: 20px;
-  /* display: inline-block; */
 }
 
 .infoBox h3 {
@@ -243,35 +189,24 @@ input[type="checkbox"].options {
   border-bottom: #0c162c 2px solid;
 }
 
-
 .infoBox span {
-  margin-top: 20px;
+
+  /* margin-top: 10px; */
   padding: 5px 0 0 50px;
   display: inline-table;
-
-  /* display: none; */
-  /* text-align: top; */
 }
-
 
 li {
   padding: 5px 0 0 5px;
   list-style-type: none;
-
 }
 
-
-
 .setup {
-  margin: 10px;
-  border: darkmagenta 3px solid;
-  height: auto;
 
   grid-area: setup;
   display: inline-block;
   padding: 5px;
   font-size: medium;
-
 }
 
 .num-input {
@@ -280,21 +215,16 @@ li {
   margin: 2px;
   padding: 2px;
   font-size: medium;
-
-
 }
 
 .timer {
-  margin: 10px;
-  border: rgb(14, 11, 14) 1px solid;
-  height: auto;
-  font-size: small;
+
   grid-area: timer;
   text-align: center;
-
 }
 
 .timer button {
+
   margin-top: 20px;
   border-radius: 2px;
   padding: 5px 10px 5px 10px;
@@ -310,6 +240,7 @@ li {
 }
 
 .timer span {
+
   background-color: #98c004;
   font-weight: bold;
   font-size: xx-large;
@@ -318,6 +249,7 @@ li {
 }
 
 #clock {
+
   background-color: #0c162c;
   color: #fafafa;
   text-align: center;
@@ -327,7 +259,6 @@ li {
 #timer-stop {
   display: none;
   color: yellow;
-
 }
 
 #timer-reset {
@@ -336,19 +267,11 @@ li {
 }
 
 .record {
-  margin: 10px;
-  border: darkmagenta 1px solid;
-  height: auto;
 
-  grid-area: record;
-  font-size: 60%;
-  text-transform: uppercase;
+ grid-area: record;
 }
 
 .score {
-  margin: 10px;
-  border: darkmagenta 1px solid;
-  height: auto;
 
   grid-area: score;
 }
@@ -357,10 +280,12 @@ li {
 
 footer {
   margin: 10px;
-  border: gray 1px solid;
+  /* border: gray 1px solid; */
   height: auto;
-  background-color: beige;
+  /* background-color: beige; */
   font-size: small;
+
+  text-align: center;
 }
 
 
@@ -369,7 +294,7 @@ footer {
 @media (min-width: 500px) {
 
   .grid-wrap {
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 3fr 2fr;
     grid-template-areas:
       "header social"
       "quiz setup"
@@ -378,10 +303,16 @@ footer {
       "quiz score"
       "footer footer";
   }
+
+  .grid-wrap>div {
+
+    background-color: rgb(207, 205, 205);
+    margin: 10px;
+    padding: 30px;
+
+  }
+
 }
-
-
-
 
 /* ///////////////////////////////////////////////////////////////////////*/
 
