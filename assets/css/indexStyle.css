@@ -79,6 +79,7 @@ hr {
   margin: 10px;
   border: darkmagenta 1px solid;
   background-color: darkgray;
+  padding-left: 30px;
 
 
 
@@ -120,8 +121,8 @@ hr {
 
 
 .data {
-   display: none;
-   padding: 30px;
+  display: none;
+  padding: 30px;
 }
 
 
@@ -176,13 +177,13 @@ input[type="checkbox"].options {
 
 
   background-color: #98c004;
-  color:#0c162c;
-  width: 92.5%;
+  color: #0c162c;
+  width: 25rem;
 
 
   border-radius: 2px;
   margin: 5px 10px 10px 0;
-  
+
   text-align: center;
   height: 30px;
   font-weight: bold;
@@ -192,12 +193,13 @@ input[type="checkbox"].options {
 
   border: none;
   outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 
 }
 
 .functions input {
-  background-color:#0c162c;
+  background-color: #0c162c;
 
 
   color: #fafafa;
@@ -205,7 +207,7 @@ input[type="checkbox"].options {
 
   border-radius: 2px;
   margin: 5px 10px 10px 0;
-  
+
   text-align: center;
   height: 30px;
   font-weight: bold;
@@ -215,28 +217,29 @@ input[type="checkbox"].options {
 
   border: none;
   outline: none;
-  
+
 }
 
 
 .functions {
   display: inline-block;
-  
 }
 
 .buttons :disabled {
   opacity: 50%;
-  
+
 }
+
 
 
 .infoBox {
   display: none;
+  margin-bottom: 20px;
   /* display: inline-block; */
 }
 
 .infoBox h3 {
- 
+
   border-bottom: #0c162c 2px solid;
 }
 

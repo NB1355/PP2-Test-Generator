@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="assets/css/indexStyle.css">
@@ -25,7 +26,7 @@
         <div class="header">
             <p> HEADER AREA</p>
 
-            <h1 id="logo">TEST GENERATOR</h1>
+            <h1 id="logo">TEST GENERATOR MODULE</h1>
 
         </div>
 
@@ -144,9 +145,9 @@
         <!-- >> QUIZ-------------------------------------------------------------->
         <div class="quiz">
 
-            <p>QUIZ AREA</p>
+            <p >QUIZ AREA</p>
 
-            <h2>title of the test <i class="fa-brands fa-think-peaks"></i></h2>
+            <h2 id="info-title">title of the test</h2>
 
             <br>
 
@@ -176,13 +177,7 @@
                     </ul>
                 </span>
 
-                <!-- <span>
-                <h3 id=tempInfo></h3>
-            </span> -->
-
-
             </div>
-
 
             <div class="data">
 
@@ -218,15 +213,14 @@
             <div class="buttons">
 
                 <span class="process">
-
-                    <input type="button" id="btn-run" Value="confirm the setup and start" onclick="runSet()">
+                    <input type="button" id="btn-run" Value="confirm the setup and start" onclick="setRun()">
+                    <input type="button" id="btn-resume" value="resume" onclick="setBack()" disabled>
                 </span>
 
                 <span class="functions">
-
                     <input type="button" id="btn-show" value="Show Answers" onclick="answersShow()" disabled>
-                    <input type="button" id="btn-reset" value="reset" onclick="newSet()" disabled>
-
+                    <input type="button" id="btn-reset" value="reset" onclick="setNew()" disabled>
+                    
                 </span>
 
             </div>

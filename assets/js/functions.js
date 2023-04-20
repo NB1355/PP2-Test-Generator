@@ -20,30 +20,25 @@ inputs.forEach(setting => {
 
 
 
-// document.getElementById("btn-run").addEventListener("click", runSet);
-// document.getElementById("btn-show").addEventListener("click", answersShow);
-
-
-function runSet() {
+function setRun() {
 
     theStatus = document.getElementById("btn-run").value;
 
-
     document.getElementById("btn-reset").disabled = false;
     document.getElementById("btn-show").disabled = false;
-    // console.log(theStatus);
 
     if (theStatus === "submit") {
 
-        // document.getElementById("btn-run").value = "Start";
         document.getElementById("btn-run").disabled = true;
-
-        // document.getElementById("btn-show").value = "show answers";
         document.getElementById("btn-show").disabled = true;
         document.getElementById("btn-reset").disabled = false;
-       
+
         displayClass(".infoBox", "inline-block");
         displayClass(".data", "none");
+
+        document.getElementById("info-title").innerHTML = "summary report";
+
+        // document.getElementById("xxx").style.backgroundColor = "red";
 
     } else {
 
@@ -51,38 +46,56 @@ function runSet() {
         answersCheck();
         answersRecord();
         optionsClear();
-
-
-        console.log("qload ran " + isSelect); ////
-
     }
 
     document.getElementById("btn-show").value = "show answers";
-
 }
 
 
+function setNew() {
 
-function newSet() {
+    theStatus = document.getElementById("btn-reset").value;
 
-    location.reload();
+    if (theStatus === "confirm & reset") {
 
-    if (confirm("Abort and reload, data will be lost!!!")) {
+        location.reload();
 
+    } else {
+
+        document.getElementById("btn-reset").value = "confirm & reset";
+        document.getElementById("btn-reset").style.color = "red";
+
+        document.getElementById("btn-resume").disabled = false;
+        // document.getElementById("btn-resume").style.color = "#98c004";
+
+        document.getElementById("btn-run").disabled = true;
         
-        console.log("new........................");
-
-    } ;
-   
-
-    document.getElementById("btn-reset").disabled = true;
-    document.getElementById("btn-show").disabled = true;
-
-    // else{
-    //     console.log("nonothingn");
-    // }
+    }
 }
 
+
+function setBack() {
+
+    document.getElementById("btn-run").disabled = false;
+    document.getElementById("btn-resume").disabled = true;
+    
+    document.getElementById("btn-reset").value = "reset";
+    document.getElementById("btn-resume").style.color = "#fff";
+    document.getElementById("btn-reset").style.color = "#fff";
+}
+
+
+function showResult() {
+    
+    displayClass(".data", "none");
+}
+
+function displayClass(name, value) {
+    var theElements = document.querySelectorAll(name);
+    for (var i = 0; i < theElements.length; i++) {
+        theElements[i].style.display = value;
+    }
+}
 
 
 
@@ -100,15 +113,6 @@ function setUp() {
     document.getElementById("limit-set").innerHTML = `Limit: ${theLimit} seconds`;
 }
 
-
-// function setTimer() {
-//     if (document.getElementById('set-timer').checked) {
-//         theTimer = "ON"
-//     }
-//     else {
-//         theTimer = "OFF"
-//     }
-// }
 
 function setMode() {
     document.getElementsByName("set_mode").forEach(radio => {
@@ -180,7 +184,7 @@ function questionShow() {
         B.innerHTML = theData.questions[q].checkbox2;
         C.innerHTML = theData.questions[q].checkbox3;
         D.innerHTML = theData.questions[q].checkbox4;
-        optionesTrue(q);
+        optionesChecked(q);
 
         console.log("isSelect befor qShow ++  " + isSelect);
         console.log("ID check " + theData.questions[q].qRefID);
@@ -207,7 +211,7 @@ function questionShow() {
 
 // setup correct options
 
-function optionesTrue(q) {
+function optionesChecked(q) {
 
     let isCorrect = theData.questions[q].corrects;
 
@@ -329,18 +333,7 @@ function answersCheck() {
 
 
 
-function showResult() {
-    console.log("show result!!!!!!!")
 
-    displayClass(".data", "none");
-}
-
-function displayClass(name, value) {
-    var theElements = document.querySelectorAll(name);
-    for (var i = 0; i < theElements.length; i++) {
-        theElements[i].style.display = value;
-    }
-}
 
 
 
