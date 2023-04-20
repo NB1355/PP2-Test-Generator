@@ -54,9 +54,9 @@ function setRun() {
 
 function setNew() {
 
-    theStatus = document.getElementById("btn-reset").value;
+    let x = document.getElementById("btn-reset").value;
 
-    if (theStatus === "confirm & reset") {
+    if (x === "confirm & reset") {
 
         location.reload();
 
@@ -69,7 +69,7 @@ function setNew() {
         // document.getElementById("btn-resume").style.color = "#98c004";
 
         document.getElementById("btn-run").disabled = true;
-        
+
     }
 }
 
@@ -78,17 +78,17 @@ function setBack() {
 
     document.getElementById("btn-run").disabled = false;
     document.getElementById("btn-resume").disabled = true;
-    
+
     document.getElementById("btn-reset").value = "reset";
     document.getElementById("btn-resume").style.color = "#fff";
     document.getElementById("btn-reset").style.color = "#fff";
 }
 
 
-function showResult() {
-    
-    displayClass(".data", "none");
-}
+// function showResult() {
+
+//     displayClass(".data", "none");
+// }
 
 function displayClass(name, value) {
     var theElements = document.querySelectorAll(name);
@@ -100,6 +100,7 @@ function displayClass(name, value) {
 
 
 function setUp() {
+
     setMode();
     document.getElementById("mode-set").innerHTML = `Mode: ${theMode}`;
 
@@ -107,10 +108,16 @@ function setUp() {
     document.getElementById("timer-set").innerHTML = `Timer: ${theTimer}`;
 
     setCount();
-    document.getElementById("count-set").innerHTML = `Questions: ${theCount}`;
+    document.getElementById("count-set").innerHTML = `questions: ${theCount}`;
 
     setLimit();
     document.getElementById("limit-set").innerHTML = `Limit: ${theLimit} seconds`;
+
+   
+
+    document.getElementById("default").innerHTML =
+        `${theMode} mode | Timer ${theTimer}  | ${theCount} questions | ${theLimit} seconds time limit`
+
 }
 
 
@@ -171,9 +178,7 @@ function randomSelect(theData) {
 
 function questionShow() {
 
-    // console.log("status check befor qShow  " + theStatus);
-
-
+   
     if (isSelect < select.length) {
 
 
