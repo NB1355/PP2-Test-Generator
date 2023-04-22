@@ -66,24 +66,24 @@
 
             <p>SETUP AREA</p>
 
-            <input type="radio" id="mode-exam" name="set_mode" value="exam">
-            <label for="mode-exam">Exam</label>
+            <fieldset id="conditions">
 
-            <input type="radio" id="mode-learn" name="set_mode" value="learn" checked>
-            <label for="mode-learn">Learn Mode</label>
-            <br>
-            <br>
-            <input type="checkbox" id="set-timer" name="set_timer" checked>
-            <label for="set-timer">Show Timer </label>
-            <br>
-            <br>
+                <input type="radio" id="mode-exam" name="set_mode" value="exam">
+                <label for="mode-exam">Exam</label>
 
-            <input type="number" id="set-limit" name="set_limit" value="5" class="num-input">
-            <label for="set-limit"> Seconds [avarage limit for one question] </label>
-            <br>
-
-            <input type="number" id="set-random" name="set_random" value="5" class="num-input">
-            <label for="set-random"> Questions [selected randomly] </label>
+                <input type="radio" id="mode-learn" name="set_mode" value="learn" checked>
+                <label for="mode-learn">Learn Mode</label>
+                <br><br>
+                <input type="checkbox" id="set-timer" name="set_timer" checked>
+                <label for="set-timer">Show Timer </label>
+                <br><br>
+                <input type="range" id="set-limit" min="2" max="10" value="5">
+                <label for="set-limit" id="set-limit-l">-</label>
+                <h5>Seconds [avarage limit for one question] </h5>
+                <br>
+                <input type="range" id="set-random" name="set_random" value="10" min="2" >
+                <label for="set-random" id="set-random-l">-</label>
+                <h5>Questions [selected randomly]</h5>
 
         </div>
 
@@ -100,15 +100,13 @@
             </div>
 
             <div>
-                <span id="minutes">00</span>:<span id="seconds">00</span>
+                <span id="minutes">00</span>
+                <span>:</span>
+                <span id="seconds">00</span>
                 <br>
-
                 <button id="timer-start">Start</button>
                 <button id="timer-stop">Stop</button>
                 <button id="timer-reset">Reset</button>
-                <br><br>
-                <p id="time-check">
-                    </p2>
             </div>
 
 
@@ -123,6 +121,10 @@
             <div id="progress-bar">
                 <div id="bar"></div>
             </div>
+
+            <p id="time-check">
+            </p>
+
 
 
 
@@ -145,38 +147,30 @@
         <!-- >> QUIZ-------------------------------------------------------------->
         <div class="quiz">
 
-            <p >QUIZ AREA</p>
+            <p>QUIZ AREA</p>
 
             <h2 id="info-title">title of the test</h2>
-
-            <br>
-
-            <!-- <div id="progress-bar">
-                <div id="bar"></div>
-            </div> -->
-
+            <h4 id="defaults"></h4>
 
             <div class="infoBox">
 
-
                 <span>
-                    <h3>Set up</h3>
+                    <h3>settings</h3>
                     <ul id="setupInfo">
                         <li id="mode-set"></li>
                         <li id="timer-set"></li>
                         <br>
                         <li id="limit-set"></li>
+                        <br>
                         <li id="count-set"></li>
                         <li id="selection"></li>
                     </ul>
                 </span>
-
                 <span>
                     <h3>result</h3>
                     <ul id="result">
                     </ul>
                 </span>
-
             </div>
 
             <div class="data">
@@ -213,14 +207,14 @@
             <div class="buttons">
 
                 <span class="process">
-                    <input type="button" id="btn-run" Value="confirm the setup and start" onclick="setRun()">
+                    <input type="button" id="btn-run" Value="confirm and start" onclick="setRun()">
                     <input type="button" id="btn-resume" value="resume" onclick="setBack()" disabled>
                 </span>
 
                 <span class="functions">
                     <input type="button" id="btn-show" value="Show Answers" onclick="answersShow()" disabled>
                     <input type="button" id="btn-reset" value="reset" onclick="setNew()" disabled>
-                    
+
                 </span>
 
             </div>

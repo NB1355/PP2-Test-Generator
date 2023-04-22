@@ -133,13 +133,25 @@ input[type="checkbox"].options {
 
   width: 22px;
   height: 22px;
-  accent-color: #0c162c;
 }
 
+.setup {
+  accent-color: #98c004;
+  /* #0c162c; */
+}
+
+#set-limit-l,
+#set-random-l {
+
+  padding: 2px 2px 0 2px;
+  font-weight: bold;
+}
+
+/* ---------------------------------------------------------------- */
 
 .buttons span {
-
   display: block;
+  margin-top: 10px;
 }
 
 .buttons span input {
@@ -154,8 +166,8 @@ input[type="checkbox"].options {
   font-size: 90%;
   border: none;
   outline: none;
-  
-  width: 25rem;
+
+  width: 20rem;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -163,18 +175,18 @@ input[type="checkbox"].options {
 
   background-color: #98c004;
   color: #0c162c;
-  
+
 }
 
 .functions input {
 
   background-color: #0c162c;
   color: #fafafa;
- 
+
 }
 
 .buttons :disabled {
-
+  /* color: red; */
   opacity: 50%;
 }
 
@@ -209,20 +221,13 @@ li {
   font-size: medium;
 }
 
-.num-input {
-  border: black solid 1px;
-  width: 40px;
-  margin: 2px;
-  padding: 2px;
-  font-size: medium;
-}
-
 .timer {
 
   grid-area: timer;
   text-align: center;
 }
 
+#btn-confirm,
 .timer button {
 
   margin-top: 20px;
@@ -235,8 +240,10 @@ li {
   text-transform: uppercase;
   background-color: #0c162c;
   color: #fafafa;
-  width: 10em;
+
+  width: 10rem;
   font-size: 75%;
+
 }
 
 .timer span {
@@ -268,7 +275,7 @@ li {
 
 .record {
 
- grid-area: record;
+  grid-area: record;
 }
 
 .score {

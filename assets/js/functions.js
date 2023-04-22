@@ -7,22 +7,31 @@ let theStatus;
 let theData = [];
 let select = [];
 let isSelect = 0;
+let theMax;
 
 // Gets default setup parameters 
 
 const inputs = document.querySelectorAll(".setup");
 
 inputs.forEach(setting => {
-    setting.addEventListener("change", function handleClick() {
-        setUp();
-    });
-});
 
+    setting.addEventListener("change", function () {
+
+        setUp();
+
+    });
+
+
+});
 
 
 function setRun() {
 
     theStatus = document.getElementById("btn-run").value;
+
+
+    document.getElementById("conditions").disabled = true;
+
 
     document.getElementById("btn-reset").disabled = false;
     document.getElementById("btn-show").disabled = false;
@@ -76,7 +85,15 @@ function setNew() {
 
 function setBack() {
 
-    document.getElementById("btn-run").disabled = false;
+    if (theStatus === "submit") {
+
+        document.getElementById("btn-run").disabled = true;
+
+    } else {
+        document.getElementById("btn-run").disabled = false;
+
+    }
+
     document.getElementById("btn-resume").disabled = true;
 
     document.getElementById("btn-reset").value = "reset";
@@ -85,10 +102,10 @@ function setBack() {
 }
 
 
-// function showResult() {
+function showResult() {
 
-//     displayClass(".data", "none");
-// }
+    displayClass(".data", "none");
+}
 
 function displayClass(name, value) {
     var theElements = document.querySelectorAll(name);
@@ -106,17 +123,22 @@ function setUp() {
 
     setTimer();
     document.getElementById("timer-set").innerHTML = `Timer: ${theTimer}`;
+   
 
     setCount();
     document.getElementById("count-set").innerHTML = `questions: ${theCount}`;
+    document.getElementById("set-random-l").innerHTML = theCount;
 
     setLimit();
+
     document.getElementById("limit-set").innerHTML = `Limit: ${theLimit} seconds`;
+    document.getElementById("set-limit-l").innerHTML = document.getElementById("set-limit").value;
 
-   
 
-    document.getElementById("default").innerHTML =
-        `${theMode} mode | Timer ${theTimer}  | ${theCount} questions | ${theLimit} seconds time limit`
+    setMax();
+
+    document.getElementById("defaults").innerHTML =
+        `Settings: ${theMode} mode | Timer ${theTimer}  | ${theCount} questions | ${theLimit} seconds time limit`;
 
 }
 
@@ -131,13 +153,30 @@ function setMode() {
 
 function setCount() {
     theCount = document.getElementById("set-random").value;
+    
 }
 
 function setLimit() {
     theLimit = document.getElementById("set-limit").value * theCount;
+
 }
 
+function setMax() {
+    fetch("assets/data/default.json") // link later to select and upload process -----------#check
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            theData = data;
+            const maxNum = theData.questions.length;
+            console.log(maxNum);
 
+            theMax = maxNum;
+
+            document.getElementById("set-random").max = theMax;
+
+        });
+}
 
 // LOAD ...............................................................................
 
@@ -146,7 +185,6 @@ function setLimit() {
 function questionLoad() {
 
     displayClass(".data", "block");
-
 
     fetch("assets/data/default.json") // link later to select and upload process -----------#check
         .then(response => {
@@ -158,8 +196,6 @@ function questionLoad() {
             randomSelect(theData);
 
             questionShow();
-            // 
-            // console.log(isSelect);
         });
 }
 
@@ -178,7 +214,7 @@ function randomSelect(theData) {
 
 function questionShow() {
 
-   
+
     if (isSelect < select.length) {
 
 
@@ -191,8 +227,8 @@ function questionShow() {
         D.innerHTML = theData.questions[q].checkbox4;
         optionesChecked(q);
 
-        console.log("isSelect befor qShow ++  " + isSelect);
-        console.log("ID check " + theData.questions[q].qRefID);
+        // console.log("isSelect befor qShow ++  " + isSelect);
+        // console.log("ID check " + theData.questions[q].qRefID);
 
         document.getElementById("btn-run").value = "next";
         isSelect++
@@ -333,12 +369,7 @@ function answersCheck() {
         scoreMinus();
         pass = "Fail";
     }
-
 }
-
-
-
-
 
 
 
@@ -402,11 +433,9 @@ function setTimer() {
         appendSeconds.innerHTML = timePassed2.seconds2;
 
         // for functional test
-        console.log(timePassed2);
+        // console.log(timePassed2);
+
         document.getElementById("time-check").innerHTML = `Limit ${theLimit} Passed ${timePassed} Left ${timeLeft}`;
-
-
-
     }
 }
 
@@ -432,8 +461,4 @@ function showTwoDigit(number) {
     }
     return numberShow;
 }
-
-
-
-
 
