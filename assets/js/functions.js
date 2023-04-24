@@ -15,7 +15,8 @@ let seconds = 0;
 let timeLimit;
 // let theTime;
 // let timePassed;
-
+let qPass;
+let timerShow;
 
 // Gets default setup parameters 
 
@@ -103,7 +104,7 @@ function showResult() {
     timerStop();
 
     document.getElementById("answer-count").innerHTML =
-        `answer count: ${document.getElementById("answre-list").childElementCount}`;;
+        `answer count: ${document.getElementById("answre-list").childElementCount}`;
 
     document.querySelector('#result-plus').innerHTML =
         `correct: ${document.querySelector('#score-plus').innerHTML}`;
@@ -150,7 +151,7 @@ function setUp() {
     setMax();
 
     document.getElementById("defaults").innerHTML =
-        `Settings: ${theMode} mode | Timer ${theTimer} | ${theCount} questions ${timeLimit2} `;
+        `Settings: ${theMode} mode | Timer ${theTimer} | ${theCount} questions ${timeLimit} `;
 }
 
 
@@ -160,7 +161,7 @@ function setMode() {
         if (radio.checked) {
             theMode = radio.value;
         }
-    })
+    });
 
     if (theMode == "learn") {
 
@@ -193,13 +194,13 @@ function setLimit() {
 
         theLimit = document.getElementById("set-limit").value * theCount;
 
-        timeLimit = toHhMmSs(theLimit);
 
-        timeLimit2 = "| Time Limit: " + timeLimit.time2;
+
+        timeLimit = "| Time Limit: " + toHhMmSs(theLimit).time2;
 
     } else {
 
-        timeLimit2 = "| No Time Limit";
+        timeLimit = "| No Time Limit";
     }
 }
 
@@ -267,7 +268,7 @@ function questionShow() {
         optionesChecked(q);
 
         document.getElementById("btn-run").value = "next";
-        isSelect++
+        isSelect++;
     }
     else {
 
@@ -282,7 +283,7 @@ function optionesChecked(q) {
 
     let isCorrect = theData.questions[q].corrects;
 
-    for (i = 0; i < isCorrect.length; i++) {
+    for (var i = 0; i < isCorrect.length; i++) {
         let correct = isCorrect.charAt(i);
         switch (correct) {
             case "1":
@@ -303,14 +304,14 @@ function optionesChecked(q) {
 
 function optionsClear() {
 
+    var checkBox;
     let checkboxeAs = document.getElementsByClassName("answers");
-    for (var checkbox of checkboxeAs) {
-        checkbox.checked = false;
-
+    for (checkBox of checkboxeAs) {
+        checkBox.checked = false;
     }
     let checkboxeOs = document.getElementsByClassName("options");
-    for (var checkbox of checkboxeOs) {
-        checkbox.checked = false;
+    for (checkBox of checkboxeOs) {
+        checkBox.checked = false;
     }
 }
 
@@ -321,18 +322,20 @@ function optionsClear() {
 
 function answersShow() {
 
+    var theOpacity;
+
     if (theMode == "learn") {
 
         let xShow = document.getElementById("btn-show").value;
 
         if (xShow == "Show Answers") {
 
-            opacity = .8;
+            theOpacity = ".8";
             document.getElementById("btn-show").value = "Hide Answers";
 
         } else {
 
-            opacity = 0;
+            theOpacity = 0;
             document.getElementById("btn-show").value = "Show Answers";
         }
 
@@ -340,11 +343,10 @@ function answersShow() {
 
         for (var i = 0; i < theAnswers.length; i++) {
 
-            theAnswers[i].style.opacity = opacity;
+            theAnswers[i].style.opacity = theOpacity;
         }
     }
 }
-
 
 
 function answersRecord() {
@@ -356,7 +358,7 @@ function answersRecord() {
         theAnswers[i].style.opacity = 0;
     }
 
-    let record = document.getElementById("qID").innerHTML + " " + pass;
+    let record = document.getElementById("qID").innerHTML + " " + qPass;
     const recordNode = document.createElement("li");
     const recordText = document.createTextNode(record);
 
@@ -380,19 +382,22 @@ function scoreMinus() {
 
 function answersCheck() {
 
+    
     if (option1.checked == checkbox1.checked &&
         option2.checked == checkbox2.checked &&
         option3.checked == checkbox3.checked &&
         option4.checked == checkbox4.checked
     ) {
         scorePlus();
-        pass = "Pass";
+        qPass = "Pass";
 
     } else {
         scoreMinus();
-        pass = "Fail";
+        qPass = "Fail";
     }
-}
+    return qPass;
+ }
+
 
 
 // TIMER................................................................................
@@ -406,7 +411,7 @@ function setTimer() {
 
     }
     else {
-        theTimer = "OFF"
+        theTimer = "OFF";
     }
 }
 
@@ -476,6 +481,7 @@ function toHhMmSs(totalSeconds) {
 
 function showTwoDigit(number) {
 
+    let numberShow;
     if (number <= 9) {
         numberShow = "0" + number;
     }
