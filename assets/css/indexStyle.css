@@ -147,6 +147,7 @@ input[type="checkbox"].options {
   font-weight: bold;
 }
 
+
 /* ---------------------------------------------------------------- */
 
 .buttons span {
@@ -244,42 +245,34 @@ li {
   width: 10rem;
   font-size: 75%;
 
+  /* display: none; */
+
 }
 
 .timer span {
 
-  background-color: #98c004;
+  /* background-color: #98c004; */
   font-weight: bold;
   font-size: xx-large;
   display: inline-block;
   padding: 2px;
-}
 
-#clock {
 
-  background-color: #0c162c;
-  color: #fafafa;
-  text-align: center;
-  font-size: small;
 }
 
 #timer-stop {
-  display: none;
   color: yellow;
 }
 
 #timer-reset {
-  display: none;
-  color: orangered;
+  color: red;
 }
 
 .record {
-
   grid-area: record;
 }
 
 .score {
-
   grid-area: score;
 }
 
@@ -338,6 +331,8 @@ footer {
   padding: 0 1px;
   line-height: 22px;
   background-color: #98c004;
+  
+  /* #98c004; */
   box-sizing: border-box;
-
+  /* display: none; */
 }

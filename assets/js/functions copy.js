@@ -1,5 +1,4 @@
 
-
 let theMode;
 let theTimer;
 let theCount;
@@ -10,21 +9,19 @@ let select = [];
 let isSelect = 0;
 let theMax;
 
-let Interval;
-let seconds = 0;
-let timeLimit;
-let theTime;
-
-
 // Gets default setup parameters 
 
 const inputs = document.querySelectorAll(".setup");
 
 inputs.forEach(setting => {
+
     setting.addEventListener("change", function () {
 
         setUp();
+
     });
+
+
 });
 
 
@@ -32,9 +29,12 @@ function setRun() {
 
     theStatus = document.getElementById("btn-run").value;
 
+
     document.getElementById("conditions").disabled = true;
-    document.getElementById("btn-reset", "btn-show").disabled = false;
-    // document.getElementById("btn-show").disabled = false;
+
+
+    document.getElementById("btn-reset").disabled = false;
+    document.getElementById("btn-show").disabled = false;
 
     if (theStatus === "submit") {
 
@@ -42,11 +42,8 @@ function setRun() {
         document.getElementById("btn-show").disabled = true;
         document.getElementById("btn-reset").disabled = false;
 
-        // displayClass(".infoBox", "inline-block");     
-        // displayClass(".data", "none");
-        // timerStop();
-
-        showResult();
+        displayClass(".infoBox", "inline-block");
+        displayClass(".data", "none");
 
         document.getElementById("info-title").innerHTML = "summary report";
 
@@ -54,15 +51,6 @@ function setRun() {
 
     } else {
 
-        // if (theMode == "exam") {
-        //     timerStart();
-        // }
-        // else {
-
-
-        // };
-
-        timerStart();
         questionLoad();
         answersCheck();
         answersRecord();
@@ -71,6 +59,7 @@ function setRun() {
 
     document.getElementById("btn-show").value = "show answers";
 }
+
 
 function setNew() {
 
@@ -93,6 +82,7 @@ function setNew() {
     }
 }
 
+
 function setBack() {
 
     if (theStatus === "submit") {
@@ -101,6 +91,7 @@ function setBack() {
 
     } else {
         document.getElementById("btn-run").disabled = false;
+
     }
 
     document.getElementById("btn-resume").disabled = true;
@@ -108,40 +99,12 @@ function setBack() {
     document.getElementById("btn-reset").value = "reset";
     document.getElementById("btn-resume").style.color = "#fff";
     document.getElementById("btn-reset").style.color = "#fff";
-
-    // timerReset();
-    console.log("timer pause");
-
 }
+
 
 function showResult() {
 
-    displayClass(".infoBox", "inline-block");
     displayClass(".data", "none");
-    timerStop();
-
-    // displayClass(".data", "none");
-    // timerStop();
-
-    document.getElementById("answer-count").innerHTML =
-        `answers........${document.getElementById("result").childElementCount}`;;
-
-    document.querySelector('#result-plus').innerHTML =
-        `correct..........${document.querySelector('#scorePlus').innerHTML}`;
-
-    document.querySelector('#result-minus').innerHTML =
-        `Incorrect.......${document.querySelector('#scoreMinus').innerHTML}`;
-
-    //    xx = toHhMmSs(timePassed).time2
-
-    // document.querySelector('#result-minus').innerHTML = xx;
-
-    // document.getElementById("result-time").innerHTML = toHhMmSs(timePassed).time2;
-
-
-
-
-
 }
 
 function displayClass(name, value) {
@@ -151,6 +114,8 @@ function displayClass(name, value) {
     }
 }
 
+
+
 function setUp() {
 
     setMode();
@@ -158,6 +123,7 @@ function setUp() {
 
     setTimer();
     document.getElementById("timer-set").innerHTML = `Timer: ${theTimer}`;
+   
 
     setCount();
     document.getElementById("count-set").innerHTML = `questions: ${theCount}`;
@@ -168,18 +134,13 @@ function setUp() {
     document.getElementById("limit-set").innerHTML = `Limit: ${theLimit} seconds`;
     document.getElementById("set-limit-l").innerHTML = document.getElementById("set-limit").value;
 
+
     setMax();
 
-
-
-    // setDefaults();
     document.getElementById("defaults").innerHTML =
-        `Settings: ${theMode} mode | Timer ${theTimer} | ${theCount} questions ${timeLimit2} `;
+        `Settings: ${theMode} mode | Timer ${theTimer}  | ${theCount} questions | ${theLimit} seconds time limit`;
 
 }
-
-
-
 
 
 function setMode() {
@@ -188,42 +149,15 @@ function setMode() {
             theMode = radio.value;
         }
     })
-
-    if (theMode == "learn") {
-
-        document.getElementById("set-timer").disabled = true;
-        document.getElementById("set-limit").disabled = true;
-
-    } else {
-
-        document.getElementById("set-timer").disabled = false;
-        document.getElementById("set-limit").disabled = false;
-
-    }
 }
 
 function setCount() {
-
     theCount = document.getElementById("set-random").value;
+    
 }
 
 function setLimit() {
-
-
-    if (theMode == "exam") {
-
-        theLimit = document.getElementById("set-limit").value * theCount;
-
-        timeLimit = toHhMmSs(theLimit);
-
-        timeLimit2 = "| Time Limit: " + timeLimit.time2;
-
-        // `${theLimit} seconds limit`;
-
-    } else {
-        timeLimit2 = "| No Time Limit";
-    }
-
+    theLimit = document.getElementById("set-limit").value * theCount;
 
 }
 
@@ -235,7 +169,7 @@ function setMax() {
         .then(data => {
             theData = data;
             const maxNum = theData.questions.length;
-            // console.log(maxNum);
+            console.log(maxNum);
 
             theMax = maxNum;
 
@@ -244,8 +178,8 @@ function setMax() {
         });
 }
 
-
 // LOAD ...............................................................................
+
 
 
 function questionLoad() {
@@ -280,7 +214,9 @@ function randomSelect(theData) {
 
 function questionShow() {
 
+
     if (isSelect < select.length) {
+
 
         let q = select[isSelect] - 1;
         qID.innerHTML = theData.questions[q].qRefID;
@@ -291,14 +227,27 @@ function questionShow() {
         D.innerHTML = theData.questions[q].checkbox4;
         optionesChecked(q);
 
+        // console.log("isSelect befor qShow ++  " + isSelect);
+        // console.log("ID check " + theData.questions[q].qRefID);
+
         document.getElementById("btn-run").value = "next";
         isSelect++
+
     }
     else {
 
         document.getElementById("btn-run").value = "submit";
+
+
+        // document.getElementById("btn-load").addEventListener("click", showResult)
+        // document.getElementById("btn-load").value = "Email the Resul";
     }
+    // console.log("isSelect after qShow  " + isSelect);
+    // console.log("ID check after qShow  " + isSelect);
+
 }
+
+
 
 
 // setup correct options
@@ -391,27 +340,6 @@ function answersRecord() {
         recordNode.appendChild(recordText);
         document.getElementById("result").appendChild(recordNode);
     }
-
-
-    // document.getElementById("answer-count").innerHTML =
-    //     `answers........${document.getElementById("result").childElementCount}`;;
-
-    // document.querySelector('#result-plus').innerHTML =
-    //     `correct..........${document.querySelector('#scorePlus').innerHTML}`;
-
-    // document.querySelector('#result-minus').innerHTML =
-    //     `Incorrect.......${document.querySelector('#scoreMinus').innerHTML}`;
-
-
-
-
-
-
-
-
-
-
-
 }
 
 function scorePlus() {
@@ -436,6 +364,7 @@ function answersCheck() {
         scorePlus();
         pass = "Pass";
 
+
     } else {
         scoreMinus();
         pass = "Fail";
@@ -443,109 +372,87 @@ function answersCheck() {
 }
 
 
-// TIMER................................................................................
 
+// TIMER................................................................................
 
 function setTimer() {
 
+    var seconds = 00;
+    var minutes = 00;
+
+
+    var appendMinutes = document.getElementById("minutes")
+    var appendSeconds = document.getElementById("seconds")
+    var buttonStart = document.getElementById('timer-start');
+    var buttonStop = document.getElementById('timer-stop');
+    var buttonReset = document.getElementById('timer-reset');
+    var Interval;
+
     if (document.getElementById('set-timer').checked) {
-
-        theTimer = "ON";
-
+        theTimer = "ON"
     }
     else {
         theTimer = "OFF"
     }
-}
-
-function timerStart() {
-
-    clearInterval(Interval);
-    Interval = setInterval(runTimer, 1000);
 
     runTimer();
-}
 
-function timerStop() {
-    clearInterval(Interval);
-}
+    function runTimer() {
+        buttonStart.onclick = function () {
+            clearInterval(Interval);
+            Interval = setInterval(stopWatch, 1000);
+        };
 
+        buttonStop.onclick = function () {
+            clearInterval(Interval);
+        };
 
-function timerReset() {
-
-    clearInterval(Interval);
-
-    document.getElementById("timer-minutes").innerHTML = "00";
-    document.getElementById("timer-seconds").innerHTML = "00";
-}
-
-function runTimer() {
-
-
-    var timePassed = seconds;
-    var timeLeft = theLimit - timePassed;
-    var timeLeftPercent = timeLeft / theLimit * 100;
-
-
-
-    if (theMode == "exam") {
-
-        theTime = timeLeft;
-
-        if (timeLeft > 0) {
-
-            document.getElementById("bar").style.width = timeLeftPercent + "%";
-            seconds++;
-
-        } else {
-
-
-            timerStop();
-            document.getElementById("bar").style.width = 0;
-            document.getElementById("btn-run").value = "submit";
-        }
-
-    } else {
-
-        theTime = timePassed;
+        buttonReset.onclick = function () {
+            clearInterval(Interval);
+            minutes = "00";
+            seconds = "00";
+            appendMinutes.innerHTML = minutes;
+            appendSeconds.innerHTML = seconds;
+        };
     }
 
-console.log("run timer ")
-;
-    // timeShow = toHhMmSs(theTime);
-    // document.getElementById("time-passed").innerHTML = toHhMmSs(timeShow).time2;
 
-    // document.getElementById("time-passed").innerHTML = toHhMmSs(timePassed).time2;
-    // document.getElementById("time-left").innerHTML = toHhMmSs(timeLeft).time2;
+    function stopWatch() {
+
+        buttonStop.style.display = "inline-block";
+        buttonReset.style.display = "inline-block";
 
 
-    // seconds++;
+        var timePassed = seconds;
+        var timeLeft = theLimit - timePassed;
+        var timePassed2 = toHhMmSs(timePassed);
 
-    // document.getElementById("timer-hours").innerHTML = time.hours2;
-    // document.getElementById("timer-minutes").innerHTML = time.minutes2;
-    // document.getElementById("timer-seconds").innerHTML = time.seconds2;
+        seconds++;
 
+        appendMinutes.innerHTML = timePassed2.minutes2;
+        appendSeconds.innerHTML = timePassed2.seconds2;
 
+        // for functional test
+        // console.log(timePassed2);
 
-    // document.getElementById("time-check").innerHTML =
-    //     `Limit ${theLimit} Passed ${timePassed} Left ${timeLeft}`;
+        document.getElementById("time-check").innerHTML = `Limit ${theLimit} Passed ${timePassed} Left ${timeLeft}`;
+    }
 }
 
 function toHhMmSs(totalSeconds) {
     // https://codingbeautydev.com/
+
 
     const seconds2 = showTwoDigit(totalSeconds % 60);
     const totalMinutes = Math.floor(totalSeconds / 60);
     const minutes2 = showTwoDigit((totalMinutes) % 60);
     const hours2 = showTwoDigit(Math.floor(totalMinutes / 60));
 
-    const time2 = hours2 + ":" + minutes2 + ":" + seconds2;
-
-    return { time2, hours2, minutes2, seconds2 };
+    return { hours2, minutes2, seconds2 };
 }
 
-function showTwoDigit(number) {
 
+function showTwoDigit(number) {
     if (number <= 9) {
         numberShow = "0" + number;
     }
@@ -554,3 +461,4 @@ function showTwoDigit(number) {
     }
     return numberShow;
 }
+

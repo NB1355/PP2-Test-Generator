@@ -15,10 +15,6 @@
 
 
 <body onload="setUp()">
-    <!-- <body> -->
-
-
-
 
     <div class="grid-wrap">
 
@@ -68,20 +64,20 @@
 
             <fieldset id="conditions">
 
-                <input type="radio" id="mode-exam" name="set_mode" value="exam">
+                <input type="radio" id="mode-exam" name="set_mode" value="exam" checked>
                 <label for="mode-exam">Exam</label>
 
-                <input type="radio" id="mode-learn" name="set_mode" value="learn" checked>
+                <input type="radio" id="mode-learn" name="set_mode" value="learn">
                 <label for="mode-learn">Learn Mode</label>
                 <br><br>
                 <input type="checkbox" id="set-timer" name="set_timer" checked>
-                <label for="set-timer">Show Timer </label>
+                <label for="set-timer">End when time is over </label>
                 <br><br>
-                <input type="range" id="set-limit" min="2" max="10" value="5">
+                <input type="range" id="set-limit" min="2" max="20" value="5">
                 <label for="set-limit" id="set-limit-l">-</label>
                 <h5>Seconds [avarage limit for one question] </h5>
                 <br>
-                <input type="range" id="set-random" name="set_random" value="10" min="2" >
+                <input type="range" id="set-random" name="set_random" value="10" min="2">
                 <label for="set-random" id="set-random-l">-</label>
                 <h5>Questions [selected randomly]</h5>
 
@@ -94,22 +90,24 @@
             <p>TIMER AREA</p>
 
             <div>
-                <p>Clock?</p>
-                <h2 id="clock"></h2>
-                <br>
-            </div>
 
-            <div>
-                <span id="minutes">00</span>
+                <h3 id="time-passed">00 : 00 : 00</h3>
+                <h3 id="time-left">00 : 00 : 00</h3>
+
+                <br>
+
+                <span id="timer-hours">00</span>
                 <span>:</span>
-                <span id="seconds">00</span>
+                <span id="timer-minutes">00</span>
+                <span>:</span>
+                <span id="timer-seconds">00</span>
                 <br>
-                <button id="timer-start">Start</button>
-                <button id="timer-stop">Stop</button>
-                <button id="timer-reset">Reset</button>
+
+
+                <button id="timer-start" onclick="timerStart()">Start</button>
+                <button id="timer-stop" onclick="timerStop()">Stop</button>
+                <button id="timer-reset" onclick="timerReset()">Reset</button>
             </div>
-
-
 
         </div>
 
@@ -118,12 +116,13 @@
 
             <p>RECORD AREA</p>
 
+            <!-- <h3 id="timer-record"></h3> -->
+
             <div id="progress-bar">
                 <div id="bar"></div>
             </div>
 
-            <p id="time-check">
-            </p>
+            <p id="time-check"></p>
 
 
 
@@ -135,13 +134,13 @@
 
             <p>SCORE AREA</p>
 
-            <div class="score">
-                <br>
-                <p class="scores">Correct Answers <span id="scorePlus">0</span></p>
-                <br>
-                <p class="scores">Incorrect Answers <span id="scoreMinus">0</span></p>
-                <br>
-            </div>
+
+            <br>
+            <h3 class="scores">Correct Answers <span id="scorePlus">0</span></h3>
+            <br>
+            <h3 class="scores">Incorrect Answers <span id="scoreMinus">0</span></h3>
+            <br>
+
         </div>
 
         <!-- >> QUIZ-------------------------------------------------------------->
@@ -150,6 +149,7 @@
             <p>QUIZ AREA</p>
 
             <h2 id="info-title">title of the test</h2>
+
             <h4 id="defaults"></h4>
 
             <div class="infoBox">
@@ -167,11 +167,31 @@
                     </ul>
                 </span>
                 <span>
-                    <h3>result</h3>
+                    <h3>Answers</h3>
                     <ul id="result">
                     </ul>
                 </span>
+                <span>
+                    <h3>Results</h3>
+                    <br>
+                    <h4 id="answer-count"> xx1</h4>
+
+                    <br>
+                    <h4 id="result-plus"></h4>
+                  
+                    <h4 id="result-minus"></h4>
+                    <br>
+
+                    <h4 id="result-time"></h4>
+
+
+
+
+
+                </span>
             </div>
+
+
 
             <div class="data">
 
