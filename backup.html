@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/indexStyle.css">
+
+    <title>PP2: TEST GENERATOR </title>
+
+</head>
+
+
+<body onload="setUp()">
+
+    <div class="grid-wrap">
+
+        <!-- << Social ------------------------------------------------------------>
+        <div class="header">
+            <p> HEADER AREA</p>
+
+            <h1 id="logo">TEST GENERATOR MODULE</h1>
+
+        </div>
+
+        <!-- << SOCIAL ------------------------------------------------------------>
+        <div class="social">
+            <p>SOCIAL AREA</p>
+            <ul>
+                <li>
+                    <a href="https://facebook.com" target="_blank" rel="noopenner"
+                        aria-label="Visit our Facebook page (opens in new tab)">
+                        <i class="fa-brands fa-square-facebook"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com" target="_blank" rel="noopenner"
+                        aria-label="Visit our twitter page (opens in new tab)">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://youtube.com" target="_blank" rel="noopenner"
+                        aria-label="Visit our youtube page (opens in new tab)">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com" target="_blank" rel="noopenner"
+                        aria-label="Visit our instagram page (opens in new tab)">
+                        <i class="fa-brands fa-square-instagram"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- >> SETUPS------------------------------------------------------------->
+        <div class='setup'>
+
+            <p>SETUP AREA</p>
+
+            <fieldset id="conditions">
+
+                <input type="radio" id="mode-exam" name="set_mode" value="exam" checked>
+                <label for="mode-exam">Exam</label>
+
+                <input type="radio" id="mode-learn" name="set_mode" value="learn">
+                <label for="mode-learn">Learn Mode</label>
+                <br><br>
+                <input type="checkbox" id="set-timer" name="set_timer" checked>
+                <label for="set-timer">End when time is over </label>
+                <br><br>
+                <input type="range" id="set-limit" min="2" max="20" value="5">
+                <label for="set-limit" id="set-limit-l">-</label>
+                <h5>Seconds [avarage limit for one question] </h5>
+                <br>
+                <input type="range" id="set-random" name="set_random" value="10" min="2">
+                <label for="set-random" id="set-random-l">-</label>
+                <h5>Questions [selected randomly]</h5>
+
+        </div>
+
+        <!-- >> TIMER-------------------------------------------------------------->
+
+        <div class="timer">
+
+            <p>TIMER AREA</p>
+
+
+            <h1 id="timer-show">00:00:00</h1>
+
+            <div class="timer-button">
+                <button id="timer-start" onclick="timerStart()" disabled>Start</button>
+                <button id="timer-stop" onclick="timerStop()" disabled>Stop</button>
+                <button id="timer-reset" onclick="timerReset()" disabled>Reset</button>
+            </div>
+
+        </div>
+
+        <!-- >> RECORD------------------------------------------------------------->
+        <div class="record">
+
+            <p>RECORD AREA</p>
+            <p id="time-check">Time Check</p>
+
+            <!-- <h3 id="timer-record"></h3> -->
+
+            <div id="progress-bar">
+                <div id="bar"></div>
+            </div>
+
+        </div>
+
+        <!-- >> SCORE-------------------------------------------------------------->
+        <div class="score">
+
+            <p>SCORE AREA</p>
+
+
+            <br>
+            <h3 class="scores">Correct Answers <span id="score-plus">-1</span></h3>
+            <br>
+            <h3 class="scores">Incorrect Answers <span id="score-minus">0</span></h3>
+            <br>
+
+        </div>
+
+        <!-- >> QUIZ-------------------------------------------------------------->
+        <div class="quiz">
+
+            <p>QUIZ AREA</p>
+
+            <h2 id="info-title">title of the test</h2>
+
+            <h4 id="defaults"></h4>
+
+            <div class="infoBox">
+
+                <span>
+                    <h3>settings</h3>
+                    <ul id="setupInfo">
+                        <li id="mode-set"></li>
+                        <li id="timer-set"></li>
+                        <br>
+                        <li id="limit-set"></li>
+                        <br>
+                        <li id="count-set"></li>
+                        <li id="selection"></li>
+                    </ul>
+                </span>
+                <span>
+                    <h3>Answers</h3>
+                    <ul id="answre-list">
+                    </ul>
+                </span>
+                <span>
+                    <h3>Results</h3>
+                    <br>
+                    <h4 id="answer-count"></h4>
+                    <br>
+                    <h4 id="result-plus"></h4>
+                    <h4 id="result-minus"></h4>
+                    <br>
+                    <h4 id="result-time"></h4>
+                   
+                    
+                </span>
+            </div>
+
+
+
+            <div class="data">
+
+                <label id="qID">qID</label><br>
+                <label id="qText">question TEXT</label><br>
+
+                <input type="checkbox" id="checkbox1" value="checkbox1" class="answers hide" disabled>
+                <label for="checkbox1" class="hide">A</label><br>
+
+                <input type="checkbox" id="option1" value="option1" class="options">
+                <label id="A" for="option1"> option A</label><br>
+
+                <input type="checkbox" id="checkbox2" value="checkbox2" class="answers hide" disabled>
+                <label for="checkbox2" class="hide">B</label><br>
+
+                <input type="checkbox" id="option2" value="option2" class="options">
+                <label id="B" for="option2">option B</label><br>
+
+                <input type="checkbox" id="checkbox3" value="checkbox3" class="answers hide" disabled>
+                <label for="checkbox3" class="hide">C</label><br>
+
+                <input type="checkbox" id="option3" value="option3" class="options">
+                <label id="C" for="option3">option C</label><br>
+
+                <input type="checkbox" id="checkbox4" value="checkbox4" class="answers hide" disabled>
+                <label for="checkbox4" class="hide">D</label><br>
+
+                <input type="checkbox" id="option4" value="option4" class="options">
+                <label id="D" for="option4">option D</label>
+
+            </div>
+
+            <div class="buttons">
+
+                <span class="process">
+                    <input type="button" id="btn-run" Value="confirm and start" onclick="setRun()">
+                    <input type="button" id="btn-resume" value="resume" onclick="setBack()" disabled>
+                </span>
+
+                <span class="functions">
+                    <input type="button" id="btn-show" value="Show Answers" onclick="answersShow()" disabled>
+                    <input type="button" id="btn-reset" value="reset" onclick="setNew()" disabled>
+
+                </span>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Project Portfolio II @2023</p>
+    </footer>
+
+    <!--Script of FONTAESOME for the used icons-->
+    <script src="https://kit.fontawesome.com/f24292f78f.js" crossorigin="anonymous"></script>
+
+
+    <!-- <script src="assets/js/controls.js"></script>
+       <script src="assets/js/load.js"></script> -->
+
+    <!-- <script src="assets/js/timer.js"></script> -->
+    <!-- <script src="assets/js/process.js"></script> -->
+    <script src="assets/js/functions.js"></script>
+
+</body>
+
+</html>
