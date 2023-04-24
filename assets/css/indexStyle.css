@@ -191,6 +191,7 @@ input[type="checkbox"].options {
   opacity: 50%;
 }
 
+
 .infoBox {
 
   display: none;
@@ -244,9 +245,13 @@ li {
 
   width: 10rem;
   font-size: 75%;
+  /* opacity: .5; */
+}
 
+button:disabled {
+
+  opacity: .5;
   /* display: none; */
-
 }
 
 .timer span {
@@ -274,6 +279,7 @@ li {
 
 .score {
   grid-area: score;
+ 
 }
 
 /*---------------------------Footer------------==================-----*/
@@ -331,7 +337,7 @@ footer {
   padding: 0 1px;
   line-height: 22px;
   background-color: #98c004;
-  
+
   /* #98c004; */
   box-sizing: border-box;
   /* display: none; */

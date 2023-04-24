@@ -89,24 +89,13 @@
 
             <p>TIMER AREA</p>
 
-            <div>
 
-                <h3 id="time-passed">00 : 00 : 00</h3>
-                <h3 id="time-left">00 : 00 : 00</h3>
+            <h1 id="timer-show">00:00:00</h1>
 
-                <br>
-
-                <span id="timer-hours">00</span>
-                <span>:</span>
-                <span id="timer-minutes">00</span>
-                <span>:</span>
-                <span id="timer-seconds">00</span>
-                <br>
-
-
-                <button id="timer-start" onclick="timerStart()">Start</button>
-                <button id="timer-stop" onclick="timerStop()">Stop</button>
-                <button id="timer-reset" onclick="timerReset()">Reset</button>
+            <div class="timer-button">
+                <button id="timer-start" onclick="timerStart()" disabled>Start</button>
+                <button id="timer-stop" onclick="timerStop()" disabled>Stop</button>
+                <button id="timer-reset" onclick="timerReset()" disabled>Reset</button>
             </div>
 
         </div>
@@ -115,17 +104,13 @@
         <div class="record">
 
             <p>RECORD AREA</p>
+            <p id="time-check">Time Check</p>
 
             <!-- <h3 id="timer-record"></h3> -->
 
             <div id="progress-bar">
                 <div id="bar"></div>
             </div>
-
-            <p id="time-check"></p>
-
-
-
 
         </div>
 
@@ -136,9 +121,9 @@
 
 
             <br>
-            <h3 class="scores">Correct Answers <span id="scorePlus">0</span></h3>
+            <h3 class="scores">Correct Answers <span id="score-plus">-1</span></h3>
             <br>
-            <h3 class="scores">Incorrect Answers <span id="scoreMinus">0</span></h3>
+            <h3 class="scores">Incorrect Answers <span id="score-minus">0</span></h3>
             <br>
 
         </div>
@@ -168,26 +153,20 @@
                 </span>
                 <span>
                     <h3>Answers</h3>
-                    <ul id="result">
+                    <ul id="answre-list">
                     </ul>
                 </span>
                 <span>
                     <h3>Results</h3>
                     <br>
-                    <h4 id="answer-count"> xx1</h4>
-
+                    <h4 id="answer-count"></h4>
                     <br>
                     <h4 id="result-plus"></h4>
-                  
                     <h4 id="result-minus"></h4>
                     <br>
-
                     <h4 id="result-time"></h4>
-
-
-
-
-
+                   
+                    
                 </span>
             </div>
 
