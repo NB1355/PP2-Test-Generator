@@ -26,7 +26,6 @@ h3 {
   font-family: Oswald, sans-serif;
   text-transform: uppercase;
   letter-spacing: 4px;
-  /* color: #d6d8db; */
   margin-bottom: 5px;
   margin-top: 5px;
 
@@ -41,8 +40,7 @@ hr {
 
 /* .....................................................TEMP:All P data should be removed at the end !!!*/
 .grid-wrap p {
-  /* color: red;
-  font-style: italic; */
+ 
   text-align: end;
   padding-inline-end: 10px;
 }
@@ -137,7 +135,6 @@ input[type="checkbox"].options {
 
 .setup {
   accent-color: #98c004;
-  /* #0c162c; */
 }
 
 #set-limit-l,
@@ -187,7 +184,7 @@ input[type="checkbox"].options {
 }
 
 .buttons :disabled {
-  /* color: red; */
+
   opacity: 50%;
 }
 
@@ -205,7 +202,6 @@ input[type="checkbox"].options {
 
 .infoBox span {
 
-  /* margin-top: 10px; */
   padding: 5px 0 0 50px;
   display: inline-table;
 }
@@ -245,18 +241,15 @@ li {
 
   width: 10rem;
   font-size: 75%;
-  /* opacity: .5; */
 }
 
 button:disabled {
 
   opacity: .5;
-  /* display: none; */
 }
 
 .timer span {
 
-  /* background-color: #98c004; */
   font-weight: bold;
   font-size: xx-large;
   display: inline-block;
@@ -282,13 +275,11 @@ button:disabled {
  
 }
 
-/*---------------------------Footer------------==================-----*/
+/*---------------------------Footer------------------------------------*/
 
 footer {
   margin: 10px;
-  /* border: gray 1px solid; */
   height: auto;
-  /* background-color: beige; */
   font-size: small;
 
   text-align: center;
@@ -338,7 +329,5 @@ footer {
   line-height: 22px;
   background-color: #98c004;
 
-  /* #98c004; */
   box-sizing: border-box;
-  /* display: none; */
 }

@@ -32,8 +32,8 @@ inputs.forEach(setting => {
 function setRun() {
 
     theStatus = document.getElementById("btn-run").value;
-    document.getElementById("defaults").innerHTML ="";
-   
+    document.getElementById("defaults").innerHTML = "";
+
 
     document.getElementById("conditions").disabled = true;
     document.getElementById("btn-reset", "btn-show").disabled = false;
@@ -64,9 +64,8 @@ function setRun() {
 
 function setNew() {
 
-    let x = document.getElementById("btn-reset").value;
 
-    if (x === "confirm & reset") {
+    if (document.getElementById("btn-reset").value === "confirm & reset") {
 
         location.reload();
 
@@ -343,12 +342,10 @@ function answersShow() {
 
             theAnswers[i].style.opacity = opacity;
         }
-    } else {
-        // document.getElementById("tempInfo").innerHTML = "Not available in EXAM Mode";
     }
 }
 
-// Check and Record the Answers 
+
 
 function answersRecord() {
 
@@ -383,7 +380,7 @@ function scoreMinus() {
 
 function answersCheck() {
 
-    if (option1.checked == checkbox1.checked && 
+    if (option1.checked == checkbox1.checked &&
         option2.checked == checkbox2.checked &&
         option3.checked == checkbox3.checked &&
         option4.checked == checkbox4.checked
