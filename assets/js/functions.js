@@ -10,15 +10,12 @@ let select = [];
 let isSelect = 0;
 let theMax;
 
-<<<<<<< HEAD
 let Interval;
 let seconds = 0;
 let timeLimit;
 // let theTime;
 // let timePassed;
 
-=======
->>>>>>> 8c3ac386c6d29747ae03b03530d01809f15b36da
 
 // Gets default setup parameters 
 
@@ -55,17 +52,7 @@ function setRun() {
 
     } else {
 
-<<<<<<< HEAD
         timerStart();
-=======
-        if (theMode == "exam") {
-
-            timeStart();
-            document.getElementsByClassName("timer").style.pr
-
-        };
-
->>>>>>> 8c3ac386c6d29747ae03b03530d01809f15b36da
         questionLoad();
         answersCheck();
         answersRecord();
@@ -137,7 +124,6 @@ function displayClass(name, value) {
     }
 }
 
-<<<<<<< HEAD
 function disableElement(name, value) {
     let theElements = document.querySelectorAll(name);
     for (var i = 0; i < theElements.length; i++) {
@@ -145,8 +131,6 @@ function disableElement(name, value) {
     }
 }
 
-=======
->>>>>>> 8c3ac386c6d29747ae03b03530d01809f15b36da
 function setUp() {
 
     setMode();
@@ -154,10 +138,6 @@ function setUp() {
 
     setTimer();
     document.getElementById("timer-set").innerHTML = `Timer: ${theTimer}`;
-<<<<<<< HEAD
-=======
-
->>>>>>> 8c3ac386c6d29747ae03b03530d01809f15b36da
 
     setCount();
     document.getElementById("count-set").innerHTML = `questions: ${theCount}`;
@@ -206,10 +186,6 @@ function setMode() {
 function setCount() {
 
     theCount = document.getElementById("set-random").value;
-<<<<<<< HEAD
-=======
-
->>>>>>> 8c3ac386c6d29747ae03b03530d01809f15b36da
 }
 
 function setLimit() {
@@ -298,11 +274,7 @@ function questionShow() {
 
         document.getElementById("btn-run").value = "submit";
     }
-<<<<<<< HEAD
 }
-=======
-  }
->>>>>>> 8c3ac386c6d29747ae03b03530d01809f15b36da
 
 
 // setup correct options
@@ -434,20 +406,13 @@ function setTimer() {
     if (document.getElementById('set-timer').checked) {
 
         theTimer = "ON";
-<<<<<<< HEAD
 
     }
     else {
-=======
-    }
-    else {
-
->>>>>>> 8c3ac386c6d29747ae03b03530d01809f15b36da
         theTimer = "OFF"
     }
 }
 
-<<<<<<< HEAD
 function timerStart() {
 
     clearInterval(Interval);
@@ -487,35 +452,9 @@ function runTimer() {
         document.getElementById("bar").style.width = 0;
         document.getElementById("btn-run").value = "submit";
     }
-=======
-function timeStart() {
-
-    clearInterval(Interval);
-    Interval = setInterval(runTimer, 1000);
-};
-
-function timerStop() {
-    clearInterval(Interval);
-};
-
-function timeReset() {
-
-    clearInterval(Interval);
-    minutes = "00";
-    seconds = "00";
-    appendMinutes.innerHTML = minutes;
-    appendSeconds.innerHTML = seconds;
-};
-
-function runTimer() {
-
-    var appendMinutes = document.getElementById("minutes")
-    var appendSeconds = document.getElementById("seconds")
->>>>>>> 8c3ac386c6d29747ae03b03530d01809f15b36da
 
     seconds++;
 
-<<<<<<< HEAD
     if (theMode == "exam") {
         timerShow = timeLeft;
     } else {
@@ -523,22 +462,6 @@ function runTimer() {
     }
 
     document.getElementById("timer-show").innerHTML = toHhMmSs(timerShow).time2;
-=======
-    var timePassed = seconds;
-    var timeLeft = theLimit - timePassed;
-    var timePassed2 = toHhMmSs(timePassed);
-    var timeLeftPercent = timeLeft / theLimit * 100;
-
-    document.getElementById("bar").style.width = timeLeftPercent + "%";
-
-    seconds++;
-
-    appendMinutes.innerHTML = timePassed2.minutes2;
-    appendSeconds.innerHTML = timePassed2.seconds2;
-
-    document.getElementById("time-check").innerHTML =
-        `Limit ${theLimit} Passed ${timePassed} Left ${timeLeft}`;
->>>>>>> 8c3ac386c6d29747ae03b03530d01809f15b36da
 }
 
 function toHhMmSs(totalSeconds) {
@@ -563,8 +486,4 @@ function showTwoDigit(number) {
         numberShow = number;
     }
     return numberShow;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 8c3ac386c6d29747ae03b03530d01809f15b36da
