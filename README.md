@@ -14,7 +14,6 @@
 ### - Show Results
 ### - Run in exam or learn mode
 
-
 |                  | Exam                  | Learn                |
 | -------          | ---------             |-------------         |
 | Timer            | countdown limit       | keep the time        |
@@ -34,16 +33,35 @@
 * DOC = Refactor of documentation
 
 
+# TESTS
+
+## Tested and Fixed https://nb1355.github.io/PP2-Test-Generator
+
+| Ref        | Status | Commit  | Checkd     |  Tool             | Note                               |    
+|------------|--------|---------|------------|-------------------|------------------------------------|
+| Dev-001-01 | F      | 3edbdb4 | code       | jshint            | 6 warn, 20 under., 5 unused        |
+| Dev-001-02 | p-     | d13fb63 | code, live | jshint            | 0 warn, remaining html def's       |
+| Dev-002-01 | p-     | 3edbdb4 | live       | Lighthouse Perf.  | 0 error, 1 warn, ::interest-cohort |
+| Dev-003-01 | F      | 3edbdb4 | code       | W3C Html          | 21 error , 6 warn                  |
+| Dev-003-02 | Pass   | 138c3e5 | code, live | W3C Html          | no issue, all solved               |
+| Dev-004-01 | Pass   | 3edbdb4 | code, live | W3C CSS           | no issue found                     |
+| Dev-005-01 | Pass   | 3edbdb4 | live       | ui.dev            | https://ui.dev/amiresponsive       |  
+| Dev-006-01 | Pass   | 3edbdb4 | live       | Lighthouse Perf.  |                                    |
+
+
+Final TEST Snapshots
+|   |   |
+|----------------------------------------------------|----------------------------------------------------|
+| ...                                                   | Responsivity                                    |
+|   ![Test snapshot](assets/images/...)              |  ![Test snapshot](assets/images/Dev-005-01.jpg)    |
+|||
+| Performance                                        | javascript                                         |
+|   ![Test snapshot](assets/images/Dev-006-01.jpg)   |  ![Test snapshot](assets/images/Dev-001-02.jpg)    |
+|| 
+| html                                               | css                                                |
+|   ![Test snapshot](assets/images/Dev-003-02.jpg)   |  ![Test snapshot](assets/images/Dev-004-01.jpg)    |
+|||  
 
 
 
 
-
-## TESTS
-##
-     
-|     Ref    | Status | Commit  | Tool    | Note                            |      
-| -----------|--------|---------|---------|---------------------------------|
-| DevJs001   | F-     | 3edbdb4 | jshint  | 6 warn, 20 undef., 5 unused     |    
-| DevJs001.1 | P-     | d13fb63 | jshint  | 0 warning, remainng html def's  |
-|
