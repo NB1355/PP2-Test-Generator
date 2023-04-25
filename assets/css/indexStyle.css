@@ -193,6 +193,7 @@ input[type="checkbox"].options {
 
   display: none;
   margin-bottom: 20px;
+  
 }
 
 .infoBox h3 {
@@ -200,7 +201,7 @@ input[type="checkbox"].options {
   border-bottom: #0c162c 2px solid;
 }
 
-.infoBox span {
+.infoBox div {
 
   padding: 5px 0 0 50px;
   display: inline-table;
