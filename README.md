@@ -15,20 +15,20 @@
 
 
 
-|**REQIREMENTS**  |  ***deliverd**|  |  |  |
-| --------------- |--|--|--|--|
+|**REQIREMENTS**  |     |  |  |  |
+|-----------------------|----------------|-------------------------------|----|------------------------------------------|
 |                       |***Exam***      |***Learn***                    | \|\|  |***Dataset:***  JASON                  |
 |***Timer***            | countdown      | keep the time                 | \|\|  |***Questions:*** Multiple choice 2-4   | 
 |***end in time***      | optional       | not available                 | \|\|  |***Answers:*** More then one possible  |               
 |***manual timer***     | not available  | start, stop, reset            | \|\|  |***Content:*** Controlled, for visual validation |            
-|***see the answers***  | not available  | hidden when loading questions | \|\|  |***Submit:*** Otional
+|***see the answers***  | not available  | hidden when loading questions | \|\|  |***Submit:*** Manual, after last question
 |||||***User Experience:*** <br/> - Easy navigation Simple visuals<br/> - Focus on functionality & validation <br/> - comfortable with any device size  | 
-||||||
+|delivered all!|
 
 <br/>
 
 # PRODUCT 
-### One page meets the features and requirements that are ***in the scope***. 
+### One page meets the features and requirements ***in the scope***. 
 
 
 | MODE    | MANUAL USER TESTS                       |
@@ -36,9 +36,7 @@
 |**EXAM** |                                                 |   
 |         | ![Test snapshot](assets/images/Mnu-001-01.jpg)  |
 |**LEARN**|                                                 |
-|         | ![Test snapshot](assets/images/Mnu-001-01.jpg)  |
-|||
-
+|         | ![Test snapshot](assets/images/Mnu-002-01.jpg)  |
 
 
 <br/><br/>
@@ -115,9 +113,8 @@ The project was deployed to GitHub Pages using the following steps:
 
 <br/><br/>
 
-|  **DEVELOPER TEST SNAPSHOTS** ||
+|  **DEVELOPER TEST SNAPSHOTS**                      |                                                       |
 |----------------------------------------------------|-------------------------------------------------------|
-|                                                    |                                                       |
 | **Responsivity**                                   |**Performance** desktop & mobile                       |
 |   ![Test snapshot](assets/images/Dev-005-01.jpg)   |      ![Test snapshot](assets/images/Dev-006-01.jpg)   |
 |**javascript**                                      |                                                       |
@@ -127,11 +124,25 @@ The project was deployed to GitHub Pages using the following steps:
 
 <br/><br/>
 
+# Open Topics
+
+1. Indexing the readme file
+2. Resolve the 'interest-cohort' warning in the Lighthouse performance report
+3. Check if the js code needs to be changed
+
+
 
 <br/><br/>
 
 
 
 # Credits
-Special thanks to my mentor [Naoise Olof Seán Gaffney](https://github.com/NaoiseGaffney) for supporting me in designing and developing the concept.
+
+* [Coding Beauty](https://codingbeautydev.com) for ideas on how to build the timer feature.
+* [CodeExplainedRepo](https://github.com/CodeExplainedRepo/Multiple-Choice-Quiz-JavaScript/blob/master/quiz.js) refrence for js code to process the questionare.
+* [JavaScript Tutorial](https://www.javascripttutorial.net/javascript-fetch-api/) refrence for reading from a JASON file. 
+
+
+
+Special thanks to my mentor [Naoise Olof Seán Gaffney](https://github.com/NaoiseGaffney) for supporting me in designing and developing the concept; and *[Code Institute](https://learn.codeinstitute.net/dashboard) for providing the knowledg base and learning material.
 
