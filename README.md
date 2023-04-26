@@ -141,6 +141,7 @@ The project was deployed to GitHub Pages using the following steps:
 3. OPT Refactor the js code needs, using DOM to fix the undefined/unused variables detected by jshint
 4. OPT Remove double click on btn-show
 5. FIX *Incorrect Answer: -1* on load 
+6. FIX Last question of the selection loads twice! 
 
 <br/><br/>
 
@@ -153,4 +154,3 @@ The project was deployed to GitHub Pages using the following steps:
 
 
 Special thanks to my mentor [Naoise Olof Seán Gaffney](https://github.com/NaoiseGaffney) for supporting me in designing and developing the concept; and *[Code Institute](https://learn.codeinstitute.net/dashboard) for providing the knowledg base and learning material.
-

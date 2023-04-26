@@ -13,13 +13,10 @@ let theMax;
 let Interval;
 let seconds = 0;
 let timeLimit;
-// let theTime;
-// let timePassed;
 let qPass;
 let timerShow;
 
 // Gets default setup parameters 
-
 const inputs = document.querySelectorAll(".setup");
 
 inputs.forEach(setting => {
@@ -34,7 +31,6 @@ function setRun() {
 
     theStatus = document.getElementById("btn-run").value;
     document.getElementById("defaults").innerHTML = "";
-
 
     document.getElementById("conditions").disabled = true;
     document.getElementById("btn-reset", "btn-show").disabled = false;
@@ -63,15 +59,14 @@ function setRun() {
     document.getElementById("btn-show").value = "show answers";
 }
 
-function setNew() {
 
+function setNew() {
 
     if (document.getElementById("btn-reset").value === "confirm & reset") {
 
         location.reload();
 
     } else {
-
         document.getElementById("btn-reset").value = "confirm & reset";
         document.getElementById("btn-reset").style.color = "red";
 
@@ -154,7 +149,6 @@ function setUp() {
         `Settings: ${theMode} mode | Timer ${theTimer} | ${theCount} questions ${timeLimit} `;
 }
 
-
 function setMode() {
 
     document.getElementsByName("set_mode").forEach(radio => {
@@ -183,10 +177,12 @@ function setMode() {
     }
 }
 
+
 function setCount() {
 
     theCount = document.getElementById("set-random").value;
 }
+
 
 function setLimit() {
 
@@ -203,6 +199,7 @@ function setLimit() {
         timeLimit = "| No Time Limit";
     }
 }
+
 
 function setMax() {
 
@@ -223,7 +220,6 @@ function setMax() {
 
 // LOAD ...............................................................................
 
-
 function questionLoad() {
 
     displayClass(".data", "block");
@@ -241,6 +237,7 @@ function questionLoad() {
         });
 }
 
+
 function randomSelect(theData) {
 
     const maxNum = theData.questions.length;
@@ -253,6 +250,7 @@ function randomSelect(theData) {
     }
     // selection.innerHTML = `[${select}]`;
 }
+
 
 function questionShow() {
 
@@ -278,7 +276,6 @@ function questionShow() {
 
 
 // setup correct options
-
 function optionesChecked(q) {
 
     let isCorrect = theData.questions[q].corrects;
@@ -302,6 +299,8 @@ function optionesChecked(q) {
     }
 }
 
+
+// Make all checkboxes in quiz area unchecked
 function optionsClear() {
 
     var checkBox;
@@ -315,11 +314,8 @@ function optionsClear() {
     }
 }
 
+
 // Show and hide correct answers by changing opacity.
-
-
-
-
 function answersShow() {
 
     var theOpacity;
@@ -382,7 +378,7 @@ function scoreMinus() {
 
 function answersCheck() {
 
-    
+
     if (option1.checked == checkbox1.checked &&
         option2.checked == checkbox2.checked &&
         option3.checked == checkbox3.checked &&
@@ -396,7 +392,7 @@ function answersCheck() {
         qPass = "Fail";
     }
     return qPass;
- }
+}
 
 
 
