@@ -40,7 +40,7 @@ hr {
 
 /* .....................................................TEMP:All P data should be removed at the end !!!*/
 .grid-wrap p {
- 
+
   text-align: end;
   padding-inline-end: 10px;
 }
@@ -128,7 +128,8 @@ input[type="checkbox"]:disabled.answers {
 }
 
 input[type="checkbox"].options {
-
+  
+  accent-color: #0c162c;
   width: 22px;
   height: 22px;
 }
@@ -193,7 +194,7 @@ input[type="checkbox"].options {
 
   display: none;
   margin-bottom: 20px;
-  
+
 }
 
 .infoBox h3 {
@@ -273,7 +274,7 @@ button:disabled {
 
 .score {
   grid-area: score;
- 
+
 }
 
 /*---------------------------Footer------------------------------------*/
@@ -312,7 +313,6 @@ footer {
 
 }
 
-/* ///////////////////////////////////////////////////////////////////////*/
 
 #progress-bar {
   width: 100%;
@@ -332,3 +332,5 @@ footer {
 
   box-sizing: border-box;
 }
+
+/* PP2-V1.01  */

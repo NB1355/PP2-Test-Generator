@@ -10,25 +10,36 @@
 |:-----------|:---|
 | <br/>  1. Upload datasets **<br/><br/> 2. Choose from available dataset ** <br/><br/> 3. Generate a set of questions randomly <br/><br/>  4. Auto/ Manual Timer <br/><br/>  5. Option to see correct answers<br/><br/> 6. Calculate the +- score<br/><br/> 7. Show results after submitting  <br/><br/>  8. Email the results on demand<br/><br/> 9. Reset after confirmation or resume<br/><br/> 10. Exam and Lean Mode <br/><br/>   |![Alt text](assets/images/idea.jpg)|
 || ** Out of Scope:  **Will be considerde as a separate module bundel with user accounts.** <br/>      The Upload datasets by the user need a proper validation process, ideally stored in a database, and need to be separated from the process of generating and processing a questionnaire.<br/> |
-||
 
 
+## REQIREMENTS
+<br/>
 
-
-|**REQIREMENTS**  |     |  |  |  |
-|-----------------------|----------------|-------------------------------|----|------------------------------------------|
-|                       |***Exam***      |***Learn***                    | \|\|  |***Dataset:***  JASON                  |
-|***Timer***            | countdown      | keep the time                 | \|\|  |***Questions:*** Multiple choice 2-4   | 
-|***end in time***      | optional       | not available                 | \|\|  |***Answers:*** More then one possible  |               
-|***manual timer***     | not available  | start, stop, reset            | \|\|  |***Content:*** Controlled, for visual validation |            
-|***see the answers***  | not available  | hidden when loading questions | \|\|  |***Submit:*** Manual, after last question
-|||||***User Experience:*** <br/> - Easy navigation Simple visuals<br/> - Focus on functionality & validation <br/> - comfortable with any device size  | 
-|delivered all!|
+### User Experience:
+- Easy navigation Simple visuals
+- Focus on functionality & validation 
+- comfortable with any device size
+### Dataset:
+- JASON
+### Questions:
+- Multiple choice 2-4
+### Answers:
+- More than one is possible
+### Content:
+- Controlled, for visual
+### Mode:
+|                  |Exam            | Learn                         |             
+|------------------|----------------|-------------------------------|
+| Timer***         | countdown      | keep the time                 | 
+| end in time      | optional       | not available                 |               
+| manual timer     | not available  | start, stop, reset            |           
+| see the answers  | not available  | hidden when loading questions |
+ 
 
 <br/>
 
 # PRODUCT 
-### One page meets the features and requirements ***in the scope***. 
+### Fulfills features and requirements ***in the scope***. 
 
 
 | MODE    | MANUAL USER TESTS                       |
@@ -124,17 +135,14 @@ The project was deployed to GitHub Pages using the following steps:
 
 <br/><br/>
 
-# Open Topics
-
-1. Indexing the readme file
-2. Resolve the 'interest-cohort' warning in the Lighthouse performance report
-3. Check if the js code needs to be changed
-
-
+# To-Do List 
+1. OPT Indexing the readme file
+2. FIX Resolve the 'interest-cohort' warning in the Lighthouse performance report
+3. OPT Refactor the js code needs, using DOM to fix the undefined/unused variables detected by jshint
+4. OPT Remove double click on btn-show
+5. FIX *Incorrect Answer: -1* on load 
 
 <br/><br/>
-
-
 
 # Credits
 
