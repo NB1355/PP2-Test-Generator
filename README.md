@@ -1,29 +1,94 @@
+
+
+### PPII: JavaScript / Interactive web page
 # Test Generator
-## PPII: JavaScript / Interactive web page
-#
-![Alt text](assets/images/idea.jpg)
 
-## Requirments
-### - Generate Random Selection 
-* from default data set in JSON format
-* input number min:2 max: number of questions in dataset  
-### - Process and score the questioner
-### - timer
-* input seconds per question min:2 max:20 default:5
-* option to ignore the limit 
-### - Show Results
-### - Run in exam or learn mode
+#### This website is developing parallel to forming a new business idea to offer an online service to generate questionares, process the answers, and report the results. Filling out the questionnaire with no time limit and the possibility of seeing the correct answers should be available to support user preparing for tests.   
+<br />
 
-|                  | Exam                  | Learn                |
-| -------          | ---------             |-------------         |
-| Timer            | countdown limit       | keep the time        |
-| end in time      | optional              | not available        |
-| manual timer     | not available         | start, stop, reset   |
-| see the ansewrs  | not available         | hidden when loading questions   |
-| submit           | 
+|**FEATURES**|IDEA|
+|:-----------|:---|
+| <br/>  1. Upload datasets **<br/><br/> 2. Choose from available dataset ** <br/><br/> 3. Generate a set of questions randomly <br/><br/>  4. Auto/ Manual Timer <br/><br/>  5. Option to see correct answers<br/><br/> 6. Calculate the +- score<br/><br/> 7. Show results after submitting  <br/><br/>  8. Email the results on demand<br/><br/> 9. Reset after confirmation or resume<br/><br/> 10. Exam and Lean Mode <br/><br/>   |![Alt text](assets/images/idea.jpg)|
+|| ** Out of Scope:  **Will be considerde as a separate module bundel with user accounts.** <br/>      The Upload datasets by the user need a proper validation process, ideally stored in a database, and need to be separated from the process of generating and processing a questionnaire.<br/> |
+||
+
+
+
+
+|**REQIREMENTS**  |  ***deliverd**|  |  |  |
+| --------------- |--|--|--|--|
+|                       |***Exam***      |***Learn***                    | \|\|  |***Dataset:***  JASON                  |
+|***Timer***            | countdown      | keep the time                 | \|\|  |***Questions:*** Multiple choice 2-4   | 
+|***end in time***      | optional       | not available                 | \|\|  |***Answers:*** More then one possible  |               
+|***manual timer***     | not available  | start, stop, reset            | \|\|  |***Content:*** Controlled, for visual validation |            
+|***see the answers***  | not available  | hidden when loading questions | \|\|  |***Submit:*** Otional
+|||||***User Experience:*** <br/> - Easy navigation Simple visuals<br/> - Focus on functionality & validation <br/> - comfortable with any device size  | 
+||||||
+
+<br/>
+
+# PRODUCT 
+### One page meets the features and requirements that are ***in the scope***. 
+
+
+| MODE    | MANUAL USER TESTS                       |
+|:--------|:------------------------------------------------|
+|**EXAM** |                                                 |   
+|         | ![Test snapshot](assets/images/Mnu-001-01.jpg)  |
+|**LEARN**|                                                 |
+|         | ![Test snapshot](assets/images/Mnu-001-01.jpg)  |
+|||
+
+
+
+<br/><br/>
+
+# DEVELOPMENT
+
+## Technology, Tools, Resources
+<br/>
+
+
+* JavaScript | HTML | CSS | Dockerfile | JASON 
+
+* GitHub:
+	* GitPod to create and edit the project files.
+	* Git to add, commit, and push the project files to GitHub.
+	* GitHub Pages turns GitHub Repositories into Websites.
+	* Using the GitPod Full Template from the Code Institute.
  
-#
-# Development
+<br/>
+  
+* Google Chrom Lighthouse
+* [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+* [W3C Markup Validator](https://validator.w3.org/)
+* [Resopnsive Design Test](https://ui.dev/amiresponsive)
+* [js Validator](https://jshint.com//)
+
+<br/>
+
+* Google fonts using Google fonts Ozwald and Lato in different  
+
+<br/>
+
+* Extrea Readings
+    - W3schools
+    - CSS Tricks
+    - Master CSS Grids
+    - Stackoverflow
+    - codepen
+
+<br/>
+
+
+## Deployment
+The project was deployed to GitHub Pages using the following steps:
+* In the GitHub repository, navigate to the Settings tab.
+* From the source section drop-down menu, select the Main Branch.
+* Once the main branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+* commits show the transfer from dev and resolving minor issues at the end
+
+
 ## Commit rules
 * ADD = Create a capability 
 * CUT = Remove a capability 
@@ -31,14 +96,14 @@
 * TST= Test 
 * OPT = Refactor of performance
 * DOC = Refactor of documentation
+<br/><br/>
 
+# DEVELOPER TESTS
+<br/>
 
-# TESTS
-
-## Tested and Fixed https://nb1355.github.io/PP2-Test-Generator
-
-| Ref        | Status | Commit  | Checkd     |  Tool             | Note                               |    
+|**OVERVIEW OF TESTS AND FIXES**|||||| 
 |------------|--------|---------|------------|-------------------|------------------------------------|
+|Ref         |Status  |Commit   |Checkd      |Tool               |Note                                |    
 | Dev-001-01 | F      | 3edbdb4 | code       | jshint            | 6 warn, 20 under., 5 unused        |
 | Dev-001-02 | p-     | d13fb63 | code, live | jshint            | 0 warn, remaining html def's       |
 | Dev-002-01 | p-     | 3edbdb4 | live       | Lighthouse Perf.  | 0 error, 1 warn, ::interest-cohort |
@@ -46,22 +111,27 @@
 | Dev-003-02 | Pass   | 138c3e5 | code, live | W3C Html          | no issue, all solved               |
 | Dev-004-01 | Pass   | 3edbdb4 | code, live | W3C CSS           | no issue found                     |
 | Dev-005-01 | Pass   | 3edbdb4 | live       | ui.dev            | https://ui.dev/amiresponsive       |  
-| Dev-006-01 | Pass   | 3edbdb4 | live       | Lighthouse Perf.  |                                    |
+| Dev-006-01 | Pass   | 3edbdb4 | live       | Lighthouse Perf.  | 0 error, 1 warn, ::interest-cohort |
+
+<br/><br/>
+
+|  **DEVELOPER TEST SNAPSHOTS** ||
+|----------------------------------------------------|-------------------------------------------------------|
+|                                                    |                                                       |
+| **Responsivity**                                   |**Performance** desktop & mobile                       |
+|   ![Test snapshot](assets/images/Dev-005-01.jpg)   |      ![Test snapshot](assets/images/Dev-006-01.jpg)   |
+|**javascript**                                      |                                                       |
+|   ![Test snapshot](assets/images/Dev-001-02.jpg)   |   unused and undefined cases ard calle from html <br/> there is no issue with functioality |
+| **html**                                           | **css**                                               |
+|   ![Test snapshot](assets/images/Dev-003-02.jpg)   |  ![Test snapshot](assets/images/Dev-004-01.jpg)       |
+
+<br/><br/>
 
 
-Final TEST Snapshots
-|   |   |
-|----------------------------------------------------|----------------------------------------------------|
-| ...                                                   | Responsivity                                    |
-|   ![Test snapshot](assets/images/...)              |  ![Test snapshot](assets/images/Dev-005-01.jpg)    |
-|||
-| Performance                                        | javascript                                         |
-|   ![Test snapshot](assets/images/Dev-006-01.jpg)   |  ![Test snapshot](assets/images/Dev-001-02.jpg)    |
-|| 
-| html                                               | css                                                |
-|   ![Test snapshot](assets/images/Dev-003-02.jpg)   |  ![Test snapshot](assets/images/Dev-004-01.jpg)    |
-|||  
+<br/><br/>
 
 
 
+# Credits
+Special thanks to my mentor [Naoise Olof Seán Gaffney](https://github.com/NaoiseGaffney) for supporting me in designing and developing the concept.
 
